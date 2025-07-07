@@ -49,7 +49,7 @@ A 2D survival shooter game built with Godot Engine 4.4
 - `feature/*`: New features or enhancements
   - `feature/player`: Player-related features
   - `feature/enemy`: Enemy-related features
-- `bugfix/*`: Bug fixes (e.g., `bugfix/player-stuck-walls`)
+- `bugfix`: Bug fixes
 
 ### Branch Protection Rules
 - No direct pushes to `main`
