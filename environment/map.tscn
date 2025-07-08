@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci7o2hwcenyhx"]
+
+[ext_resource type="PackedScene" uid="uid://dhpintm4oouv3" path="res://characters/player/player.tscn" id="1_8viek"]
+[ext_resource type="PackedScene" uid="uid://b35xwxdbvdg2w" path="res://characters/enemies/mob/mob.tscn" id="2_fp5rb"]
+
+[node name="Map" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_8viek")]
+position = Vector2(1041, 484)
+
+[node name="Mob" parent="." instance=ExtResource("2_fp5rb")]
+position = Vector2(1443, 353)
