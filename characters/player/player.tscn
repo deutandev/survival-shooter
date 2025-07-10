@@ -1,14 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhpintm4oouv3"]
+[gd_scene load_steps=5 format=3 uid="uid://dhpintm4oouv3"]
 
 [ext_resource type="Texture2D" uid="uid://dbcgwjj2htcvr" path="res://icon.svg" id="1_508ok"]
+[ext_resource type="Script" uid="uid://84fb3bbyrwpm" path="res://characters/player/player.gd" id="1_xxgcw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxgcw"]
-size = Vector2(61, 81.5)
+size = Vector2(54, 71)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_508ok"]
-size = Vector2(62, 81)
+size = Vector2(73, 91)
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_xxgcw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.7408, 0.734226, 1.15514e-06, 1)
@@ -16,15 +18,27 @@ scale = Vector2(0.46875, 0.632813)
 texture = ExtResource("1_508ok")
 
 [node name="CollisionObstacle" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_xxgcw")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="HitBox" type="Area2D" parent="."]
-collision_layer = 0
+[node name="HurtBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionEnemy" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(0, -0.5)
+[node name="CollisionEnemy" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_508ok")
 debug_color = Color(0.512248, 0.441138, 0.95437, 0.42)
+
+[node name="HurtTimer" type="Timer" parent="HurtBox"]
+unique_name_in_owner = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_right = 4.0
+offset_bottom = 27.0
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
