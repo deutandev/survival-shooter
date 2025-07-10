@@ -13,10 +13,13 @@ collision_mask = 2
 script = ExtResource("1_5tgod")
 
 [node name="Projectile" type="Sprite2D" parent="."]
-position = Vector2(-11, -1)
+position = Vector2(-7, -1)
+scale = Vector2(0.62, 0.714286)
 texture = ExtResource("1_mt7ak")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.180002, -0.285714)
+scale = Vector2(0.62, 0.714286)
 shape = SubResource("CircleShape2D_5tgod")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

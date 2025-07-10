@@ -9,3 +9,4 @@ func _ready():
 
 func update():
 	value = player.current_health
+	

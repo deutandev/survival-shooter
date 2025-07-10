@@ -41,6 +41,8 @@ func player_hurt(area):
 
 	if current_health <= 0:
 		player_death.emit()
+		change_to_main_menu()
+		return
 	
 	isHurt = true
 	health_changed.emit()
@@ -48,7 +50,7 @@ func player_hurt(area):
 	hurt_timer.start()
 	await hurt_timer.timeout
 	isHurt = false
-	
+
 func knockback(enemy_velocity: Vector2):
 	var knockbackDirection = (enemy_velocity - velocity).normalized() * knockback_power
 	velocity = knockbackDirection
@@ -58,3 +60,7 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if area.name == "hitBox":
 		print_debug("Hurt")
 		player_hurt(area)
+
+func change_to_main_menu():
+	await get_tree().create_timer(1.0).timeout
+	get_tree().change_scene_to_file("res://environment/mainMenu.tscn")

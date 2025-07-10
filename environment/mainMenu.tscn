@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dt7qjekdt0y5i"]
 
-[ext_resource type="Script" uid="uid://v4tlk2vyyyb3" path="res://environment/playButton.gd" id="1_uank7"]
+[ext_resource type="Script" uid="uid://6wsjpecejnx5" path="res://environment/button_manager.gd" id="1_uank7"]
 
 [node name="MainMenu" type="Node2D"]
 
@@ -10,15 +10,29 @@
 offset_right = 1237.0
 offset_bottom = 709.0
 
-[node name="Button" type="Button" parent="CanvasLayer"]
+[node name="ButtonManager" type="Node2D" parent="CanvasLayer"]
+script = ExtResource("1_uank7")
+
+[node name="Start" type="Button" parent="CanvasLayer/ButtonManager"]
 modulate = Color(0.254902, 1, 1, 1)
 light_mask = 0
 visibility_layer = 524288
-offset_left = 458.0
-offset_top = 334.0
-offset_right = 709.0
-offset_bottom = 466.0
+offset_left = 515.0
+offset_top = 206.0
+offset_right = 766.0
+offset_bottom = 338.0
 text = "Play"
-script = ExtResource("1_uank7")
 
-[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]
+[node name="Quit" type="Button" parent="CanvasLayer/ButtonManager"]
+modulate = Color(0.254902, 1, 1, 1)
+light_mask = 0
+visibility_layer = 524288
+offset_left = 479.0
+offset_top = 386.0
+offset_right = 764.0
+offset_bottom = 537.0
+text = "Quit
+"
+
+[connection signal="pressed" from="CanvasLayer/ButtonManager/Start" to="CanvasLayer/ButtonManager" method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonManager/Quit" to="CanvasLayer/ButtonManager" method="_on_quit_pressed"]
