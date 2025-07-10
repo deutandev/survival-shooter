@@ -19,6 +19,7 @@ func _ready() -> void:
 	current_health = MAX_HEALTH
 	%ProgressBar.max_value = MAX_HEALTH
 	%ProgressBar.value = current_health
+	health_changed.emit()
 
 func get_input():
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")

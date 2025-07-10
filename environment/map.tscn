@@ -23,13 +23,11 @@ offset_top = -5.0
 offset_right = 2016.0
 offset_bottom = 1097.0
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("player")]
-modulate = Color(0.0980392, 1, 0.305882, 1)
-top_level = true
-offset_right = 800.0
+[node name="PlayerHealthBar" type="ProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("player")]
+modulate = Color(0, 1, 0.486275, 1)
+offset_right = 722.0
 offset_bottom = 46.0
 value = 100.0
-rounded = true
 script = ExtResource("2_ml8jp")
 player = NodePath("../../Player")
 
