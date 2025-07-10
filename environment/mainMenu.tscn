@@ -1,3 +1,24 @@
-[gd_scene format=3 uid="uid://dt7qjekdt0y5i"]
+[gd_scene load_steps=2 format=3 uid="uid://dt7qjekdt0y5i"]
+
+[ext_resource type="Script" uid="uid://v4tlk2vyyyb3" path="res://environment/playButton.gd" id="1_uank7"]
 
 [node name="MainMenu" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1237.0
+offset_bottom = 709.0
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+modulate = Color(0.254902, 1, 1, 1)
+light_mask = 0
+visibility_layer = 524288
+offset_left = 458.0
+offset_top = 334.0
+offset_right = 709.0
+offset_bottom = 466.0
+text = "Play"
+script = ExtResource("1_uank7")
+
+[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]
