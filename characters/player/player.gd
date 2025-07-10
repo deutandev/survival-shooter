@@ -6,7 +6,7 @@ signal health_changed
 signal player_death
 
 @export var speed := 600
-@export var knockback_power := 500
+@export var knockback_power := 250
 @onready var hurtbox = %HurtBox
 
 @export var MAX_HEALTH := 100
@@ -53,7 +53,6 @@ func knockback(enemy_velocity: Vector2):
 	var knockbackDirection = (enemy_velocity - velocity).normalized() * knockback_power
 	velocity = knockbackDirection
 	move_and_slide()
-
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if area.name == "hitBox":
