@@ -6,7 +6,7 @@ signal health_changed
 signal player_death
 
 @export var speed := 600
-@export var knockback_power := 250
+@export var knockback_power := 400
 @onready var hurtbox = %HurtBox
 
 @export var MAX_HEALTH := 100
