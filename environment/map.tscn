@@ -26,6 +26,7 @@ offset_bottom = 1097.0
 [node name="Player" parent="." instance=ExtResource("1_8viek")]
 position = Vector2(1041, 484)
 script = ExtResource("3_3sytr")
+speed = null
 
 [node name="Path2D" type="Path2D" parent="Player"]
 position = Vector2(-1041, -484)
