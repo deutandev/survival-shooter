@@ -2,8 +2,8 @@ extends CharacterBody2D
 class_name Player
 
 @export var speed: float = 600.0
-@onready var health: Health_manager = %HealthManager
-@onready var hurt_manager: Hurt_manager = %HurtManager
+@onready var health: HealthManager = %HealthManager
+@onready var hurt_manager: HurtManager = %HurtManager
 
 func _ready() -> void:
 	health.reset()

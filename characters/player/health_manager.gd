@@ -1,5 +1,5 @@
 extends Node
-class_name Health_manager
+class_name HealthManager
 
 signal health_changed()
 signal dead

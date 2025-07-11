@@ -1,12 +1,12 @@
 extends Node
-class_name Hurt_manager
+class_name HurtManager
 
 @onready var hurtbox: Area2D = %HurtBox
 @onready var hurt_timer: Timer = %HurtTimer
-@export var knockback_power := 500
+@export var knockback_power := 600
 @export var damage_amount := 5
 @export var target: CharacterBody2D
-@onready var health: Health_manager = %HealthManager
+@onready var health: HealthManager = %HealthManager
 
 var is_hurt := false
 
@@ -31,6 +31,7 @@ func apply_damage(area: Area2D):
 func apply_knockback(enemy_velocity: Vector2):
 	if !target:
 		return
+	print_debug("Apply Knockback")
 	var knockback_direction = (enemy_velocity - target.velocity).normalized() * knockback_power
 	target.velocity = knockback_direction
 	target.move_and_slide()
