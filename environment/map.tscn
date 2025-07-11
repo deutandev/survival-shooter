@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ci7o2hwcenyhx"]
+[gd_scene load_steps=8 format=3 uid="uid://ci7o2hwcenyhx"]
 
 [ext_resource type="PackedScene" uid="uid://dhpintm4oouv3" path="res://characters/player/player.tscn" id="1_8viek"]
 [ext_resource type="Script" uid="uid://by3uf4ticsjm2" path="res://environment/map.gd" id="1_fp5rb"]
 [ext_resource type="PackedScene" uid="uid://b35xwxdbvdg2w" path="res://characters/enemies/mob/mob.tscn" id="2_fp5rb"]
 [ext_resource type="Script" uid="uid://bvdghlnculcbc" path="res://environment/health_bar.gd" id="2_ml8jp"]
+[ext_resource type="Script" uid="uid://wtnvja7gb1yt" path="res://environment/label_manager.gd" id="3_i4838"]
 [ext_resource type="PackedScene" uid="uid://6fjm0d64g61c" path="res://drop_item/coin.tscn" id="5_ml8jp"]
 
 [sub_resource type="Curve2D" id="Curve2D_3sytr"]
@@ -32,19 +33,28 @@ value = 100.0
 script = ExtResource("2_ml8jp")
 target_node = NodePath("../../Player")
 
-[node name="ScoreTotal" type="Label" parent="CanvasLayer"]
-offset_left = 1.0
-offset_top = 89.0
-offset_right = 145.0
-offset_bottom = 112.0
-text = "Score:"
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
-[node name="CoinTotal" type="Label" parent="CanvasLayer"]
+[node name="LabelCode" type="Node2D" parent="CanvasLayer2"]
+script = ExtResource("3_i4838")
+
+[node name="CoinTotal" type="Label" parent="CanvasLayer2/LabelCode"]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
 offset_left = 3.0
 offset_top = 53.0
 offset_right = 156.0
 offset_bottom = 76.0
 text = "Coin: "
+
+[node name="ScoreTotal" type="Label" parent="CanvasLayer2/LabelCode"]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
+offset_left = 1.0
+offset_top = 89.0
+offset_right = 145.0
+offset_bottom = 112.0
+text = "Score:"
 
 [node name="Player" parent="." instance=ExtResource("1_8viek")]
 position = Vector2(1041, 484)

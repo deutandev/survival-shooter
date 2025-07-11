@@ -8,4 +8,5 @@ func set_value(v: int):
 
 func collect():
 	print_debug("Collected coin worth: ", value)
+	Game_Stats.add_coin(value)
 	queue_free()

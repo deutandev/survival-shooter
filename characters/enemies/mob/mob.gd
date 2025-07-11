@@ -14,6 +14,7 @@ var health := 100
 func take_damage():
 	health -= 50
 	if health <= 0:
+		Game_Stats.add_score(10)
 		coin_drop.drop_coin(global_position)
 		queue_free()
 		
