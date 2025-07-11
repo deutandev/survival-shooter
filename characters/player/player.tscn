@@ -12,8 +12,10 @@ size = Vector2(54, 71)
 [sub_resource type="CircleShape2D" id="CircleShape2D_5dc8e"]
 radius = 54.5367
 
-[node name="Player" type="CharacterBody2D"]
-collision_mask = 3
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 1
+collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_xxgcw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -21,7 +23,10 @@ modulate = Color(0.7408, 0.734226, 1.15514e-06, 1)
 scale = Vector2(0.46875, 0.632813)
 texture = ExtResource("1_508ok")
 
-[node name="CollisionObstacle" type="CollisionShape2D" parent="."]
+[node name="CoinCollectorArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionObstacle" type="CollisionShape2D" parent="CoinCollectorArea"]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_xxgcw")
 
@@ -31,10 +36,10 @@ shape = SubResource("RectangleShape2D_xxgcw")
 unique_name_in_owner = true
 script = ExtResource("3_5dc8e")
 
-[node name="HurtBox" type="Area2D" parent="HurtManager" groups=["player"]]
+[node name="HurtBox" type="Area2D" parent="HurtManager"]
 unique_name_in_owner = true
-collision_layer = 2
-collision_mask = 2
+collision_layer = 6
+collision_mask = 7
 
 [node name="CollisionEnemy" type="CollisionShape2D" parent="HurtManager/HurtBox"]
 position = Vector2(-1.5, -1)

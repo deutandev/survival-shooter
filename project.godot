@@ -29,6 +29,7 @@ project/assembly_name="survival-shooter"
 
 enemy=""
 player=""
+coin=""
 
 [input]
 
