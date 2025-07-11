@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b35xwxdbvdg2w"]
+[gd_scene load_steps=6 format=3 uid="uid://b35xwxdbvdg2w"]
 
 [ext_resource type="Texture2D" uid="uid://b5kvkpcadh6o7" path="res://characters/enemies/mob/mob.svg" id="1_2auo0"]
 [ext_resource type="Script" uid="uid://b1ubsdibmcawl" path="res://characters/enemies/mob/mob.gd" id="1_4by1i"]
+[ext_resource type="Script" uid="uid://dhtstu4gad8uc" path="res://characters/enemies/mob/coin_drop_manager.gd" id="3_mxcvk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4by1i"]
 radius = 33.541
@@ -9,9 +10,9 @@ radius = 33.541
 [sub_resource type="CircleShape2D" id="CircleShape2D_mxcvk"]
 radius = 48.1664
 
-[node name="Mob" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 3
+[node name="Mob" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("1_4by1i")
 
 [node name="MobSprite" type="Sprite2D" parent="."]
@@ -23,9 +24,13 @@ texture = ExtResource("1_2auo0")
 shape = SubResource("CircleShape2D_4by1i")
 
 [node name="hitBox" type="Area2D" parent="." groups=["enemy"]]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
 shape = SubResource("CircleShape2D_mxcvk")
 debug_color = Color(0.359229, 0.515207, 0.896058, 0.42)
+
+[node name="CoinDropManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_mxcvk")

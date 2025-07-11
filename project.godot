@@ -15,6 +15,10 @@ run/main_scene="uid://ci7o2hwcenyhx"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Game_Stats="*res://game_stats.gd"
+
 [display]
 
 window/size/viewport_width=1920
@@ -29,6 +33,7 @@ project/assembly_name="survival-shooter"
 
 enemy=""
 player=""
+coin=""
 
 [input]
 
