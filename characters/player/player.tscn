@@ -1,14 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhpintm4oouv3"]
+[gd_scene load_steps=8 format=3 uid="uid://dhpintm4oouv3"]
 
 [ext_resource type="Texture2D" uid="uid://dbcgwjj2htcvr" path="res://icon.svg" id="1_508ok"]
+[ext_resource type="Script" uid="uid://bjmv61e1a232k" path="res://characters/player/health_manager.gd" id="1_exd8k"]
 [ext_resource type="Script" uid="uid://84fb3bbyrwpm" path="res://characters/player/player.gd" id="1_xxgcw"]
+[ext_resource type="Script" uid="uid://d1tg12xjvvu3f" path="res://characters/player/hurt_manager.gd" id="3_5dc8e"]
 [ext_resource type="PackedScene" uid="uid://cv8rforp2qx3w" path="res://pistol/gun.tscn" id="3_exd8k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxgcw"]
 size = Vector2(54, 71)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_508ok"]
-size = Vector2(63, 80)
+[sub_resource type="CircleShape2D" id="CircleShape2D_5dc8e"]
+radius = 54.5367
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 3
@@ -25,26 +27,28 @@ shape = SubResource("RectangleShape2D_xxgcw")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="HurtBox" type="Area2D" parent="."]
+[node name="HurtManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_5dc8e")
+
+[node name="HurtBox" type="Area2D" parent="HurtManager" groups=["player"]]
 unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionEnemy" type="CollisionShape2D" parent="HurtBox"]
+[node name="CollisionEnemy" type="CollisionShape2D" parent="HurtManager/HurtBox"]
 position = Vector2(-1.5, -1)
-shape = SubResource("RectangleShape2D_508ok")
+shape = SubResource("CircleShape2D_5dc8e")
 debug_color = Color(0.512248, 0.441138, 0.95437, 0.42)
 
-[node name="HurtTimer" type="Timer" parent="HurtBox"]
+[node name="HurtTimer" type="Timer" parent="HurtManager/HurtBox"]
 unique_name_in_owner = true
 wait_time = 0.3
 
-[node name="Gun" parent="HurtBox" instance=ExtResource("3_exd8k")]
+[node name="Gun" parent="HurtManager/HurtBox" instance=ExtResource("3_exd8k")]
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="HealthManager" type="Node2D" parent="."]
 unique_name_in_owner = true
-offset_left = -23.0
-offset_right = 23.0
-offset_bottom = 27.0
+script = ExtResource("1_exd8k")
 
-[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="area_entered" from="HurtManager/HurtBox" to="." method="_on_hurt_box_area_entered"]

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dhpintm4oouv3" path="res://characters/player/player.tscn" id="1_8viek"]
 [ext_resource type="Script" uid="uid://by3uf4ticsjm2" path="res://environment/map.gd" id="1_fp5rb"]
 [ext_resource type="PackedScene" uid="uid://b35xwxdbvdg2w" path="res://characters/enemies/mob/mob.tscn" id="2_fp5rb"]
-[ext_resource type="Script" uid="uid://bvdghlnculcbc" path="res://environment/healthBar.gd" id="2_ml8jp"]
+[ext_resource type="Script" uid="uid://bvdghlnculcbc" path="res://environment/health_bar.gd" id="2_ml8jp"]
 
 [sub_resource type="Curve2D" id="Curve2D_3sytr"]
 _data = {
@@ -23,13 +23,13 @@ offset_top = -5.0
 offset_right = 2016.0
 offset_bottom = 1097.0
 
-[node name="PlayerHealthBar" type="ProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("player")]
+[node name="PlayerHealthBar" type="ProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("target_node")]
 modulate = Color(0, 1, 0.486275, 1)
 offset_right = 722.0
 offset_bottom = 46.0
 value = 100.0
 script = ExtResource("2_ml8jp")
-player = NodePath("../../Player")
+target_node = NodePath("../../Player")
 
 [node name="Player" parent="." instance=ExtResource("1_8viek")]
 position = Vector2(1041, 484)
