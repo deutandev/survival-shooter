@@ -29,23 +29,19 @@ func _physics_process(delta: float) -> void:
 	if !isHurt:	
 		get_input()
 	move_and_slide()
+	check_hurtbox_for_enemies()
 
 func player_hurt(area):
-	if isHurt:
-		return
-		
 	current_health -= 5
 	print_debug(current_health)
 	#current health -= enemy.damage
 	%ProgressBar.value = current_health
-
 	if current_health <= 0:
 		player_death.emit()
 		change_to_main_menu()
 		return
-	
 	isHurt = true
-	health_changed.emit()
+	health_changed.emit(current_health)
 	knockback(area.get_parent().velocity)
 	hurt_timer.start()
 	await hurt_timer.timeout
@@ -56,10 +52,14 @@ func knockback(enemy_velocity: Vector2):
 	velocity = knockbackDirection
 	move_and_slide()
 
-func _on_hurt_box_area_entered(area: Area2D) -> void:
-	if area.name == "hitBox":
-		print_debug("Hurt")
-		player_hurt(area)
+func check_hurtbox_for_enemies():
+	if isHurt:
+		return
+	var overlapping_areas = hurtbox.get_overlapping_areas()
+	for area in overlapping_areas:
+		if area.is_in_group("enemy"):
+			player_hurt(area)
+			break
 
 func change_to_main_menu():
 	await get_tree().create_timer(1.0).timeout
