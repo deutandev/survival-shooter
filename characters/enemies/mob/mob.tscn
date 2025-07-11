@@ -7,7 +7,7 @@
 radius = 33.541
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mxcvk"]
-radius = 48.0104
+radius = 39.0128
 
 [node name="Mob" type="CharacterBody2D"]
 collision_layer = 2
@@ -22,7 +22,7 @@ texture = ExtResource("1_2auo0")
 [node name="MobCollider" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_4by1i")
 
-[node name="hitBox" type="Area2D" parent="."]
+[node name="hitBox" type="Area2D" parent="." groups=["enemy"]]
 collision_layer = 2
 collision_mask = 2
 
