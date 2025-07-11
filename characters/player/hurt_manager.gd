@@ -15,7 +15,7 @@ func _physics_process(_delta):
 		return
 	var overlapping = hurtbox.get_overlapping_areas()
 	for area in overlapping:
-		if area.name == "hitBox":
+		if area.is_in_group("enemy"):
 			print_debug("HitBox")
 			apply_damage(area)
 			break
