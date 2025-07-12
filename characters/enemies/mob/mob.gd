@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var defense: float = 1.0
 @export var min_damage_taken: float = 1.0
 
-@onready var player = get_node("/root/Map/Player")
+@onready var player: CharacterBody2D
 @onready var coin_drop: CoinDropManager = %CoinDropManager
 
 var current_health: int
@@ -15,8 +15,16 @@ var current_health: int
 func _ready():
 	speed = speed * 100.0
 	current_health = max_health
+	
+	# Find player using groups
+	var players = get_tree().get_nodes_in_group("player")
+	if players.size() > 0:
+		player = players[0]
 
 func _physics_process(delta: float) -> void:
+	if not player or not is_instance_valid(player):
+		return
+	
 	var direction = global_position.direction_to(player.global_position)
 	velocity = direction * speed
 	move_and_slide()
