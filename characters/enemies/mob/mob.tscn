@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b5kvkpcadh6o7" path="res://characters/enemies/mob/mob.svg" id="1_2auo0"]
 [ext_resource type="Script" uid="uid://b1ubsdibmcawl" path="res://characters/enemies/mob/mob.gd" id="1_4by1i"]
-[ext_resource type="Script" uid="uid://dhtstu4gad8uc" path="res://characters/enemies/mob/coin_drop_manager.gd" id="3_mxcvk"]
+[ext_resource type="Script" path="res://characters/enemies/mob/coin_drop_manager.gd" id="3_mxcvk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4by1i"]
 radius = 33.541
