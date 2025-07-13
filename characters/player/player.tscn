@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://dhpintm4oouv3"]
 
 [ext_resource type="Texture2D" uid="uid://dbcgwjj2htcvr" path="res://icon.svg" id="1_508ok"]
-[ext_resource type="Script" uid="uid://bjmv61e1a232k" path="res://characters/player/health_manager.gd" id="1_exd8k"]
+[ext_resource type="Script" path="res://characters/player/health_manager.gd" id="1_exd8k"]
 [ext_resource type="Script" uid="uid://84fb3bbyrwpm" path="res://characters/player/player.gd" id="1_xxgcw"]
-[ext_resource type="Script" uid="uid://d1tg12xjvvu3f" path="res://characters/player/hurt_manager.gd" id="3_5dc8e"]
+[ext_resource type="Script" path="res://characters/player/hurt_manager.gd" id="3_5dc8e"]
 [ext_resource type="PackedScene" uid="uid://cv8rforp2qx3w" path="res://pistol/gun.tscn" id="3_exd8k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxgcw"]
@@ -13,8 +13,7 @@ size = Vector2(54, 71)
 radius = 54.5367
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-collision_layer = 2
-collision_mask = 7
+collision_mask = 6
 script = ExtResource("1_xxgcw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -26,13 +25,6 @@ texture = ExtResource("1_508ok")
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_xxgcw")
 
-[node name="CoinCollectorArea" type="Area2D" parent="."]
-unique_name_in_owner = true
-
-[node name="CollisionObstacle" type="CollisionShape2D" parent="CoinCollectorArea"]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_xxgcw")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="HurtManager" type="Node2D" parent="."]
@@ -41,8 +33,9 @@ script = ExtResource("3_5dc8e")
 
 [node name="HurtBox" type="Area2D" parent="HurtManager"]
 unique_name_in_owner = true
-collision_layer = 6
-collision_mask = 7
+collision_layer = 0
+collision_mask = 4
+monitorable = false
 
 [node name="CollisionEnemy" type="CollisionShape2D" parent="HurtManager/HurtBox"]
 position = Vector2(-1.5, -1)
@@ -54,9 +47,12 @@ unique_name_in_owner = true
 wait_time = 0.3
 
 [node name="Gun" parent="HurtManager/HurtBox" instance=ExtResource("3_exd8k")]
+position = Vector2(11, 3)
+collision_layer = 1
 
 [node name="HealthManager" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_exd8k")
+max_health = 10000
 
 [connection signal="area_entered" from="HurtManager/HurtBox" to="." method="_on_hurt_box_area_entered"]

@@ -72,6 +72,23 @@ interact={
 ]
 }
 
+[layer_names]
+
+2d_render/layer_1="player"
+2d_render/layer_2="bullet"
+2d_render/layer_3="enemies"
+2d_render/layer_4="items"
+2d_physics/layer_1="player"
+2d_physics/layer_2="bullets"
+2d_physics/layer_3="enemies"
+2d_physics/layer_4="items"
+
+[physics]
+
+2d/run_on_separate_thread=true
+common/physics_ticks_per_second=40
+2d/solver/solver_iterations=8
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

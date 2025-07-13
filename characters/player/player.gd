@@ -4,7 +4,6 @@ class_name Player
 @export var speed: float = 600.0
 @onready var health: HealthManager = %HealthManager
 @onready var hurt_manager: HurtManager = %HurtManager
-@onready var coin_collector = %CoinCollectorArea
 
 func _ready() -> void:
 	health.reset()
@@ -18,13 +17,6 @@ func get_input():
 func _physics_process(delta: float) -> void:
 	get_input()
 	move_and_slide()
-	check_for_coins()
-
-func check_for_coins():
-	for area in coin_collector.get_overlapping_areas():
-		if area.is_in_group("coin"):
-			if area.has_method("collect"):
-				area.collect()
 
 func on_player_death():
 	#await get_tree().create_timer(1.0).timeout

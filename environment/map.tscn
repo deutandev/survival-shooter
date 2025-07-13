@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://dhpintm4oouv3" path="res://characters/player/player.tscn" id="1_8viek"]
 [ext_resource type="Script" uid="uid://by3uf4ticsjm2" path="res://environment/map.gd" id="1_fp5rb"]
-[ext_resource type="PackedScene" uid="uid://b35xwxdbvdg2w" path="res://characters/enemies/mob/mob.tscn" id="2_fp5rb"]
-[ext_resource type="Script" uid="uid://bvdghlnculcbc" path="res://environment/health_bar.gd" id="2_ml8jp"]
-[ext_resource type="Script" uid="uid://wtnvja7gb1yt" path="res://environment/label_manager.gd" id="3_i4838"]
+[ext_resource type="Script" path="res://environment/health_bar.gd" id="2_ml8jp"]
+[ext_resource type="Script" path="res://environment/label_manager.gd" id="3_i4838"]
 [ext_resource type="PackedScene" uid="uid://6fjm0d64g61c" path="res://drop_item/coin.tscn" id="5_ml8jp"]
+[ext_resource type="PackedScene" uid="uid://dj2625ljimjkr" path="res://pooling/object_pool.tscn" id="7_ji8xv"]
 
 [sub_resource type="Curve2D" id="Curve2D_3sytr"]
 _data = {
@@ -57,7 +57,7 @@ offset_bottom = 112.0
 text = "Score:"
 
 [node name="Player" parent="." instance=ExtResource("1_8viek")]
-position = Vector2(1041, 484)
+position = Vector2(1042, 483)
 
 [node name="Path2D" type="Path2D" parent="Player"]
 position = Vector2(-1041, -484)
@@ -68,13 +68,13 @@ unique_name_in_owner = true
 position = Vector2(-73, -61)
 rotation = 0.000487329
 
-[node name="Mob" parent="." instance=ExtResource("2_fp5rb")]
-position = Vector2(1443, 353)
-
 [node name="SpawnTimer" type="Timer" parent="."]
 autostart = true
 
 [node name="Coin" parent="." instance=ExtResource("5_ml8jp")]
 position = Vector2(907, 490)
+
+[node name="MobPool" parent="." instance=ExtResource("7_ji8xv")]
+object_count = 1000
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
