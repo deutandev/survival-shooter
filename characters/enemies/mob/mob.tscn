@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b35xwxdbvdg2w"]
+[gd_scene load_steps=5 format=3 uid="uid://b35xwxdbvdg2w"]
 
 [ext_resource type="Texture2D" uid="uid://b5kvkpcadh6o7" path="res://characters/enemies/mob/mob.svg" id="1_2auo0"]
 [ext_resource type="Script" uid="uid://b1ubsdibmcawl" path="res://characters/enemies/mob/mob.gd" id="1_4by1i"]
@@ -6,9 +6,6 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4by1i"]
 radius = 33.541
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_mxcvk"]
-radius = 48.1664
 
 [node name="Mob" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 4
@@ -20,17 +17,13 @@ modulate = Color(1, 0.219608, 0.137255, 1)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_2auo0")
 
-[node name="MobCollider" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_4by1i")
-
-[node name="hitBox" type="Area2D" parent="." groups=["enemy"]]
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
-shape = SubResource("CircleShape2D_mxcvk")
-debug_color = Color(0.359229, 0.515207, 0.896058, 0.42)
 
 [node name="CoinDropManager" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("3_mxcvk")
+
+[node name="HealthLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
