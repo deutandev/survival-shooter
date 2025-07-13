@@ -21,7 +21,7 @@ func _ready():
 	if players.size() > 0:
 		player = players[0]
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if not player or not is_instance_valid(player):
 		return
 	
