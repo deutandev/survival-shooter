@@ -75,6 +75,5 @@ autostart = true
 position = Vector2(907, 490)
 
 [node name="MobPool" parent="." instance=ExtResource("7_ji8xv")]
-object_count = 1000
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
