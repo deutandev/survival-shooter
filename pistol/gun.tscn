@@ -9,6 +9,7 @@ radius = 461.039
 [node name="Gun" type="Area2D"]
 collision_layer = 0
 collision_mask = 4
+monitorable = false
 script = ExtResource("1_b7uwb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -29,4 +30,5 @@ position = Vector2(25, -10)
 wait_time = 0.5
 autostart = true
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

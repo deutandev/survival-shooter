@@ -8,8 +8,9 @@ radius = 20.025
 
 [node name="Bullet" type="Area2D"]
 top_level = true
-collision_layer = 0
+collision_layer = 2
 collision_mask = 4
+monitorable = false
 script = ExtResource("1_5tgod")
 
 [node name="Projectile" type="Sprite2D" parent="."]

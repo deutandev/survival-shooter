@@ -9,6 +9,8 @@ radius = 32.0624
 [node name="Coin" type="Area2D" groups=["coin"]]
 light_mask = 3
 visibility_layer = 3
+collision_layer = 0
+monitorable = false
 script = ExtResource("1_7h5dg")
 
 [node name="Coin" type="Sprite2D" parent="."]
