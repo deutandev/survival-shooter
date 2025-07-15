@@ -9,7 +9,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_3sytr"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -73, -61, 0, 0, 0, 0, 1979, -60, 0, 0, 0, 0, 1980, 1133, 0, 0, 0, 0, -71, 1131, 0, 0, 0, 0, -73, -61)
+"points": PackedVector2Array(-38.9743, -3.54312, 38.9743, 3.54312, -132, -95, 0, 0, 0, 0, 2118, -120, 0, 0, 0, 0, 2077, 1217, 0, 0, 0, 0, -138, 1182, 0, 0, 0, 0, -145, -72)
 }
 point_count = 5
 
@@ -65,10 +65,11 @@ curve = SubResource("Curve2D_3sytr")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
 unique_name_in_owner = true
-position = Vector2(-73, -61)
-rotation = 0.000487329
+visible = false
+position = Vector2(-132, -95)
+rotation = 0.09066
 
-[node name="SpawnTimer" type="Timer" parent="."]
+[node name="MobSpawnTimer" type="Timer" parent="."]
 autostart = true
 
 [node name="Coin" parent="." instance=ExtResource("5_ml8jp")]
@@ -76,4 +77,4 @@ position = Vector2(907, 490)
 
 [node name="MobPool" parent="." instance=ExtResource("7_ji8xv")]
 
-[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="MobSpawnTimer" to="." method="_on_spawn_timer_timeout"]
