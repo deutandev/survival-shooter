@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhpintm4oouv3"]
+[gd_scene load_steps=9 format=3 uid="uid://dhpintm4oouv3"]
 
 [ext_resource type="Texture2D" uid="uid://dbcgwjj2htcvr" path="res://icon.svg" id="1_508ok"]
 [ext_resource type="Script" uid="uid://bjmv61e1a232k" path="res://characters/player/health_manager.gd" id="1_exd8k"]
 [ext_resource type="Script" uid="uid://84fb3bbyrwpm" path="res://characters/player/player.gd" id="1_xxgcw"]
 [ext_resource type="Script" uid="uid://d1tg12xjvvu3f" path="res://characters/player/hurt_manager.gd" id="3_5dc8e"]
 [ext_resource type="PackedScene" uid="uid://cv8rforp2qx3w" path="res://pistol/gun.tscn" id="3_exd8k"]
+[ext_resource type="PackedScene" uid="uid://d36roq5bjt4cv" path="res://skills/bomb.tscn" id="6_c6leb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxgcw"]
 size = Vector2(54, 71)
@@ -15,6 +16,11 @@ radius = 46.5107
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 6
 script = ExtResource("1_xxgcw")
+
+[node name="Bomb" parent="." instance=ExtResource("6_c6leb")]
+unique_name_in_owner = true
+collision_layer = 7
+collision_mask = 7
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.7408, 0.734226, 1.15514e-06, 1)
