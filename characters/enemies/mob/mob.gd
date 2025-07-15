@@ -3,13 +3,12 @@ extends CharacterBody2D
 @export var max_health: int = 1
 @export var speed: float = 1.0
 @export var damage: int = 1
-
 @export var defense: float = 1.0
-@export var min_damage_taken: float = 1.0
 
 @onready var player: CharacterBody2D
 @onready var coin_drop: CoinDropManager = %CoinDropManager
 
+var min_damage_taken: float = 1.0
 var current_health: int
 
 # Signal for object pooling
