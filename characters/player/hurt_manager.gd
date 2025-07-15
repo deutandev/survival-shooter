@@ -3,7 +3,7 @@ class_name HurtManager
 
 @onready var hurtbox: Area2D = %HurtBox
 @onready var hurt_timer: Timer = %HurtTimer
-@export var knockback_power := 600
+@export var knockback_power := 1000
 @export var damage_amount := 5
 @export var target: CharacterBody2D
 @onready var health: HealthManager = %HealthManager
@@ -21,7 +21,7 @@ func _physics_process(_delta):
 			break
 
 func apply_damage(area: Area2D):
-	health.take_damage(damage_amount)
+	health.take_damage(area.get_parent().damage)
 	apply_knockback(area.get_parent().velocity)
 	is_hurt = true
 	hurt_timer.start()

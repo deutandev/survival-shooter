@@ -44,7 +44,7 @@ debug_color = Color(0.512248, 0.441138, 0.95437, 0.42)
 
 [node name="HurtTimer" type="Timer" parent="HurtManager/HurtBox"]
 unique_name_in_owner = true
-wait_time = 0.3
+wait_time = 0.5
 
 [node name="Gun" parent="HurtManager/HurtBox" instance=ExtResource("3_exd8k")]
 position = Vector2(11, 3)
