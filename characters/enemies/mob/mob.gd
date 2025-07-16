@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var damage: int = 5
 
 @export var defense: float = 1.0
-@export var min_damage_taken: float = 1.0
+var min_damage_taken: float = 1.0
 
 @onready var player: CharacterBody2D
 @onready var coin_drop: CoinDropManager = %CoinDropManager
@@ -52,3 +52,9 @@ func reset_mob():
 	current_health = max_health
 	velocity = Vector2.ZERO
 	$HealthLabel.text = str(current_health)
+	position = Vector2(-10000, -10000)
+
+
+func _on_hit_box_area_entered(area: Area2D) -> void:
+	if area.is_in_group("player_aoe"):
+		take_damage(area.damage)

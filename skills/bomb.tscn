@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_awias"]
 radius = 275.016
 
-[node name="Bomb" type="Area2D"]
+[node name="Bomb" type="Area2D" groups=["player_aoe"]]
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("1_awias")

@@ -16,7 +16,7 @@ func _physics_process(_delta):
 	var overlapping = hurtbox.get_overlapping_areas()
 	for area in overlapping:
 		if area.is_in_group("enemy"):
-			print_debug("HitBox")
+			print_debug("HitBox ", area.name)
 			apply_damage(area)
 			break
 
@@ -31,7 +31,7 @@ func apply_damage(area: Area2D):
 func apply_knockback(enemy_velocity: Vector2):
 	if !target:
 		return
-	print_debug("Apply Knockback")
+	#print_debug("Apply Knockback")
 	var knockback_direction = (enemy_velocity - target.velocity).normalized() * knockback_power
 	target.velocity = knockback_direction
 	target.move_and_slide()
