@@ -35,3 +35,8 @@ func apply_knockback(enemy_velocity: Vector2):
 	var knockback_direction = (enemy_velocity - target.velocity).normalized() * knockback_power
 	target.velocity = knockback_direction
 	target.move_and_slide()
+
+
+func _on_hurt_box_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemy"):
+		apply_damage(body)
