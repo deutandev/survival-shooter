@@ -14,7 +14,7 @@ func _deferred_drop_coin(drop_position: Vector2) -> void:
 	
 	if value > 0:
 		coin_instance.set_value(value)
-		print_debug("Dropping coin at: ", drop_position)
+		#print_debug("Dropping coin at: ", drop_position)
 		
 		get_tree().current_scene.add_child(coin_instance)
 		coin_instance.global_position = drop_position
