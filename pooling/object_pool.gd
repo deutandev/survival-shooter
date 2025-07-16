@@ -21,7 +21,7 @@ func _ready() -> void:
 
 func reset_object(obj) -> void:
 	var collider = obj.get_node("CollisionShape2D")
-	obj.visible = true
+	obj.visible = false
 	obj.set_physics_process(false)
 	obj.set_process(false)
 	collider.call_deferred("set_disabled", true)

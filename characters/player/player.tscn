@@ -57,4 +57,3 @@ script = ExtResource("1_exd8k")
 [node name="Gun" parent="." instance=ExtResource("3_exd8k")]
 position = Vector2(11, 3)
 collision_layer = 1
-collision_mask = 0

@@ -53,8 +53,3 @@ func reset_mob():
 	velocity = Vector2.ZERO
 	$HealthLabel.text = str(current_health)
 	position = Vector2(-10000, -10000)
-
-
-func _on_hit_box_area_entered(area: Area2D) -> void:
-	if area.is_in_group("player_aoe"):
-		take_damage(area.damage)
