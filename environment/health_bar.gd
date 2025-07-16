@@ -10,5 +10,5 @@ func _ready():
 		update_bar(target_node.health.current_health)
 
 func update_bar(current_health: int) -> void:
-	print_debug("Update Bar")
+	#print_debug("Update Bar")
 	value = current_health

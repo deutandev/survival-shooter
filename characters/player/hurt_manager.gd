@@ -9,24 +9,12 @@ class_name HurtManager
 @onready var health: HealthManager = %HealthManager
 
 var is_hurt := false
+var is_free := true
 
-func _physics_process(_delta):
-	if is_hurt:
-		return
-	var overlapping = hurtbox.get_overlapping_areas()
-	for area in overlapping:
-		if area.is_in_group("enemy"):
-			print_debug("HitBox ", area.name)
-			apply_damage(area)
-			break
 
-func apply_damage(area: Area2D):
-	health.take_damage(area.get_parent().damage)
-	apply_knockback(area.get_parent().velocity)
-	is_hurt = true
-	hurt_timer.start()
-	await hurt_timer.timeout
-	is_hurt = false
+func apply_damage(body: Node2D):
+	health.take_damage(body.stats.damage)
+	apply_knockback(body.velocity)
 
 func apply_knockback(enemy_velocity: Vector2):
 	if !target:
@@ -34,9 +22,39 @@ func apply_knockback(enemy_velocity: Vector2):
 	#print_debug("Apply Knockback")
 	var knockback_direction = (enemy_velocity - target.velocity).normalized() * knockback_power
 	target.velocity = knockback_direction
-	target.move_and_slide()
+	
+	# knockback if has free space
+	if is_free:
+		target.move_and_slide()
+	else:
+		# Defer move_and_slide to avoid physics lock
+		call_deferred("_apply_knockback_movement")
+
+# Apply the actual knockback movement (called deferred)
+func _apply_knockback_movement():
+	if target:
+		target.move_and_slide()
 
 
 func _on_hurt_box_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
 		apply_damage(body)
+		hurt_timer.start()
+
+
+func _on_hurt_timer_timeout() -> void:
+	is_collide_enemy()
+
+
+func is_collide_enemy() -> void:
+	var bodies = hurtbox.get_overlapping_bodies()
+	print(bodies.size())
+	if bodies.size() > 0:
+		is_free = false
+		for body in bodies:
+			if body.is_in_group("enemy"):
+				print(body)
+				apply_damage(body)
+	else:
+		is_hurt = false
+		is_free = true

@@ -1,5 +1,6 @@
 extends Node2D
 
+
 @onready var mob_pool = $MobPool
 
 func spawn_mob():
