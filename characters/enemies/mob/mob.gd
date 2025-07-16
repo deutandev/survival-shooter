@@ -1,55 +1,102 @@
 extends CharacterBody2D
+class_name Mob
 
-@export var max_health: int = 3
-@export var speed: float = 1.0
-@export var damage: int = 5
+# Resource that defines this enemy's properties
+@export var stats: EnemyData
 
-@export var defense: float = 1.0
-var min_damage_taken: float = 1.0
-
+# Node references
 @onready var player: CharacterBody2D
 @onready var coin_drop: CoinDropManager = %CoinDropManager
+@onready var health_label: Label = $HealthLabel
+@onready var sprite: Sprite2D = $MobSprite
 
-var current_health: int
+# Runtime variables
+var current_health: int = 3
+var components: Array = []
+var is_dead: bool = false
+
+# Constants
+const MIN_DAMAGE_TAKEN: float = 1.0
+const OFFSCREEN_POSITION: Vector2 = Vector2(-10000, -10000)
 
 # Signal for object pooling
 signal died(mob: CharacterBody2D)
 
 func _ready():
-	speed = speed * 100.0
-	current_health = max_health
-	
-	# Find player using groups
+	apply_enemy_data(stats)
+	_find_player()
+	_update_health_display()
+
+
+func _find_player():
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
 		player = players[0]
-	$HealthLabel.text = str(current_health)
+	else:
+		push_warning("No player found in 'player' group")
+
+func apply_enemy_data(data: EnemyData):
+	if not data:
+		return
+	stats = data
+	current_health = stats.max_health
+	is_dead = false
+	# Apply visual properties if available
+	_apply_visual_properties()
+
+func _apply_visual_properties():
+	if not stats:
+		return
+	# Apply sprite properties (can be extended for different sprites per enemy type)
+	if sprite:
+		sprite.scale = Vector2(0.5, 0.5)  # Default scale, can be made configurable
+		sprite.modulate = Color(1, 0.22, 0.14)  # Default color, can be made configurable
+
+func _update_health_display():
+	if health_label:
+		var display_health = current_health
+		health_label.text = str(display_health)
 
 func _physics_process(_delta: float) -> void:
-	if not player or not is_instance_valid(player):
+	if not _can_move():
 		return
-	
+	_move_toward_player()
+
+func _can_move() -> bool:
+	return player and not is_dead
+
+func _move_toward_player():
 	var direction = global_position.direction_to(player.global_position)
-	velocity = direction * speed
+	var move_speed = stats.speed if stats else 100.0
+	velocity = direction * move_speed
 	move_and_slide()
 
+
 func take_damage(base_damage: float):
-	var reduced_damage = max(base_damage - defense, min_damage_taken) # avoid having 0 damage
+	if is_dead:
+		return
+	var defense = stats.defense if stats else 1.0
+	var reduced_damage = max(base_damage - defense, MIN_DAMAGE_TAKEN)
 	current_health -= reduced_damage
-	$HealthLabel.text = str(current_health)
-	
+	_update_health_display()
 	if current_health <= 0:
 		die()
 
 func die():
-	Game_Stats.add_score(10)
+	if is_dead:
+		return
+	is_dead = true
+	# Award score
+	var score_value = stats.score_value if stats else 10
+	Game_Stats.add_score(score_value)
+	# Drop coins
 	coin_drop.drop_coin(global_position)
 	# Emit signal for object pooling
 	died.emit(self)
 
-# Reset function for object pooling
 func reset_mob():
-	current_health = max_health
+	current_health = stats.max_health
 	velocity = Vector2.ZERO
-	$HealthLabel.text = str(current_health)
-	position = Vector2(-10000, -10000)
+	is_dead = false
+	position = OFFSCREEN_POSITION
+	_update_health_display()
