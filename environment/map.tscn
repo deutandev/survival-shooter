@@ -58,6 +58,7 @@ text = "Score:"
 
 [node name="Player" parent="." instance=ExtResource("1_8viek")]
 position = Vector2(1042, 483)
+platform_floor_layers = 4294967040
 
 [node name="Path2D" type="Path2D" parent="Player"]
 position = Vector2(-1041, -484)

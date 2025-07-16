@@ -1,20 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhpintm4oouv3"]
+[gd_scene load_steps=9 format=3 uid="uid://dhpintm4oouv3"]
 
 [ext_resource type="Texture2D" uid="uid://dbcgwjj2htcvr" path="res://icon.svg" id="1_508ok"]
 [ext_resource type="Script" path="res://characters/player/health_manager.gd" id="1_exd8k"]
 [ext_resource type="Script" uid="uid://84fb3bbyrwpm" path="res://characters/player/player.gd" id="1_xxgcw"]
 [ext_resource type="Script" uid="uid://d1tg12xjvvu3f" path="res://characters/player/hurt_manager.gd" id="3_5dc8e"]
 [ext_resource type="PackedScene" uid="uid://cv8rforp2qx3w" path="res://pistol/gun.tscn" id="3_exd8k"]
+[ext_resource type="PackedScene" uid="uid://d36roq5bjt4cv" path="res://skills/bomb.tscn" id="6_c6leb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxgcw"]
 size = Vector2(54, 71)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5dc8e"]
-radius = 54.5367
+radius = 46.5107
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 6
 script = ExtResource("1_xxgcw")
+
+[node name="Bomb" parent="." instance=ExtResource("6_c6leb")]
+unique_name_in_owner = true
+collision_layer = 7
+collision_mask = 7
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.7408, 0.734226, 1.15514e-06, 1)
@@ -33,9 +39,7 @@ script = ExtResource("3_5dc8e")
 
 [node name="HurtBox" type="Area2D" parent="HurtManager"]
 unique_name_in_owner = true
-collision_layer = 0
 collision_mask = 4
-monitorable = false
 
 [node name="CollisionEnemy" type="CollisionShape2D" parent="HurtManager/HurtBox"]
 position = Vector2(-1.5, -1)
@@ -44,7 +48,7 @@ debug_color = Color(0.512248, 0.441138, 0.95437, 0.42)
 
 [node name="HurtTimer" type="Timer" parent="HurtManager/HurtBox"]
 unique_name_in_owner = true
-wait_time = 0.3
+wait_time = 0.5
 
 [node name="HealthManager" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -53,5 +57,3 @@ script = ExtResource("1_exd8k")
 [node name="Gun" parent="." instance=ExtResource("3_exd8k")]
 position = Vector2(11, 3)
 collision_layer = 1
-
-[connection signal="body_entered" from="HurtManager/HurtBox" to="HurtManager" method="_on_hurt_box_body_entered"]
