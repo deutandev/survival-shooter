@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dhpintm4oouv3"]
 
 [ext_resource type="Texture2D" uid="uid://dbcgwjj2htcvr" path="res://icon.svg" id="1_508ok"]
-[ext_resource type="Script" path="res://characters/player/health_manager.gd" id="1_exd8k"]
+[ext_resource type="Script" uid="uid://bjmv61e1a232k" path="res://characters/player/health_manager.gd" id="1_exd8k"]
 [ext_resource type="Script" uid="uid://84fb3bbyrwpm" path="res://characters/player/player.gd" id="1_xxgcw"]
 [ext_resource type="Script" uid="uid://d1tg12xjvvu3f" path="res://characters/player/hurt_manager.gd" id="3_5dc8e"]
 [ext_resource type="PackedScene" uid="uid://cv8rforp2qx3w" path="res://pistol/gun.tscn" id="3_exd8k"]
@@ -15,6 +15,7 @@ radius = 46.5107
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 6
+platform_floor_layers = 4294967040
 script = ExtResource("1_xxgcw")
 
 [node name="Bomb" parent="." instance=ExtResource("6_c6leb")]
@@ -33,9 +34,10 @@ shape = SubResource("RectangleShape2D_xxgcw")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="HurtManager" type="Node2D" parent="."]
+[node name="HurtManager" type="Node2D" parent="." node_paths=PackedStringArray("target")]
 unique_name_in_owner = true
 script = ExtResource("3_5dc8e")
+target = NodePath("..")
 
 [node name="HurtBox" type="Area2D" parent="HurtManager"]
 unique_name_in_owner = true
@@ -57,3 +59,6 @@ script = ExtResource("1_exd8k")
 [node name="Gun" parent="." instance=ExtResource("3_exd8k")]
 position = Vector2(11, 3)
 collision_layer = 1
+
+[connection signal="body_entered" from="HurtManager/HurtBox" to="HurtManager" method="_on_hurt_box_body_entered"]
+[connection signal="timeout" from="HurtManager/HurtBox/HurtTimer" to="HurtManager" method="_on_hurt_timer_timeout"]

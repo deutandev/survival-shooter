@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://dsyb3iuuro8ql"]
+
+[ext_resource type="Script" uid="uid://d1dpmsu7rewum" path="res://resources/enemy_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+enemy_name = "Tank Mob"
+max_health = 8
+speed = 30.0
+damage = 8
+defense = 3.0
+score_value = 25
+movement_type = 0
+coin_drop_chance = 0.9
+coin_drop_min = 2
+coin_drop_max = 4
