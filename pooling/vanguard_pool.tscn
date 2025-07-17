@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4m6y2xn8p5qr"]
+
+[ext_resource type="Script" uid="uid://d1gjdu3eppd1t" path="res://pooling/object_pool.gd" id="1_sphih"]
+[ext_resource type="PackedScene" uid="uid://b35xwxdbvdg2w" path="res://characters/enemies/enemy.tscn" id="2_m6beu"]
+[ext_resource type="Resource" path="res://resources/vanguard_mob.tres" id="3_vanguard"]
+
+[node name="VanguardPool" type="Node2D"]
+script = ExtResource("1_sphih")
+object_scene = ExtResource("2_m6beu")
+object_data = ExtResource("3_vanguard")
+object_count = 3

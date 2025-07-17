@@ -25,7 +25,6 @@ signal died(mob: CharacterBody2D)
 func _ready():
 	apply_enemy_data(stats)
 	_find_player()
-	_update_health_display()
 
 
 func _find_player():
@@ -42,15 +41,8 @@ func apply_enemy_data(data: EnemyData):
 	current_health = stats.max_health
 	is_dead = false
 	# Apply visual properties if available
-	_apply_visual_properties()
+	_update_health_display()
 
-func _apply_visual_properties():
-	if not stats:
-		return
-	# Apply sprite properties (can be extended for different sprites per enemy type)
-	if sprite:
-		sprite.scale = Vector2(0.5, 0.5)  # Default scale, can be made configurable
-		sprite.modulate = Color(1, 0.22, 0.14)  # Default color, can be made configurable
 
 func _update_health_display():
 	if health_label:

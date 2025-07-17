@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://cs37shopysuvg"]
 
-[ext_resource type="Script" uid="uid://d1dpmsu7rewum" path="res://resources/enemy_data.gd" id="1"]
+[ext_resource type="Script" uid="uid://d1dpmsu7rewum" path="res://characters/enemies/data/enemy_data.gd" id="1_16q0b"]
 
 [resource]
-script = ExtResource("1")
-enemy_name = "Vanguard Mob"
+script = ExtResource("1_16q0b")
+enemy_name = "vanguard"
 max_health = 4
-speed = 150.0
+speed = 270.0
 damage = 6
 defense = 0.5
 score_value = 20

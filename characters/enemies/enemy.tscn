@@ -1,27 +1,27 @@
 [gd_scene load_steps=7 format=3 uid="uid://b35xwxdbvdg2w"]
 
-[ext_resource type="Texture2D" uid="uid://b5kvkpcadh6o7" path="res://characters/enemies/mob/mob.svg" id="1_2auo0"]
-[ext_resource type="Script" uid="uid://b1ubsdibmcawl" path="res://characters/enemies/mob/mob.gd" id="1_4by1i"]
-[ext_resource type="Resource" uid="uid://cqypuya5kxtcb" path="res://characters/enemies/data/regular_mob.tres" id="2_bwpwe"]
-[ext_resource type="Script" uid="uid://dhtstu4gad8uc" path="res://characters/enemies/mob/coin_drop_manager.gd" id="3_mxcvk"]
+[ext_resource type="Script" uid="uid://b1ubsdibmcawl" path="res://characters/enemies/enemy.gd" id="1_008bi"]
+[ext_resource type="Resource" uid="uid://cqypuya5kxtcb" path="res://characters/enemies/data/regular_mob.tres" id="2_3vt6o"]
+[ext_resource type="Texture2D" uid="uid://b5kvkpcadh6o7" path="res://characters/enemies/enemy.svg" id="3_bi512"]
+[ext_resource type="Script" uid="uid://dhtstu4gad8uc" path="res://characters/enemies/coin_drop_manager.gd" id="4_wor85"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4by1i"]
-radius = 32.0156
+radius = 30.3645
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mxcvk"]
-radius = 38.0526
+radius = 34.7131
 
 [node name="Mob" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 4
 collision_mask = 7
 platform_floor_layers = 4294967040
-script = ExtResource("1_4by1i")
-stats = ExtResource("2_bwpwe")
+script = ExtResource("1_008bi")
+stats = ExtResource("2_3vt6o")
 
 [node name="MobSprite" type="Sprite2D" parent="."]
 modulate = Color(1, 0.219608, 0.137255, 1)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_2auo0")
+texture = ExtResource("3_bi512")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_4by1i")
@@ -29,7 +29,7 @@ debug_color = Color(0.678431, 0.0470588, 0, 0.72549)
 
 [node name="CoinDropManager" type="Node2D" parent="."]
 unique_name_in_owner = true
-script = ExtResource("3_mxcvk")
+script = ExtResource("4_wor85")
 
 [node name="HealthLabel" type="Label" parent="."]
 offset_right = 40.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ci7o2hwcenyhx"]
+[gd_scene load_steps=10 format=3 uid="uid://ci7o2hwcenyhx"]
 
 [ext_resource type="PackedScene" uid="uid://dhpintm4oouv3" path="res://characters/player/player.tscn" id="1_8viek"]
 [ext_resource type="Script" uid="uid://by3uf4ticsjm2" path="res://environment/map.gd" id="1_fp5rb"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://environment/label_manager.gd" id="3_i4838"]
 [ext_resource type="PackedScene" uid="uid://6fjm0d64g61c" path="res://drop_item/coin.tscn" id="5_ml8jp"]
 [ext_resource type="PackedScene" uid="uid://dj2625ljimjkr" path="res://pooling/object_pool.tscn" id="7_ji8xv"]
+[ext_resource type="PackedScene" uid="uid://cce0ntpr7nmft" path="res://characters/enemies/mobs/tank.tscn" id="7_sd800"]
+[ext_resource type="PackedScene" uid="uid://5knwhkryyy4s" path="res://characters/enemies/mobs/vanguard.tscn" id="9_lcdfg"]
 
 [sub_resource type="Curve2D" id="Curve2D_3sytr"]
 _data = {
@@ -75,7 +77,12 @@ autostart = true
 [node name="Coin" parent="." instance=ExtResource("5_ml8jp")]
 position = Vector2(907, 490)
 
-[node name="MobPool" parent="." instance=ExtResource("7_ji8xv")]
-object_count = 10
+[node name="RegularPool" parent="." instance=ExtResource("7_ji8xv")]
+
+[node name="TankPool" parent="." instance=ExtResource("7_ji8xv")]
+object_scene = ExtResource("7_sd800")
+
+[node name="VanguardPool" parent="." instance=ExtResource("7_ji8xv")]
+object_scene = ExtResource("9_lcdfg")
 
 [connection signal="timeout" from="MobSpawnTimer" to="." method="_on_spawn_timer_timeout"]
