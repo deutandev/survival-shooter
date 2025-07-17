@@ -18,6 +18,7 @@ func shoot():
 	bullet.global_position = %ShootingPoint.global_position
 	bullet.global_rotation = %ShootingPoint.global_rotation
 	%ShootingPoint.add_child(bullet)
+	$AudioStreamPlayer.play()
 
 
 func _on_timer_timeout() -> void:
