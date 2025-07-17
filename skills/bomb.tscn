@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://d36roq5bjt4cv"]
+[gd_scene load_steps=5 format=3 uid="uid://d36roq5bjt4cv"]
 
 [ext_resource type="Script" uid="uid://dqtuuriaubl1r" path="res://skills/bomb.gd" id="1_awias"]
 [ext_resource type="Texture2D" uid="uid://dn80eu1qs371v" path="res://pistol/impact/circle.png" id="1_h5p3r"]
+[ext_resource type="AudioStream" uid="uid://dfoai8q5w46sn" path="res://skills/lowFrequency_explosion_000.ogg" id="3_5dcoo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_awias"]
 radius = 275.016
@@ -21,5 +22,8 @@ texture = ExtResource("1_h5p3r")
 shape = SubResource("CircleShape2D_awias")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5dcoo")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
