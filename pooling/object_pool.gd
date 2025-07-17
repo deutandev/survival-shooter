@@ -44,6 +44,10 @@ func get_object() -> Node2D:
 	obj.set_process(true)
 	collider.call_deferred("set_disabled", false)
 	
+	# Apply enemy data to the mob
+	#if object_data and obj.has_method("apply_enemy_data"):
+		#obj.apply_enemy_data(object_data)
+	
 	return obj
 
 func _on_object_died(obj: Node2D) -> void:

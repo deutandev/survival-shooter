@@ -48,7 +48,6 @@ func _on_hurt_timer_timeout() -> void:
 
 func is_collide_enemy() -> void:
 	var bodies = hurtbox.get_overlapping_bodies()
-	print(bodies.size())
 	if bodies.size() > 0:
 		is_free = false
 		for body in bodies:
