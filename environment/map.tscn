@@ -1,13 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://ci7o2hwcenyhx"]
+[gd_scene load_steps=16 format=3 uid="uid://ci7o2hwcenyhx"]
 
 [ext_resource type="PackedScene" uid="uid://dhpintm4oouv3" path="res://characters/player/player.tscn" id="1_8viek"]
 [ext_resource type="Script" uid="uid://by3uf4ticsjm2" path="res://environment/map.gd" id="1_fp5rb"]
+[ext_resource type="Texture2D" uid="uid://bptwnf5qa7614" path="res://environment/game_panel.png" id="2_aacnv"]
 [ext_resource type="Script" uid="uid://bvdghlnculcbc" path="res://environment/health_bar.gd" id="2_ml8jp"]
-[ext_resource type="Script" path="res://environment/label_manager.gd" id="3_i4838"]
+[ext_resource type="Script" uid="uid://wtnvja7gb1yt" path="res://environment/label_manager.gd" id="3_i4838"]
+[ext_resource type="Texture2D" uid="uid://b74afqc8gfkyq" path="res://environment/bomb_button.png" id="4_sd800"]
 [ext_resource type="PackedScene" uid="uid://6fjm0d64g61c" path="res://drop_item/coin.tscn" id="5_ml8jp"]
+[ext_resource type="Script" uid="uid://cwv55w6bu3swa" path="res://environment/ult_button.gd" id="5_pvoq3"]
+[ext_resource type="Texture2D" uid="uid://bnapesubuvrch" path="res://environment/gameover_text.png" id="5_vp37v"]
 [ext_resource type="PackedScene" uid="uid://dj2625ljimjkr" path="res://pooling/object_pool.tscn" id="7_ji8xv"]
 [ext_resource type="PackedScene" uid="uid://cce0ntpr7nmft" path="res://characters/enemies/mobs/tank.tscn" id="7_sd800"]
 [ext_resource type="PackedScene" uid="uid://5knwhkryyy4s" path="res://characters/enemies/mobs/vanguard.tscn" id="9_lcdfg"]
+[ext_resource type="Texture2D" uid="uid://cb1jnqp2fbwtd" path="res://environment/sketch_past1.jpg" id="11_lcdfg"]
+[ext_resource type="Script" uid="uid://b81v8y1eja7r6" path="res://environment/ui_manager.gd" id="13_v5ifb"]
 
 [sub_resource type="Curve2D" id="Curve2D_3sytr"]
 _data = {
@@ -27,35 +33,95 @@ offset_top = -5.0
 offset_right = 2016.0
 offset_bottom = 1097.0
 
-[node name="PlayerHealthBar" type="ProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("target_node")]
+[node name="SketchPast1" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(960, 541)
+texture = ExtResource("11_lcdfg")
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+
+[node name="GamePanel" type="Sprite2D" parent="CanvasLayer3"]
+top_level = true
+light_mask = 512
+visibility_layer = 512
+z_index = 2
+position = Vector2(957, 93)
+texture = ExtResource("2_aacnv")
+
+[node name="UltButton" type="TextureButton" parent="CanvasLayer3" node_paths=PackedStringArray("player")]
+offset_left = 1615.0
+offset_top = 745.0
+offset_right = 1899.0
+offset_bottom = 1014.0
+toggle_mode = true
+button_pressed = true
+texture_normal = ExtResource("4_sd800")
+stretch_mode = 5
+script = ExtResource("5_pvoq3")
+player = NodePath("../../Player")
+
+[node name="cooldown_label" type="Label" parent="CanvasLayer3/UltButton"]
+unique_name_in_owner = true
+offset_left = 70.0
+offset_top = 124.0
+offset_right = 136.0
+offset_bottom = 149.0
+scale = Vector2(2, 2)
+text = "0.0"
+horizontal_alignment = 1
+
+[node name="gameover_panel" type="Node2D" parent="CanvasLayer3"]
+unique_name_in_owner = true
+visible = false
+
+[node name="Panel" type="Panel" parent="CanvasLayer3/gameover_panel"]
+offset_left = -44.0
+offset_top = -29.0
+offset_right = 2029.0
+offset_bottom = 1103.0
+
+[node name="GameoverText" type="Sprite2D" parent="CanvasLayer3/gameover_panel"]
+position = Vector2(990, 519.5)
+scale = Vector2(1.48553, 1.5586)
+texture = ExtResource("5_vp37v")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="PlayerHealthBar" type="ProgressBar" parent="CanvasLayer2" node_paths=PackedStringArray("target_node")]
 modulate = Color(0, 1, 0.486275, 1)
-offset_right = 722.0
-offset_bottom = 46.0
+top_level = true
+light_mask = 512
+visibility_layer = 512
+z_index = 2
+offset_left = 1323.0
+offset_top = 37.0
+offset_right = 1524.0
+offset_bottom = 66.0
 value = 100.0
 script = ExtResource("2_ml8jp")
 target_node = NodePath("../../Player")
-
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [node name="LabelCode" type="Node2D" parent="CanvasLayer2"]
 script = ExtResource("3_i4838")
 
 [node name="CoinTotal" type="Label" parent="CanvasLayer2/LabelCode"]
 unique_name_in_owner = true
-modulate = Color(0, 0, 0, 1)
-offset_left = 3.0
-offset_top = 53.0
-offset_right = 156.0
-offset_bottom = 76.0
-text = "Coin: "
+modulate = Color(1, 0.717647, 0.443137, 1)
+offset_left = 98.0
+offset_top = 24.0
+offset_right = 184.0
+offset_bottom = 47.0
+scale = Vector2(2, 2)
+text = "00"
 
 [node name="ScoreTotal" type="Label" parent="CanvasLayer2/LabelCode"]
 unique_name_in_owner = true
 modulate = Color(0, 0, 0, 1)
-offset_left = 1.0
-offset_top = 89.0
-offset_right = 145.0
-offset_bottom = 112.0
+offset_left = 24.0
+offset_top = 129.0
+offset_right = 168.0
+offset_bottom = 152.0
+scale = Vector2(3, 3)
 text = "Score:"
 
 [node name="Player" parent="." instance=ExtResource("1_8viek")]
@@ -85,4 +151,9 @@ object_scene = ExtResource("7_sd800")
 [node name="VanguardPool" parent="." instance=ExtResource("7_ji8xv")]
 object_scene = ExtResource("9_lcdfg")
 
+[node name="UIManager" type="Node2D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("13_v5ifb")
+player = NodePath("../Player")
+
+[connection signal="pressed" from="CanvasLayer3/UltButton" to="CanvasLayer3/UltButton" method="_on_pressed"]
 [connection signal="timeout" from="MobSpawnTimer" to="." method="_on_spawn_timer_timeout"]

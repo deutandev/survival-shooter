@@ -1,6 +1,9 @@
 extends CharacterBody2D
 class_name Player
 
+signal player_died
+signal bomb_cooldown_started(duration: float)
+signal bomb_cooldown_ended()
 @export var speed: float = 600.0
 @onready var health: HealthManager = %HealthManager
 @onready var hurt_manager: HurtManager = %HurtManager
@@ -32,24 +35,23 @@ func get_input():
 func _physics_process(delta: float) -> void:
 	get_input()
 	move_and_slide()
-	if Input.is_action_just_pressed("interact") and can_use_bomb:
+	if Input.is_action_just_pressed("interact"):
 		use_bomb()
 
 func use_bomb():
 	if !can_use_bomb or !bomb:
 		return
-	
 	can_use_bomb = false
-
-	# Reuse bomb — reposition + reactivate
 	bomb.reset(global_position)
-
+	emit_signal("bomb_cooldown_started", bomb_cooldown)
 	await get_tree().create_timer(bomb_cooldown).timeout
 	can_use_bomb = true
+	emit_signal("bomb_cooldown_ended")
 
 func on_player_death():
+	player_died.emit()
 	#await get_tree().create_timer(1.0).timeout
-	call_deferred("go_to_menu")
+	#call_deferred("go_to_menu")
 
-func go_to_menu():
-	get_tree().change_scene_to_file("res://environment/mainMenu.tscn")
+#func go_to_menu():
+	#get_tree().change_scene_to_file("res://environment/main_menu/mainMenu.tscn")
