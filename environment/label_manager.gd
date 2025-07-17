@@ -11,7 +11,7 @@ func _ready():
 	update_score_label(Game_Stats.score)
 
 func update_coin_label(new_value: int):
-	coin_total_label.text = "Coins: " + str(new_value)
+	coin_total_label.text = str(new_value)
 
 func update_score_label(new_value: int):
 	score_total_label.text = "Score: " + str(new_value)

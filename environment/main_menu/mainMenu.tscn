@@ -1,36 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://bj2je6nv2vokx"]
+[gd_scene load_steps=3 format=3 uid="uid://bj2je6nv2vokx"]
 
-[ext_resource type="Script" uid="uid://6wsjpecejnx5" path="res://environment/button_manager.gd" id="1_uank7"]
+[ext_resource type="Texture2D" uid="uid://b1jwnwu05ntcg" path="res://environment/main_menu/MainMenu.jpg" id="1_oynim"]
+[ext_resource type="Script" uid="uid://6wsjpecejnx5" path="res://environment/main_menu/button_manager.gd" id="1_uank7"]
 
 [node name="MainMenu" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 offset_right = 1237.0
 offset_bottom = 709.0
+
+[node name="MainMenu" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(961, 542)
+texture = ExtResource("1_oynim")
 
 [node name="ButtonManager" type="Node2D" parent="CanvasLayer"]
 script = ExtResource("1_uank7")
 
 [node name="Start" type="Button" parent="CanvasLayer/ButtonManager"]
-modulate = Color(0.254902, 1, 1, 1)
+modulate = Color(0.254902, 1, 1, 0.223529)
 light_mask = 0
 visibility_layer = 524288
-offset_left = 515.0
-offset_top = 206.0
-offset_right = 766.0
-offset_bottom = 338.0
-text = "Play"
+offset_left = 1244.0
+offset_top = 148.0
+offset_right = 1577.0
+offset_bottom = 432.0
 
 [node name="Quit" type="Button" parent="CanvasLayer/ButtonManager"]
 modulate = Color(0.254902, 1, 1, 1)
 light_mask = 0
 visibility_layer = 524288
-offset_left = 479.0
-offset_top = 386.0
-offset_right = 764.0
-offset_bottom = 537.0
+offset_left = 1637.0
+offset_top = 5.0
+offset_right = 1922.0
+offset_bottom = 156.0
 text = "Quit
 "
 
