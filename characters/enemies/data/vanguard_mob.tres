@@ -6,7 +6,7 @@
 script = ExtResource("1_16q0b")
 enemy_name = "vanguard"
 max_health = 4
-speed = 200.0
+speed = 270.0
 damage = 6
 defense = 0.5
 score_value = 20
