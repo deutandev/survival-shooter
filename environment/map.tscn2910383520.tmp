@@ -26,12 +26,6 @@ point_count = 5
 [node name="Map" type="Node2D"]
 script = ExtResource("1_fp5rb")
 
-[node name="ChunkManager" type="Node2D" parent="." node_paths=PackedStringArray("player")]
-z_index = -1
-script = ExtResource("15_e8rkj")
-chunk_scene = ExtResource("16_j41vl")
-player = NodePath("../Player")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -100
 
@@ -163,6 +157,10 @@ object_scene = ExtResource("9_lcdfg")
 [node name="UIManager" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("13_v5ifb")
 player = NodePath("../Player")
+
+[node name="ChunkManager" type="Node2D" parent="."]
+script = ExtResource("15_e8rkj")
+chunk_scene = ExtResource("16_j41vl")
 
 [connection signal="pressed" from="CanvasLayer3/UltButton" to="CanvasLayer3/UltButton" method="_on_pressed"]
 [connection signal="timeout" from="MobSpawnTimer" to="." method="_on_spawn_timer_timeout"]

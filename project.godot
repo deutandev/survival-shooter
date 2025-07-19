@@ -31,6 +31,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Game_Stats="*res://game_stats.gd"
+WorldSave="*res://chunksystem/WorldSave.gd"
 
 [display]
 
