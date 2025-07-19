@@ -13,6 +13,7 @@ func _init() -> void:
 func _do_damage():
 	$Timer.wait_time = aoe_duration
 	$Timer.start()
+	$AudioStreamPlayer.play()
 	print_debug("start bomb")
 	await $Timer.timeout
 	disable()
