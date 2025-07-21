@@ -1,11 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dj2625ljimjkr"]
+[gd_scene load_steps=3 format=3 uid="uid://dj2625ljimjkr"]
 
 [ext_resource type="Script" uid="uid://d1gjdu3eppd1t" path="res://pooling/object_pool.gd" id="1_sphih"]
 [ext_resource type="PackedScene" uid="uid://b35xwxdbvdg2w" path="res://characters/enemies/enemy.tscn" id="2_m6beu"]
-[ext_resource type="Resource" uid="uid://cqypuya5kxtcb" path="res://characters/enemies/data/regular_mob.tres" id="3_regular"]
 
 [node name="RegularPool" type="Node2D"]
 script = ExtResource("1_sphih")
 object_scene = ExtResource("2_m6beu")
-object_data = ExtResource("3_regular")
 object_count = 20

@@ -4,6 +4,9 @@ class_name Player
 signal player_died
 signal bomb_cooldown_started(duration: float)
 signal bomb_cooldown_ended()
+
+@export var player_data : CharacterData
+
 @export var speed: float = 600.0
 @onready var health: HealthManager = %HealthManager
 @onready var hurt_manager: HurtManager = %HurtManager
