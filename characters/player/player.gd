@@ -2,8 +2,8 @@ extends CharacterBody2D
 class_name Player
 
 signal player_died
-signal bomb_cooldown_started(duration: float)
-signal bomb_cooldown_ended()
+signal skill_cooldown_started(duration: float)
+signal skill_cooldown_ended()
 
 @export var player_data : CharacterData
 
@@ -12,10 +12,11 @@ signal bomb_cooldown_ended()
 @onready var hurt_manager: HurtManager = %HurtManager
 @onready var gun: Area2D = %Gun
 
-@onready var bomb: Area2D = %Bomb
-@export var bomb_cooldown: float = 3.0
+@onready var skill_scene: PackedScene = player_data.skill_scene
+@export var skill_cooldown: float = 3.0
 
-var can_use_bomb := true
+var skill: Node = null
+var can_use_skill := true
 
 func _ready() -> void:
 	health.reset()
@@ -24,6 +25,12 @@ func _ready() -> void:
 	# Connect signal from Gun
 	if gun:
 		gun.shoot_direction_changed.connect(_on_shoot_direction_changed)
+	
+	if skill_scene:
+		skill = skill_scene.instantiate()
+		skill.global_position = global_position
+		skill.owner = self  # optional, in case skill needs to know
+		add_child(skill)
 
 
 func _on_shoot_direction_changed(facing_right: bool):
@@ -39,17 +46,17 @@ func _physics_process(delta: float) -> void:
 	get_input()
 	move_and_slide()
 	if Input.is_action_just_pressed("interact"):
-		use_bomb()
+		use_skill()
 
-func use_bomb():
-	if !can_use_bomb or !bomb:
+func use_skill():
+	if !can_use_skill or !skill_scene:
 		return
-	can_use_bomb = false
-	bomb.reset(global_position)
-	emit_signal("bomb_cooldown_started", bomb_cooldown)
-	await get_tree().create_timer(bomb_cooldown).timeout
-	can_use_bomb = true
-	emit_signal("bomb_cooldown_ended")
+	can_use_skill = false
+	skill.reset(global_position)
+	emit_signal("skill_cooldown_started", skill_cooldown)
+	await get_tree().create_timer(skill_cooldown).timeout
+	can_use_skill = true
+	emit_signal("skill_cooldown_ended")
 
 func on_player_death():
 	player_died.emit()

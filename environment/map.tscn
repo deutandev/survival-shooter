@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ci7o2hwcenyhx"]
+[gd_scene load_steps=16 format=3 uid="uid://ci7o2hwcenyhx"]
 
 [ext_resource type="PackedScene" uid="uid://dhpintm4oouv3" path="res://characters/player/player.tscn" id="1_8viek"]
 [ext_resource type="Script" uid="uid://by3uf4ticsjm2" path="res://environment/map.gd" id="1_fp5rb"]
@@ -7,15 +7,13 @@
 [ext_resource type="Script" uid="uid://wtnvja7gb1yt" path="res://environment/label_manager.gd" id="3_i4838"]
 [ext_resource type="Texture2D" uid="uid://b74afqc8gfkyq" path="res://environment/bomb_button.png" id="4_sd800"]
 [ext_resource type="PackedScene" uid="uid://6fjm0d64g61c" path="res://drop_item/coin.tscn" id="5_ml8jp"]
-[ext_resource type="Script" path="res://environment/ult_button.gd" id="5_pvoq3"]
+[ext_resource type="Script" uid="uid://cwv55w6bu3swa" path="res://environment/ult_button.gd" id="5_pvoq3"]
 [ext_resource type="Texture2D" uid="uid://bnapesubuvrch" path="res://environment/gameover_text.png" id="5_vp37v"]
 [ext_resource type="PackedScene" uid="uid://dj2625ljimjkr" path="res://pooling/object_pool.tscn" id="7_ji8xv"]
 [ext_resource type="PackedScene" uid="uid://cce0ntpr7nmft" path="res://characters/enemies/mobs/tank.tscn" id="7_sd800"]
 [ext_resource type="PackedScene" uid="uid://5knwhkryyy4s" path="res://characters/enemies/mobs/vanguard.tscn" id="9_lcdfg"]
 [ext_resource type="Texture2D" uid="uid://cb1jnqp2fbwtd" path="res://environment/sketch_past1.jpg" id="11_lcdfg"]
 [ext_resource type="Script" path="res://environment/ui_manager.gd" id="13_v5ifb"]
-[ext_resource type="Script" uid="uid://cd8dndsi2dcx1" path="res://chunksystem/chunk_manager.gd" id="15_e8rkj"]
-[ext_resource type="PackedScene" uid="uid://vaqrayj1l0lo" path="res://chunksystem/ChunkNode.tscn" id="16_j41vl"]
 
 [sub_resource type="Curve2D" id="Curve2D_3sytr"]
 _data = {
@@ -25,12 +23,6 @@ point_count = 5
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_fp5rb")
-
-[node name="ChunkManager" type="Node2D" parent="." node_paths=PackedStringArray("player")]
-z_index = -1
-script = ExtResource("15_e8rkj")
-chunk_scene = ExtResource("16_j41vl")
-player = NodePath("../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -100
