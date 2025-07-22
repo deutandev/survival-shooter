@@ -79,7 +79,7 @@ func die():
 		return
 	is_dead = true
 	# Award score
-	var score_value = stats.score_value if stats else 10
+	var score_value = stats.exp_value if stats else 10
 	Game_Stats.add_score(score_value)
 	# Drop coins
 	coin_drop.drop_coin(global_position)

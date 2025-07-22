@@ -8,8 +8,8 @@ var active := false
 
 func _ready():
 	_end_cooldown()
-	player.bomb_cooldown_started.connect(_start_cooldown)
-	player.bomb_cooldown_ended.connect(_end_cooldown)
+	player.skill_cooldown_started.connect(_start_cooldown)
+	player.skill_cooldown_ended.connect(_end_cooldown)
 
 func _process(delta):
 	if active:
@@ -31,4 +31,4 @@ func _end_cooldown():
 	cooldown_label.visible = false
 	
 func _on_pressed() -> void:
-	player.use_bomb()
+	player.use_skill()

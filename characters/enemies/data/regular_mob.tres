@@ -1,16 +1,13 @@
 [gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://cqypuya5kxtcb"]
 
-[ext_resource type="Script" uid="uid://d1dpmsu7rewum" path="res://characters/enemies/data/enemy_data.gd" id="1_q548b"]
+[ext_resource type="Script" uid="uid://oq1wvv0c65iu" path="res://characters/enemies/enemy_data.gd" id="1_q548b"]
 
 [resource]
 script = ExtResource("1_q548b")
-enemy_name = "mob"
+damage = 5
+exp_value = 5
+movement_type = 0
+name = "mob"
 max_health = 3
 speed = 100.0
-damage = 5
 defense = 1.0
-score_value = 10
-movement_type = 0
-coin_drop_chance = 0.8
-coin_drop_min = 1
-coin_drop_max = 10
