@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://vaqrayj1l0lo"]
 
 [ext_resource type="Script" uid="uid://bppqvt7ahnlue" path="res://chunksystem/ChunkNode.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://cb1jnqp2fbwtd" path="res://environment/sketch_past1.jpg" id="2_sxej2"]
+[ext_resource type="Texture2D" uid="uid://dofriieowi5tv" path="res://environment/past_1.jpg" id="3_de23d"]
 
 [node name="ChunkNode" type="Node2D"]
 z_index = -1
 script = ExtResource("2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(962, 539)
-texture = ExtResource("2_sxej2")
+[node name="Past1" type="Sprite2D" parent="."]
+position = Vector2(-10, 4)
+texture = ExtResource("3_de23d")
