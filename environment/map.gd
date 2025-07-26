@@ -1,9 +1,11 @@
 extends Node2D
 
 # Pool references
-@onready var regular_pool = $RegularPool
-@onready var tank_pool = $TankPool
-@onready var vanguard_pool = $VanguardPool
+@onready var regular_pool: Node = $RegularPool
+@onready var tank_pool: Node = $TankPool
+@onready var vanguard_pool: Node = $VanguardPool
+
+#@onready var upgrade_manager: Node = $UpgradeManager
 
 # Mob spawn weights (higher = more common)
 @export var mob_weights: Dictionary = {
@@ -11,6 +13,7 @@ extends Node2D
 	"tank": 20,       # 20% chance  
 	"vanguard": 10    # 10% chance
 }
+
 
 func spawn_mob():
 	# Determine mob type based on weights

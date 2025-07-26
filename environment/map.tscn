@@ -1,9 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://ci7o2hwcenyhx"]
+[gd_scene load_steps=18 format=3 uid="uid://ci7o2hwcenyhx"]
 
 [ext_resource type="PackedScene" uid="uid://dhpintm4oouv3" path="res://characters/player/player.tscn" id="1_8viek"]
 [ext_resource type="Script" uid="uid://by3uf4ticsjm2" path="res://environment/map.gd" id="1_fp5rb"]
 [ext_resource type="Texture2D" uid="uid://bptwnf5qa7614" path="res://environment/game_panel.png" id="2_aacnv"]
+[ext_resource type="Script" uid="uid://cd8dndsi2dcx1" path="res://chunksystem/chunk_manager.gd" id="2_jyqfc"]
 [ext_resource type="Script" uid="uid://bvdghlnculcbc" path="res://environment/health_bar.gd" id="2_ml8jp"]
+[ext_resource type="PackedScene" uid="uid://vaqrayj1l0lo" path="res://chunksystem/ChunkNode.tscn" id="3_a3b41"]
 [ext_resource type="Script" uid="uid://wtnvja7gb1yt" path="res://environment/label_manager.gd" id="3_i4838"]
 [ext_resource type="Texture2D" uid="uid://b74afqc8gfkyq" path="res://environment/bomb_button.png" id="4_sd800"]
 [ext_resource type="PackedScene" uid="uid://6fjm0d64g61c" path="res://drop_item/coin.tscn" id="5_ml8jp"]
@@ -12,8 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://dj2625ljimjkr" path="res://pooling/object_pool.tscn" id="7_ji8xv"]
 [ext_resource type="PackedScene" uid="uid://cce0ntpr7nmft" path="res://characters/enemies/mobs/tank.tscn" id="7_sd800"]
 [ext_resource type="PackedScene" uid="uid://5knwhkryyy4s" path="res://characters/enemies/mobs/vanguard.tscn" id="9_lcdfg"]
-[ext_resource type="Texture2D" uid="uid://cb1jnqp2fbwtd" path="res://environment/sketch_past1.jpg" id="11_lcdfg"]
 [ext_resource type="Script" path="res://environment/ui_manager.gd" id="13_v5ifb"]
+[ext_resource type="PackedScene" uid="uid://dk5dpwdsv2s7u" path="res://UI/UpgradeMenu.tscn" id="15_e8rkj"]
 
 [sub_resource type="Curve2D" id="Curve2D_3sytr"]
 _data = {
@@ -24,19 +26,11 @@ point_count = 5
 [node name="Map" type="Node2D"]
 script = ExtResource("1_fp5rb")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -100
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_left = -41.0
-offset_top = -5.0
-offset_right = 2016.0
-offset_bottom = 1097.0
-
-[node name="SketchPast1" type="Sprite2D" parent="CanvasLayer"]
-visible = false
-position = Vector2(960, 541)
-texture = ExtResource("11_lcdfg")
+[node name="ChunkManager" type="Node2D" parent="." node_paths=PackedStringArray("player")]
+z_index = -1
+script = ExtResource("2_jyqfc")
+chunk_scene = ExtResource("3_a3b41")
+player = NodePath("../Player")
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 
@@ -102,6 +96,21 @@ value = 100.0
 script = ExtResource("2_ml8jp")
 target_node = NodePath("../../Player")
 
+[node name="HealthLabel" type="Label" parent="CanvasLayer2/PlayerHealthBar"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -30.5
+offset_top = 5.0
+offset_right = 31.5
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "100/100"
+
 [node name="LabelCode" type="Node2D" parent="CanvasLayer2"]
 script = ExtResource("3_i4838")
 
@@ -125,7 +134,13 @@ offset_bottom = 152.0
 scale = Vector2(3, 3)
 text = "Score:"
 
+[node name="UpgradeMenu" parent="CanvasLayer2" node_paths=PackedStringArray("target") instance=ExtResource("15_e8rkj")]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+target = NodePath("../../Player")
+
 [node name="Player" parent="." instance=ExtResource("1_8viek")]
+unique_name_in_owner = true
 position = Vector2(1042, 483)
 
 [node name="Path2D" type="Path2D" parent="Player"]
@@ -134,7 +149,6 @@ curve = SubResource("Curve2D_3sytr")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
 unique_name_in_owner = true
-visible = false
 position = Vector2(-132, -95)
 rotation = 0.09066
 

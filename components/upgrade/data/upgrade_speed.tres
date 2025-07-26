@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=2 format=3 uid="uid://dev6of7hrcua7"]
+
+[ext_resource type="Script" uid="uid://cidpj48hritl8" path="res://components/upgrade/upgrade_data.gd" id="1_hh1hw"]
+
+[resource]
+script = ExtResource("1_hh1hw")
+upgrade_type = 0
+stat_name = "speed"
+amount = 20.0
+label = "Upgrade Speed"
+description = "+20 Speed"
+metadata/_custom_type_script = "uid://cidpj48hritl8"

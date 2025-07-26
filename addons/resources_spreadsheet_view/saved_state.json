@@ -1,5 +1,16 @@
 {
   "column_properties": {
+    "res://characters/": {
+      "metadata/_custom_type_script": {
+        "visibility": 0.0
+      },
+      "resource_local_to_scene": {
+        "visibility": 0.0
+      },
+      "resource_name": {
+        "visibility": 0.0
+      }
+    },
     "res://characters/enemies/data/": {
       "metadata/_custom_type_script": {
         "visibility": 0.0
@@ -8,12 +19,25 @@
         "visibility": 0.0
       },
       "resource_name": {
-        "visibility": 0
+        "visibility": 0.0
+      }
+    },
+    "res://components/upgrade/data/": {
+      "metadata/_custom_type_script": {
+        "visibility": 0.0
+      },
+      "resource_local_to_scene": {
+        "visibility": 0.0
+      },
+      "resource_name": {
+        "visibility": 0.0
       }
     }
   },
   "recent_paths": [
-    "res://characters/enemies/data/"
+    "res://characters/enemies/data/",
+    "res://characters/",
+    "res://components/upgrade/data/"
   ],
   "table_functions": {
     "filter": [

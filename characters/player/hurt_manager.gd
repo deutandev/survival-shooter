@@ -3,18 +3,21 @@ class_name HurtManager
 
 @onready var hurtbox: Area2D = %HurtBox
 @onready var hurt_timer: Timer = %HurtTimer
-@export var knockback_power := 1000
-@export var damage_amount := 5
+@export var knockback_power:int = 1000
+@export var damage_amount: int = 5
 @export var target: CharacterBody2D
-@onready var health: HealthManager = %HealthManager
+@onready var health_manager: HealthManager = %HealthManager
+@export var defense: float = 0.0
 
 var is_hurt := false
 var is_free := true
 
 
-func apply_damage(body: Node2D):
-	health.take_damage(body.stats.damage)
-	apply_knockback(body.velocity)
+func apply_damage(body: Node2D, raw_damage: int = 1):
+	var enemy_damage = body.stats.damage if body.stats else raw_damage
+	var reduced_damage = max(enemy_damage - defense, 1)  # ✅ Use player's defense
+	health_manager.take_damage(reduced_damage)
+	# print current health
 
 func apply_knockback(enemy_velocity: Vector2):
 	if !target:

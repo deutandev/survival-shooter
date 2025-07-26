@@ -1,22 +1,25 @@
-extends Node
+extends Node2D
 class_name HealthManager
 
-signal health_changed()
+signal health_changed(current, max)
 signal dead
 
-@export var max_health := 100
-var current_health := max_health
+var max_health:int = 100
+var current_health:int = max_health
 
 func _ready():
-	reset()
-
-func take_damage(damage_amount: int):
-	#print_debug("Take Damage")
-	current_health -= damage_amount
-	health_changed.emit(current_health)
-	if current_health <= 0:
-		dead.emit()
-
-func reset():
 	current_health = max_health
-	health_changed.emit(current_health)
+
+func take_damage(amount: int):
+	current_health = max(current_health - amount, 0)
+	print("current h", amount)
+	emit_signal("health_changed", current_health, max_health)
+	if current_health == 0:
+		emit_signal("dead")
+
+func heal(amount: int):
+	current_health = min(current_health + amount, max_health)
+	emit_signal("health_changed", current_health, max_health)
+
+func is_dead() -> bool:
+	return current_health <= 0

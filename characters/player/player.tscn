@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dhpintm4oouv3"]
+[gd_scene load_steps=14 format=3 uid="uid://dhpintm4oouv3"]
 
 [ext_resource type="Script" uid="uid://bjmv61e1a232k" path="res://characters/player/health_manager.gd" id="1_exd8k"]
 [ext_resource type="Script" uid="uid://84fb3bbyrwpm" path="res://characters/player/player.gd" id="1_xxgcw"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://djna3brwtph2v" path="res://characters/player/sprites/player_idle.png" id="3_c6leb"]
 [ext_resource type="PackedScene" uid="uid://cv8rforp2qx3w" path="res://pistol/gun.tscn" id="3_exd8k"]
 [ext_resource type="PackedScene" uid="uid://d36roq5bjt4cv" path="res://skills/bomb.tscn" id="6_c6leb"]
+[ext_resource type="PackedScene" uid="uid://cw1ufa4askf1m" path="res://components/upgrade/upgrade_manager.tscn" id="7_dirf7"]
 
 [sub_resource type="Animation" id="Animation_dirf7"]
 length = 0.001
@@ -56,7 +57,7 @@ radius = 46.5107
 collision_mask = 6
 platform_floor_layers = 4294967040
 script = ExtResource("1_xxgcw")
-player_data = ExtResource("2_dirf7")
+player_base_data = ExtResource("2_dirf7")
 
 [node name="Gun" parent="." instance=ExtResource("3_exd8k")]
 unique_name_in_owner = true
@@ -108,6 +109,8 @@ wait_time = 0.5
 [node name="HealthManager" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_exd8k")
+
+[node name="UpgradeManager" parent="." instance=ExtResource("7_dirf7")]
 
 [connection signal="body_entered" from="HurtManager/HurtBox" to="HurtManager" method="_on_hurt_box_body_entered"]
 [connection signal="timeout" from="HurtManager/HurtBox/HurtTimer" to="HurtManager" method="_on_hurt_timer_timeout"]
