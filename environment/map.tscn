@@ -11,11 +11,13 @@
 [ext_resource type="Script" uid="uid://cwv55w6bu3swa" path="res://environment/ult_button.gd" id="5_pvoq3"]
 [ext_resource type="Texture2D" uid="uid://bnapesubuvrch" path="res://environment/gameover_text.png" id="5_vp37v"]
 [ext_resource type="PackedScene" uid="uid://dj2625ljimjkr" path="res://pooling/object_pool.tscn" id="7_ji8xv"]
-[ext_resource type="PackedScene" uid="uid://cce0ntpr7nmft" path="res://characters/enemies/mobs/tank.tscn" id="7_sd800"]
-[ext_resource type="PackedScene" uid="uid://5knwhkryyy4s" path="res://characters/enemies/mobs/vanguard.tscn" id="9_lcdfg"]
-[ext_resource type="Texture2D" uid="uid://cb1jnqp2fbwtd" path="res://environment/sketch_past1.jpg" id="11_lcdfg"]
+[ext_resource type="PackedScene" uid="uid://cce0ntpr7nmft" path="res://mobs/tank.tscn" id="7_sd800"]
+[ext_resource type="PackedScene" uid="uid://5knwhkryyy4s" path="res://mobs/vanguard.tscn" id="9_lcdfg"]
 [ext_resource type="Script" uid="uid://b81v8y1eja7r6" path="res://environment/ui_manager.gd" id="13_v5ifb"]
 [ext_resource type="Script" uid="uid://cd8dndsi2dcx1" path="res://chunksystem/chunk_manager.gd" id="15_e8rkj"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e8rkj"]
+load_path = "res://.godot/imported/sketch_past1.jpg-046ec2c633604ea97dc1d5bcf51f5d90.ctex"
 
 [sub_resource type="Curve2D" id="Curve2D_3sytr"]
 _data = {
@@ -43,7 +45,7 @@ offset_bottom = 1097.0
 [node name="SketchPast1" type="Sprite2D" parent="CanvasLayer"]
 visible = false
 position = Vector2(960, 541)
-texture = ExtResource("11_lcdfg")
+texture = SubResource("CompressedTexture2D_e8rkj")
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 
