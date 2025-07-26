@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ci7o2hwcenyhx"]
+[gd_scene load_steps=22 format=3 uid="uid://ci7o2hwcenyhx"]
 
 [ext_resource type="PackedScene" uid="uid://dhpintm4oouv3" path="res://characters/player/player.tscn" id="1_8viek"]
 [ext_resource type="Script" uid="uid://by3uf4ticsjm2" path="res://environment/map.gd" id="1_fp5rb"]
@@ -7,18 +7,19 @@
 [ext_resource type="Script" uid="uid://wtnvja7gb1yt" path="res://environment/label_manager.gd" id="3_i4838"]
 [ext_resource type="PackedScene" uid="uid://vaqrayj1l0lo" path="res://chunksystem/ChunkNode.tscn" id="3_j41vl"]
 [ext_resource type="Texture2D" uid="uid://sh2xq6hvcrfa" path="res://environment/map_bg/past_new.jpg" id="4_jyqfc"]
-[ext_resource type="Texture2D" uid="uid://b74afqc8gfkyq" path="res://environment/bomb_button.png" id="4_sd800"]
 [ext_resource type="Texture2D" uid="uid://bu3mhxi64llne" path="res://environment/map_bg/envi_2.2.jpg" id="5_a3b41"]
 [ext_resource type="PackedScene" uid="uid://6fjm0d64g61c" path="res://drop_item/coin.tscn" id="5_ml8jp"]
 [ext_resource type="Script" uid="uid://cwv55w6bu3swa" path="res://environment/ult_button.gd" id="5_pvoq3"]
 [ext_resource type="Texture2D" uid="uid://bnapesubuvrch" path="res://environment/gameover_text.png" id="5_vp37v"]
+[ext_resource type="Texture2D" uid="uid://bqm8ydabesbyo" path="res://environment/button_asset/ULTButton_Normal.png" id="7_b0oru"]
 [ext_resource type="PackedScene" uid="uid://dj2625ljimjkr" path="res://pooling/object_pool.tscn" id="7_ji8xv"]
 [ext_resource type="PackedScene" uid="uid://cce0ntpr7nmft" path="res://characters/enemies/mobs/tank.tscn" id="7_sd800"]
+[ext_resource type="Texture2D" uid="uid://b3a7em7gjy5f8" path="res://environment/button_asset/ULTButton_Cooldown.png" id="8_b0oru"]
+[ext_resource type="Texture2D" uid="uid://ddh8jgmk0c3yx" path="res://environment/button_asset/ULTButton_Hovered.png" id="9_jbfok"]
 [ext_resource type="PackedScene" uid="uid://5knwhkryyy4s" path="res://characters/enemies/mobs/vanguard.tscn" id="9_lcdfg"]
+[ext_resource type="PackedScene" uid="uid://nsljdh5bn4td" path="res://environment/pause_menu.tscn" id="10_a3b41"]
 [ext_resource type="Script" uid="uid://b81v8y1eja7r6" path="res://environment/ui_manager.gd" id="13_v5ifb"]
 [ext_resource type="Script" uid="uid://cd8dndsi2dcx1" path="res://chunksystem/chunk_manager.gd" id="15_e8rkj"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e8rkj"]
 
 [sub_resource type="Curve2D" id="Curve2D_3sytr"]
 _data = {
@@ -36,70 +37,69 @@ available_images = Array[Texture2D]([ExtResource("4_jyqfc"), ExtResource("5_a3b4
 player = NodePath("../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -100
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_left = -41.0
-offset_top = -5.0
-offset_right = 2016.0
-offset_bottom = 1097.0
-
-[node name="SketchPast1" type="Sprite2D" parent="CanvasLayer"]
-visible = false
-position = Vector2(960, 541)
-texture = SubResource("CompressedTexture2D_e8rkj")
-
-[node name="CanvasLayer3" type="CanvasLayer" parent="."]
-
-[node name="GamePanel" type="Sprite2D" parent="CanvasLayer3"]
+[node name="GamePanel" type="Sprite2D" parent="CanvasLayer"]
 top_level = true
 light_mask = 512
 visibility_layer = 512
-z_index = 2
 position = Vector2(957, 93)
 texture = ExtResource("2_aacnv")
 
-[node name="UltButton" type="TextureButton" parent="CanvasLayer3" node_paths=PackedStringArray("player")]
-offset_left = 1615.0
-offset_top = 745.0
-offset_right = 1899.0
-offset_bottom = 1014.0
-toggle_mode = true
-button_pressed = true
-texture_normal = ExtResource("4_sd800")
-stretch_mode = 5
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("10_a3b41")]
+z_index = 1
+
+[node name="PauseButton" type="Button" parent="CanvasLayer"]
+offset_left = 1799.0
+offset_top = 10.0
+offset_right = 1928.0
+offset_bottom = 90.0
+theme_override_font_sizes/font_size = 52
+text = "||"
+
+[node name="UltButtonNode" type="Node2D" parent="CanvasLayer" node_paths=PackedStringArray("player")]
 script = ExtResource("5_pvoq3")
 player = NodePath("../../Player")
 
-[node name="cooldown_label" type="Label" parent="CanvasLayer3/UltButton"]
+[node name="UltButton" type="TextureButton" parent="CanvasLayer/UltButtonNode"]
+offset_left = 1512.0
+offset_top = 680.0
+offset_right = 1859.0
+offset_bottom = 1021.0
+texture_normal = ExtResource("7_b0oru")
+texture_pressed = ExtResource("8_b0oru")
+texture_hover = ExtResource("9_jbfok")
+texture_disabled = ExtResource("8_b0oru")
+stretch_mode = 5
+
+[node name="CooldownLabel" type="Label" parent="CanvasLayer/UltButtonNode/UltButton"]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 70.0
-offset_top = 124.0
-offset_right = 136.0
-offset_bottom = 149.0
+offset_left = 108.0
+offset_top = 130.0
+offset_right = 174.0
+offset_bottom = 175.0
 scale = Vector2(2, 2)
+theme_override_font_sizes/font_size = 32
 text = "0.0"
 horizontal_alignment = 1
 
-[node name="gameover_panel" type="Node2D" parent="CanvasLayer3"]
+[node name="GameoverPanel" type="Node2D" parent="CanvasLayer"]
 unique_name_in_owner = true
 visible = false
 
-[node name="Panel" type="Panel" parent="CanvasLayer3/gameover_panel"]
+[node name="Panel" type="Panel" parent="CanvasLayer/GameoverPanel"]
 offset_left = -44.0
 offset_top = -29.0
 offset_right = 2029.0
 offset_bottom = 1103.0
 
-[node name="GameoverText" type="Sprite2D" parent="CanvasLayer3/gameover_panel"]
+[node name="GameoverText" type="Sprite2D" parent="CanvasLayer/GameoverPanel"]
 position = Vector2(990, 519.5)
 scale = Vector2(1.48553, 1.5586)
 texture = ExtResource("5_vp37v")
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="BarLabelCanvas" type="CanvasLayer" parent="."]
 
-[node name="PlayerHealthBar" type="ProgressBar" parent="CanvasLayer2" node_paths=PackedStringArray("target_node")]
+[node name="PlayerHealthBar" type="ProgressBar" parent="BarLabelCanvas" node_paths=PackedStringArray("target_node")]
 modulate = Color(0, 1, 0.486275, 1)
 top_level = true
 light_mask = 512
@@ -113,10 +113,10 @@ value = 100.0
 script = ExtResource("2_ml8jp")
 target_node = NodePath("../../Player")
 
-[node name="LabelCode" type="Node2D" parent="CanvasLayer2"]
+[node name="LabelCode" type="Node2D" parent="BarLabelCanvas"]
 script = ExtResource("3_i4838")
 
-[node name="CoinTotal" type="Label" parent="CanvasLayer2/LabelCode"]
+[node name="CoinTotal" type="Label" parent="BarLabelCanvas/LabelCode"]
 unique_name_in_owner = true
 modulate = Color(1, 0.717647, 0.443137, 1)
 offset_left = 98.0
@@ -126,7 +126,7 @@ offset_bottom = 47.0
 scale = Vector2(2, 2)
 text = "00"
 
-[node name="ScoreTotal" type="Label" parent="CanvasLayer2/LabelCode"]
+[node name="ScoreTotal" type="Label" parent="BarLabelCanvas/LabelCode"]
 unique_name_in_owner = true
 modulate = Color(0, 0, 0, 1)
 offset_left = 24.0
@@ -167,5 +167,6 @@ object_scene = ExtResource("9_lcdfg")
 script = ExtResource("13_v5ifb")
 player = NodePath("../Player")
 
-[connection signal="pressed" from="CanvasLayer3/UltButton" to="CanvasLayer3/UltButton" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseButton" to="CanvasLayer/PauseMenu" method="_on_pause_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UltButtonNode/UltButton" to="CanvasLayer/UltButtonNode" method="_on_ult_button_pressed"]
 [connection signal="timeout" from="MobSpawnTimer" to="." method="_on_spawn_timer_timeout"]

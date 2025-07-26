@@ -1,7 +1,8 @@
 extends Node2D
 
-@onready var gameover_panel = %gameover_panel
+@onready var gameover_panel = %GameoverPanel
 @export var player : CharacterBody2D
+const MAIN_MENU_PATH := "res://environment/main_menu/mainMenu.tscn"
 
 func _ready():
 	gameover_panel.visible = false
@@ -16,4 +17,4 @@ func _on_player_died():
 func _return_to_main_menu():
 	await get_tree().create_timer(3.0, true).timeout
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://environment/main_menu/mainMenu.tscn")
+	get_tree().change_scene_to_file(MAIN_MENU_PATH)
