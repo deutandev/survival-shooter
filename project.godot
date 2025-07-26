@@ -34,7 +34,6 @@ config/windows_native_icon="res://icon.ico"
 [autoload]
 
 Game_Stats="*res://game_stats.gd"
-WorldSave="*res://chunksystem/WorldSave.gd"
 
 [display]
 
