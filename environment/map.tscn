@@ -73,6 +73,7 @@ stretch_mode = 5
 
 [node name="CooldownLabel" type="Label" parent="CanvasLayer/UltButtonNode/UltButton"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 108.0
 offset_top = 130.0
 offset_right = 174.0
