@@ -1,7 +1,6 @@
 extends Node
 class_name UpgradeManager
 
-signal upgraded(stat: String, new_value: Variant)
 
 # UpgradeManager.gd
 func apply_upgrade(upgrade: UpgradeData, target: Node):  # ✅ FIXED
@@ -20,4 +19,3 @@ func apply_upgrade(upgrade: UpgradeData, target: Node):  # ✅ FIXED
 			target.set_stat(stat_name, current * (1.0 + amount / 100.0))
 
 	print("✅ Applied upgrade:", stat_name, "→", target.get_stat(stat_name))
-	emit_signal("upgraded", stat_name, target.get_stat(stat_name))

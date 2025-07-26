@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dj2625ljimjkr" path="res://pooling/object_pool.tscn" id="7_ji8xv"]
 [ext_resource type="PackedScene" uid="uid://cce0ntpr7nmft" path="res://characters/enemies/mobs/tank.tscn" id="7_sd800"]
 [ext_resource type="PackedScene" uid="uid://5knwhkryyy4s" path="res://characters/enemies/mobs/vanguard.tscn" id="9_lcdfg"]
-[ext_resource type="Script" path="res://environment/ui_manager.gd" id="13_v5ifb"]
+[ext_resource type="Script" uid="uid://b81v8y1eja7r6" path="res://environment/ui_manager.gd" id="13_v5ifb"]
 [ext_resource type="PackedScene" uid="uid://dk5dpwdsv2s7u" path="res://UI/UpgradeMenu.tscn" id="15_e8rkj"]
 
 [sub_resource type="Curve2D" id="Curve2D_3sytr"]

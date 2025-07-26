@@ -3,6 +3,8 @@ extends Node2D
 @onready var gameover_panel = %gameover_panel
 @export var player : CharacterBody2D
 
+@onready var upgrade_mgr = player.get_node("UpgradeManager")
+
 func _ready():
 	gameover_panel.visible = false
 	player.player_died.connect(_on_player_died)

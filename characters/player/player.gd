@@ -105,6 +105,7 @@ func set_stat(stat_name: String, value):
 		"max_health":
 			health_manager.max_health = value
 			health_manager.current_health = min(health_manager.current_health, value)
+			health_manager.health_changed.emit(health_manager.current_health, health_manager.max_health)
 			print("✅ Health upgraded to:", value)
 		"speed":
 			current_speed = value
