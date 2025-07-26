@@ -6,6 +6,8 @@ signal skill_cooldown_started(duration: float)
 signal skill_cooldown_ended()
 
 @export var player_data : CharacterData
+@onready var player_animation := $PlayerAnimatedSprite
+
 
 @export var speed: float = 600.0
 @onready var health: HealthManager = %HealthManager
@@ -14,6 +16,7 @@ signal skill_cooldown_ended()
 
 @onready var skill_scene: PackedScene = player_data.skill_scene
 @export var skill_cooldown: float = 3.0
+
 
 var skill: Node = null
 var can_use_skill := true
@@ -35,12 +38,18 @@ func _ready() -> void:
 
 func _on_shoot_direction_changed(facing_right: bool):
 	# Flip the sprite to match shooting direction
-	$Sprite2D.flip_h = not facing_right
+	player_animation.flip_h = not facing_right
 
 
 func get_input():
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = input_direction * speed
+	
+	if input_direction != Vector2.ZERO:
+		player_animation.play("run")
+	else:
+		player_animation.play("idle")
+	
 
 func _physics_process(delta: float) -> void:
 	get_input()
