@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bj2je6nv2vokx"]
+[gd_scene load_steps=10 format=3 uid="uid://bj2je6nv2vokx"]
 
 [ext_resource type="Texture2D" uid="uid://b1jwnwu05ntcg" path="res://environment/main_menu/MainMenu.jpg" id="1_oynim"]
 [ext_resource type="Script" uid="uid://6wsjpecejnx5" path="res://environment/main_menu/main_button_manager.gd" id="1_uank7"]
 [ext_resource type="Script" uid="uid://byjix033eqqv6" path="res://environment/main_menu/main_label_manager.gd" id="2_a1r21"]
+[ext_resource type="Texture2D" uid="uid://d0iojir0fe5eo" path="res://environment/main_menu/button mockup.png" id="3_k05vt"]
+[ext_resource type="Texture2D" uid="uid://b47o1wnjj0iev" path="res://environment/main_menu/Menu Screen_Border.png" id="3_the8w"]
+[ext_resource type="AudioStream" uid="uid://chujtk87l5sl4" path="res://audio/Critical Tension - Ticking Trailer 1 Min.mp3" id="4_3vnf6"]
+[ext_resource type="Texture2D" uid="uid://ot40386g2ocb" path="res://environment/main_menu/Menu_Play.png" id="5_t2sos"]
+[ext_resource type="AudioStream" uid="uid://bg22rsrb3anjg" path="res://audio/click.wav" id="5_ucrse"]
+[ext_resource type="FontFile" uid="uid://cdya30u1ro1xm" path="res://fonts/HOMINIS.TTF" id="7_sm6hx"]
 
 [node name="MainMenu" type="Node2D"]
 
@@ -12,43 +18,96 @@
 position = Vector2(961, 542)
 texture = ExtResource("1_oynim")
 
+[node name="MainMenu2" type="Sprite2D" parent="CanvasLayer2"]
+position = Vector2(960, 542)
+texture = ExtResource("3_the8w")
+
+[node name="ButtonMockup" type="Sprite2D" parent="CanvasLayer2"]
+position = Vector2(960, 542)
+texture = ExtResource("3_k05vt")
+
 [node name="Label" type="Node2D" parent="CanvasLayer2"]
 script = ExtResource("2_a1r21")
 
 [node name="CoinLabel" type="Label" parent="CanvasLayer2/Label"]
 unique_name_in_owner = true
 offset_left = 291.0
-offset_top = 918.0
+offset_top = 914.0
 offset_right = 406.0
-offset_bottom = 1012.0
+offset_bottom = 1008.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 49
+theme_override_fonts/font = ExtResource("7_sm6hx")
+theme_override_font_sizes/font_size = 48
 text = "00"
+vertical_alignment = 1
+
+[node name="HighscoreLabel" type="Label" parent="CanvasLayer2/Label"]
+unique_name_in_owner = true
+offset_left = 528.0
+offset_top = 69.0
+offset_right = 882.0
+offset_bottom = 129.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_sm6hx")
+theme_override_font_sizes/font_size = 64
+text = "0000"
+vertical_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ButtonManager" type="Node2D" parent="CanvasLayer"]
 script = ExtResource("1_uank7")
 
-[node name="Start" type="Button" parent="CanvasLayer/ButtonManager"]
-modulate = Color(0.254902, 1, 1, 0.223529)
-light_mask = 0
-visibility_layer = 524288
-offset_left = 1244.0
-offset_top = 148.0
-offset_right = 1577.0
-offset_bottom = 432.0
+[node name="Start" type="TextureButton" parent="CanvasLayer/ButtonManager"]
+offset_left = 1155.0
+offset_right = 1646.0
+offset_bottom = 478.0
+texture_normal = ExtResource("5_t2sos")
 
-[node name="Quit" type="Button" parent="CanvasLayer/ButtonManager"]
-modulate = Color(0.254902, 1, 1, 1)
-light_mask = 0
-visibility_layer = 524288
-offset_left = 1637.0
-offset_top = 5.0
-offset_right = 1922.0
-offset_bottom = 156.0
-text = "Quit
-"
+[node name="Label" type="Label" parent="CanvasLayer/ButtonManager/Start"]
+offset_left = 140.0
+offset_top = 188.0
+offset_right = 374.0
+offset_bottom = 298.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_sm6hx")
+theme_override_font_sizes/font_size = 56
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="TextureButton" parent="CanvasLayer/ButtonManager"]
+offset_left = 1132.0
+offset_top = 646.0
+offset_right = 1623.0
+offset_bottom = 1124.0
+texture_normal = ExtResource("5_t2sos")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/ButtonManager/Quit"]
+offset_left = 134.0
+offset_top = 189.0
+offset_right = 368.0
+offset_bottom = 299.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_sm6hx")
+theme_override_font_sizes/font_size = 56
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioList" type="Node2D" parent="."]
+
+[node name="MenuBgm" type="AudioStreamPlayer2D" parent="AudioList"]
+stream = ExtResource("4_3vnf6")
+volume_db = -7.0
+autoplay = true
+parameters/looping = true
+
+[node name="MenuButtonSfx" type="AudioStreamPlayer2D" parent="AudioList"]
+unique_name_in_owner = true
+stream = ExtResource("5_ucrse")
+volume_db = 9.0
 
 [connection signal="pressed" from="CanvasLayer/ButtonManager/Start" to="CanvasLayer/ButtonManager" method="_on_start_pressed"]
 [connection signal="pressed" from="CanvasLayer/ButtonManager/Quit" to="CanvasLayer/ButtonManager" method="_on_quit_pressed"]

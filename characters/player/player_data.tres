@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="PlayerData" load_steps=3 format=3 uid="uid://drnjnacba7c50"]
 
 [ext_resource type="Script" uid="uid://pm0u3b7fxm7v" path="res://characters/player/player_data.gd" id="1_8m6lv"]
-[ext_resource type="PackedScene" uid="uid://d36roq5bjt4cv" path="res://skills/bomb.tscn" id="2_sh0m7"]
+[ext_resource type="PackedScene" uid="uid://d36roq5bjt4cv" path="res://ult_skills/bomb.tscn" id="2_sh0m7"]
 
 [resource]
 script = ExtResource("1_8m6lv")

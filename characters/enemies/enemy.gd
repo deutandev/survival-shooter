@@ -10,6 +10,10 @@ class_name Mob
 @onready var health_label: Label = $HealthLabel
 @onready var sprite: Sprite2D = $MobSprite
 
+#Skill Orb Drop
+@onready var skill_orb_drop: SkillOrbDropManager = %SkillOrbDropManager
+
+
 # Runtime variables
 var current_health: int = 3
 var components: Array = []
@@ -83,6 +87,8 @@ func die():
 	GameStats.add_score(score_value)
 	# Drop coins
 	coin_drop.drop_coin(global_position)
+	# Drop Skill Orb
+	skill_orb_drop.drop_skill_orb(global_position)
 	# Emit signal for object pooling
 	died.emit(self)
 

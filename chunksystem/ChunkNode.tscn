@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://vaqrayj1l0lo"]
 
 [ext_resource type="Script" uid="uid://bppqvt7ahnlue" path="res://chunksystem/ChunkNode.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://sh2xq6hvcrfa" path="res://environment/map_bg/past_new.jpg" id="2_de23d"]
+[ext_resource type="Texture2D" uid="uid://sh2xq6hvcrfa" path="res://environment/map_bg_assets/past_map.jpg" id="2_de23d"]
 
 [node name="ChunkNode" type="Node2D"]
 z_index = -1

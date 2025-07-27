@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://nsljdh5bn4td"]
+[gd_scene load_steps=3 format=3 uid="uid://nsljdh5bn4td"]
 
 [ext_resource type="Script" uid="uid://dec00qvy2byyr" path="res://environment/pause_menu.gd" id="1_mc6lp"]
+[ext_resource type="FontFile" uid="uid://cdya30u1ro1xm" path="res://fonts/HOMINIS.TTF" id="2_qrl3l"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -21,10 +22,11 @@ offset_bottom = 1167.0
 
 [node name="Label" type="Label" parent="PausePanel"]
 layout_mode = 0
-offset_left = 713.0
-offset_top = 320.0
-offset_right = 1349.0
-offset_bottom = 487.0
+offset_left = 589.0
+offset_top = 274.0
+offset_right = 1445.0
+offset_bottom = 441.0
+theme_override_fonts/font = ExtResource("2_qrl3l")
 theme_override_font_sizes/font_size = 91
 text = "GAME PAUSED"
 horizontal_alignment = 1
@@ -32,10 +34,11 @@ vertical_alignment = 1
 
 [node name="ResumeButton" type="Button" parent="PausePanel"]
 layout_mode = 0
-offset_left = 869.0
-offset_top = 669.0
-offset_right = 1235.0
-offset_bottom = 793.0
+offset_left = 781.0
+offset_top = 674.0
+offset_right = 1244.0
+offset_bottom = 851.0
+theme_override_fonts/font = ExtResource("2_qrl3l")
 theme_override_font_sizes/font_size = 62
 text = "RESUME"
 
