@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cv8rforp2qx3w"]
 
 [ext_resource type="Script" uid="uid://dv2voemuvkfap" path="res://gun/gun.gd" id="1_b7uwb"]
-[ext_resource type="AudioStream" uid="uid://dydsmyci18jxc" path="res://gun/laserSmall_004.ogg" id="2_b7uwb"]
+[ext_resource type="AudioStream" uid="uid://djar3gpcyl6s" path="res://audio/gun_firing.wav" id="2_0qvfs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n4yv8"]
 radius = 461.039
@@ -28,7 +28,8 @@ wait_time = 0.5
 autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_b7uwb")
+stream = ExtResource("2_0qvfs")
+volume_db = -12.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

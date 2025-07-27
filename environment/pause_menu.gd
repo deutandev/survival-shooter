@@ -1,6 +1,7 @@
 extends Control
 
 @onready var pause_panel := $PausePanel
+@onready var game_button_sfx := %GameButtonSfx
 
 func _ready():
 	resume()
@@ -23,8 +24,11 @@ func isPressedEsc():
 		resume()
 
 func _on_resume_button_pressed() -> void:
+	game_button_sfx.play()
 	resume()
 
 
 func _on_pause_button_pressed() -> void:
+	game_button_sfx.play()
+	await game_button_sfx.finished 
 	pause()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ci7o2hwcenyhx"]
+[gd_scene load_steps=29 format=3 uid="uid://ci7o2hwcenyhx"]
 
 [ext_resource type="PackedScene" uid="uid://dhpintm4oouv3" path="res://characters/player/player.tscn" id="1_8viek"]
 [ext_resource type="Script" uid="uid://by3uf4ticsjm2" path="res://environment/map.gd" id="1_fp5rb"]
@@ -25,6 +25,8 @@
 [ext_resource type="Texture2D" uid="uid://cwwgfucxe7ut5" path="res://characters/player/health_bar_player/HEALTHBAR_BACK.png" id="15_x06km"]
 [ext_resource type="Texture2D" uid="uid://dpeqlotyw747j" path="res://characters/player/health_bar_player/HEALTHBAR_FRONT.png" id="16_v7wbm"]
 [ext_resource type="Texture2D" uid="uid://dxti6ih5xhuia" path="res://characters/player/health_bar_player/HEALTHBAR_GAUGECOLOR.png" id="17_kmjdj"]
+[ext_resource type="AudioStream" uid="uid://fejscclnewem" path="res://audio/game_bgm_audio.mp3" id="26_kmjdj"]
+[ext_resource type="AudioStream" uid="uid://bg22rsrb3anjg" path="res://audio/click.wav" id="27_ecdha"]
 
 [sub_resource type="Curve2D" id="Curve2D_3sytr"]
 _data = {
@@ -208,6 +210,18 @@ object_scene = ExtResource("9_lcdfg")
 [node name="UIManager" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("13_v5ifb")
 player = NodePath("../Player")
+
+[node name="AudioManager" type="Node2D" parent="."]
+
+[node name="GameBgm" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("26_kmjdj")
+autoplay = true
+parameters/looping = true
+
+[node name="GameButtonSfx" type="AudioStreamPlayer2D" parent="AudioManager"]
+unique_name_in_owner = true
+stream = ExtResource("27_ecdha")
+volume_db = 9.0
 
 [connection signal="pressed" from="CanvasLayer/PauseButton" to="CanvasLayer/PauseMenu" method="_on_pause_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/UltButtonNode/UltButton" to="CanvasLayer/UltButtonNode" method="_on_ult_button_pressed"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dqtuuriaubl1r" path="res://ult_skills/bomb.gd" id="1_awias"]
 [ext_resource type="Texture2D" uid="uid://dn80eu1qs371v" path="res://gun/impact/circle.png" id="1_h5p3r"]
-[ext_resource type="AudioStream" uid="uid://dfoai8q5w46sn" path="res://ult_skills/lowFrequency_explosion_000.ogg" id="3_5dcoo"]
+[ext_resource type="AudioStream" uid="uid://bqniwlol0af0t" path="res://audio/bom_explosion.wav" id="3_jkpor"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_awias"]
 radius = 275.016
@@ -24,7 +24,6 @@ shape = SubResource("CircleShape2D_awias")
 [node name="Timer" type="Timer" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_5dcoo")
-volume_db = 4.0
+stream = ExtResource("3_jkpor")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
