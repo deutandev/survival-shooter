@@ -80,7 +80,7 @@ func die():
 	is_dead = true
 	# Award score
 	var score_value = stats.exp_value if stats else 10
-	Game_Stats.add_score(score_value)
+	GameStats.add_score(score_value)
 	# Drop coins
 	coin_drop.drop_coin(global_position)
 	# Emit signal for object pooling

@@ -33,7 +33,8 @@ config/windows_native_icon="res://icon.ico"
 
 [autoload]
 
-Game_Stats="*res://game_stats.gd"
+GameStats="*res://game_stats.gd"
+CoinData="*res://characters/player/coin_data.gd"
 
 [display]
 

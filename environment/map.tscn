@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://wtnvja7gb1yt" path="res://environment/label_manager.gd" id="3_i4838"]
 [ext_resource type="PackedScene" uid="uid://vaqrayj1l0lo" path="res://chunksystem/ChunkNode.tscn" id="3_j41vl"]
 [ext_resource type="Texture2D" uid="uid://sh2xq6hvcrfa" path="res://environment/map_bg/past_new.jpg" id="4_jyqfc"]
-[ext_resource type="Texture2D" uid="uid://bu3mhxi64llne" path="res://environment/map_bg/envi_2.2.jpg" id="5_a3b41"]
+[ext_resource type="Texture2D" uid="uid://crgk55x6kghl5" path="res://environment/map_bg/envi_2.3.jpg" id="5_b0oru"]
 [ext_resource type="PackedScene" uid="uid://6fjm0d64g61c" path="res://drop_item/coin.tscn" id="5_ml8jp"]
 [ext_resource type="Script" uid="uid://cwv55w6bu3swa" path="res://environment/ult_button.gd" id="5_pvoq3"]
 [ext_resource type="Texture2D" uid="uid://bnapesubuvrch" path="res://environment/gameover_text.png" id="5_vp37v"]
@@ -33,7 +33,7 @@ script = ExtResource("1_fp5rb")
 [node name="ChunkManager" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("15_e8rkj")
 chunk_scene = ExtResource("3_j41vl")
-available_images = Array[Texture2D]([ExtResource("4_jyqfc"), ExtResource("5_a3b41")])
+available_images = Array[Texture2D]([ExtResource("4_jyqfc"), ExtResource("5_b0oru")])
 player = NodePath("../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

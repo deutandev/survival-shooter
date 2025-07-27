@@ -1,20 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://bj2je6nv2vokx"]
+[gd_scene load_steps=4 format=3 uid="uid://bj2je6nv2vokx"]
 
 [ext_resource type="Texture2D" uid="uid://b1jwnwu05ntcg" path="res://environment/main_menu/MainMenu.jpg" id="1_oynim"]
 [ext_resource type="Script" uid="uid://6wsjpecejnx5" path="res://environment/main_menu/main_button_manager.gd" id="1_uank7"]
+[ext_resource type="Script" uid="uid://byjix033eqqv6" path="res://environment/main_menu/main_label_manager.gd" id="2_a1r21"]
 
 [node name="MainMenu" type="Node2D"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
-offset_right = 1237.0
-offset_bottom = 709.0
-
-[node name="MainMenu" type="Sprite2D" parent="CanvasLayer"]
+[node name="MainMenu" type="Sprite2D" parent="CanvasLayer2"]
 position = Vector2(961, 542)
 texture = ExtResource("1_oynim")
+
+[node name="Label" type="Node2D" parent="CanvasLayer2"]
+script = ExtResource("2_a1r21")
+
+[node name="CoinLabel" type="Label" parent="CanvasLayer2/Label"]
+unique_name_in_owner = true
+offset_left = 291.0
+offset_top = 918.0
+offset_right = 406.0
+offset_bottom = 1012.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 49
+text = "00"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ButtonManager" type="Node2D" parent="CanvasLayer"]
 script = ExtResource("1_uank7")

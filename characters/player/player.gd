@@ -69,8 +69,3 @@ func use_skill():
 
 func on_player_death():
 	player_died.emit()
-	#await get_tree().create_timer(1.0).timeout
-	#call_deferred("go_to_menu")
-
-#func go_to_menu():
-	#get_tree().change_scene_to_file("res://environment/main_menu/mainMenu.tscn")
