@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgavmiquqpsge"]
+[gd_scene load_steps=5 format=3 uid="uid://dgavmiquqpsge"]
 
 [ext_resource type="Script" uid="uid://dkm4k2fey310" path="res://environment/main_menu/credit_panel.gd" id="1_dy6y4"]
 [ext_resource type="Texture2D" uid="uid://ckygq8y3p1xow" path="res://environment/ui_asset/Button.png" id="2_er8g8"]
 [ext_resource type="FontFile" uid="uid://cdya30u1ro1xm" path="res://fonts/HOMINIS.TTF" id="3_5yrs2"]
+[ext_resource type="FontFile" uid="uid://oh10xj2oou7l" path="res://fonts/Tomorrow-Black.ttf" id="4_er8g8"]
 
 [node name="CreditPanel" type="Control"]
 process_mode = 3
@@ -22,10 +23,10 @@ offset_right = 1984.0
 offset_bottom = 1128.0
 
 [node name="CloseButton" type="TextureButton" parent="CreditInfoPanel"]
-offset_left = 816.0
-offset_top = 896.0
-offset_right = 1209.0
-offset_bottom = 1032.0
+offset_left = 800.0
+offset_top = 968.0
+offset_right = 1193.0
+offset_bottom = 1104.0
 texture_normal = ExtResource("2_er8g8")
 
 [node name="Label" type="Label" parent="CreditInfoPanel/CloseButton"]
@@ -44,5 +45,30 @@ theme_override_font_sizes/font_size = 42
 text = "Close"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Label" type="Label" parent="CreditInfoPanel"]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 128.0
+offset_right = 1744.0
+offset_bottom = 918.0
+theme_override_colors/font_color = Color(0.838897, 0.838897, 0.838897, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 21
+theme_override_fonts/font = ExtResource("4_er8g8")
+theme_override_font_sizes/font_size = 48
+text = "Game Designer
+M. Jahfal Firnas
+Irohenrii
+
+Game Programmer
+Andika Wirapala Fathin Azfar 
+Virly Karaniyametta Arista
+
+ 2D Artist
+Raynaldi Rizky Aditya
+Irohenrii
+
+Music: \"Critical Tension\" by Singular Waves"
 
 [connection signal="pressed" from="CreditInfoPanel/CloseButton" to="." method="_on_close_button_pressed"]
