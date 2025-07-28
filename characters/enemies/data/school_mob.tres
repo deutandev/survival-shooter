@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://dffwjrc2p470n"]
+
+[ext_resource type="Script" uid="uid://oq1wvv0c65iu" path="res://characters/enemies/enemy_data.gd" id="1_2e4w2"]
+
+[resource]
+script = ExtResource("1_2e4w2")
+damage = 3
+exp_value = 5
+movement_type = 0
+name = "school"
+max_health = 1
+speed = 200.0
+defense = 0.0

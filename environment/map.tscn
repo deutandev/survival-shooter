@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ci7o2hwcenyhx"]
+[gd_scene load_steps=20 format=3 uid="uid://ci7o2hwcenyhx"]
 
 [ext_resource type="PackedScene" uid="uid://dhpintm4oouv3" path="res://characters/player/player.tscn" id="1_8viek"]
 [ext_resource type="Script" uid="uid://by3uf4ticsjm2" path="res://environment/map.gd" id="1_fp5rb"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://5knwhkryyy4s" path="res://characters/enemies/mobs/vanguard.tscn" id="9_lcdfg"]
 [ext_resource type="Script" uid="uid://b81v8y1eja7r6" path="res://environment/ui_manager.gd" id="13_v5ifb"]
 [ext_resource type="PackedScene" uid="uid://dk5dpwdsv2s7u" path="res://UI/UpgradeMenu.tscn" id="15_e8rkj"]
+[ext_resource type="Script" uid="uid://d1gjdu3eppd1t" path="res://pooling/object_pool.gd" id="16_jyqfc"]
+[ext_resource type="PackedScene" uid="uid://caxdaedh7hyb7" path="res://characters/enemies/mobs/gear.tscn" id="17_7ag61"]
 
 [sub_resource type="Curve2D" id="Curve2D_3sytr"]
 _data = {
@@ -165,6 +167,11 @@ object_scene = ExtResource("7_sd800")
 
 [node name="VanguardPool" parent="." instance=ExtResource("7_ji8xv")]
 object_scene = ExtResource("9_lcdfg")
+
+[node name="SchoolPool" type="Node2D" parent="." groups=["enemy"]]
+script = ExtResource("16_jyqfc")
+object_scene = ExtResource("17_7ag61")
+object_count = 60
 
 [node name="UIManager" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("13_v5ifb")

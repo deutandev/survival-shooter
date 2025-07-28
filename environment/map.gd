@@ -4,14 +4,16 @@ extends Node2D
 @onready var regular_pool: Node = $RegularPool
 @onready var tank_pool: Node = $TankPool
 @onready var vanguard_pool: Node = $VanguardPool
+@onready var school_pool: Node = $SchoolPool
 
 #@onready var upgrade_manager: Node = $UpgradeManager
 
 # Mob spawn weights (higher = more common)
 @export var mob_weights: Dictionary = {
-	"regular": 70,    # 70% chance
-	"tank": 20,       # 20% chance  
-	"vanguard": 10    # 10% chance
+	"regular": 60,    # 70% chance
+	"tank": 0,       # 20% chance  
+	"vanguard": 20,    # 10% chance
+	"school": 10
 }
 
 
@@ -52,6 +54,8 @@ func _get_mob_from_pool(mob_type: String) -> Node2D:
 			return tank_pool.get_object()
 		"vanguard":
 			return vanguard_pool.get_object()
+		"school":
+			return school_pool.get_object()
 		_:
 			return regular_pool.get_object()  # fallback
 

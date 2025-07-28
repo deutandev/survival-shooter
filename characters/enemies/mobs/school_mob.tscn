@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://xjqyf5h7fmve"]
+
+[ext_resource type="PackedScene" uid="uid://caxdaedh7hyb7" path="res://characters/enemies/mobs/gear.tscn" id="1_f0bu3"]
+
+[node name="SchoolMob" type="Node2D"]
+
+[node name="GearMob" parent="." instance=ExtResource("1_f0bu3")]
+metadata/_edit_group_ = true
+
+[node name="GearMob2" parent="." instance=ExtResource("1_f0bu3")]
+position = Vector2(76, 93)
+metadata/_edit_group_ = true
+
+[node name="GearMob3" parent="." instance=ExtResource("1_f0bu3")]
+position = Vector2(10, 75)
+metadata/_edit_group_ = true
+
+[node name="GearMob4" parent="." instance=ExtResource("1_f0bu3")]
+position = Vector2(71, 22)
+metadata/_edit_group_ = true

@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b35xwxdbvdg2w"]
+[gd_scene load_steps=10 format=3 uid="uid://b35xwxdbvdg2w"]
 
 [ext_resource type="Script" uid="uid://b1ubsdibmcawl" path="res://characters/enemies/enemy.gd" id="1_008bi"]
 [ext_resource type="Resource" uid="uid://cqypuya5kxtcb" path="res://characters/enemies/data/regular_mob.tres" id="2_3vt6o"]
-[ext_resource type="Texture2D" uid="uid://b5kvkpcadh6o7" path="res://characters/enemies/enemy.svg" id="3_bi512"]
+[ext_resource type="Texture2D" uid="uid://vkvdwwfx0idp" path="res://characters/enemies/mobs/mob.png" id="3_008bi"]
 [ext_resource type="Script" uid="uid://dhtstu4gad8uc" path="res://characters/enemies/coin_drop_manager.gd" id="4_wor85"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4by1i"]
@@ -10,6 +10,44 @@ radius = 30.3645
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mxcvk"]
 radius = 34.7131
+
+[sub_resource type="Animation" id="Animation_008bi"]
+resource_name = "move"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MobSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1]
+}
+
+[sub_resource type="Animation" id="Animation_3vt6o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MobSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3vt6o"]
+_data = {
+&"RESET": SubResource("Animation_3vt6o"),
+&"move": SubResource("Animation_008bi")
+}
 
 [node name="Mob" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 4
@@ -19,9 +57,9 @@ script = ExtResource("1_008bi")
 stats = ExtResource("2_3vt6o")
 
 [node name="MobSprite" type="Sprite2D" parent="."]
-modulate = Color(1, 0.219608, 0.137255, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_bi512")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_008bi")
+hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_4by1i")
@@ -42,5 +80,11 @@ collision_mask = 3
 [node name="HitCollision" type="CollisionShape2D" parent="EnemyHitBox"]
 shape = SubResource("CircleShape2D_mxcvk")
 debug_color = Color(0.588755, 0.147568, 4.81308e-08, 0.42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3vt6o")
+}
+autoplay = "move"
 
 [connection signal="area_entered" from="EnemyHitBox" to="." method="_on_hit_box_area_entered"]

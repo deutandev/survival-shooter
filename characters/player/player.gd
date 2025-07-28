@@ -64,7 +64,7 @@ func get_input():
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = input_direction * current_speed
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	get_input()
 	move_and_slide()
 	if Input.is_action_just_pressed("interact"):
@@ -104,7 +104,7 @@ func set_stat(stat_name: String, value):
 	match stat_name:
 		"max_health":
 			health_manager.max_health = value
-			health_manager.current_health = min(health_manager.current_health, value)
+			health_manager.current_health = value
 			health_manager.health_changed.emit(health_manager.current_health, health_manager.max_health)
 			print("✅ Health upgraded to:", value)
 		"speed":
