@@ -1,16 +1,12 @@
 extends Node2D
 class_name ChunkNode
 
-var coords: Vector2i
-var content_data = [] # Store whatever you want (e.g., tile IDs, objects)
+@onready var sprite: Sprite2D = $SpriteMapBg
+var chunk_coords: Vector2i
 
-func init_chunk(chunk_coords: Vector2i):
-	coords = chunk_coords
-	# Optional: generate tiles, objects, etc.
+func set_coords(coords: Vector2i):
+	chunk_coords = coords
 
-func load_data(data):
-	content_data = data
-	# Optional: use data to restore tile state, etc.
-
-func get_data_to_save():
-	return content_data
+func set_image(image: Texture2D):
+	if sprite and image:
+		sprite.texture = image

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SkillOrbData" load_steps=4 format=3 uid="uid://cpao41tjalvlk"]
+
+[ext_resource type="Script" uid="uid://bg0xm6w8o2fd5" path="res://skill_orb_drop/reversal_effect.gd" id="1_p8dcd"]
+[ext_resource type="Script" uid="uid://duqodid8p75hg" path="res://skill_orb_drop/skill_orb_data.gd" id="2_e5rqs"]
+[ext_resource type="Texture2D" uid="uid://bfa0nqcgg0syn" path="res://skill_orb_drop/skill_orb_assets/NO_UReverse_high.png" id="3_p8dcd"]
+
+[resource]
+script = ExtResource("2_e5rqs")
+orb_name = "reversal"
+sprite_texture = ExtResource("3_p8dcd")
+effect_script = ExtResource("1_p8dcd")
+metadata/_custom_type_script = "uid://duqodid8p75hg"

@@ -1,9 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://b35xwxdbvdg2w"]
+[gd_scene load_steps=12 format=3 uid="uid://b35xwxdbvdg2w"]
 
 [ext_resource type="Script" uid="uid://b1ubsdibmcawl" path="res://characters/enemies/enemy.gd" id="1_008bi"]
 [ext_resource type="Resource" uid="uid://cqypuya5kxtcb" path="res://characters/enemies/data/regular_mob.tres" id="2_3vt6o"]
 [ext_resource type="Texture2D" uid="uid://b5kvkpcadh6o7" path="res://characters/enemies/enemy.svg" id="3_bi512"]
 [ext_resource type="Script" uid="uid://dhtstu4gad8uc" path="res://characters/enemies/coin_drop_manager.gd" id="4_wor85"]
+[ext_resource type="Script" uid="uid://baymkpj4ns1hf" path="res://characters/enemies/skill_orb_drop_manager.gd" id="5_3vt6o"]
+[ext_resource type="PackedScene" uid="uid://bngowghd41b52" path="res://skill_orb_drop/SkillOrb.tscn" id="6_r8wml"]
+[ext_resource type="Script" uid="uid://duqodid8p75hg" path="res://skill_orb_drop/skill_orb_data.gd" id="7_tpapd"]
+[ext_resource type="Resource" uid="uid://dle0pwjvwm26t" path="res://skill_orb_drop/kabuto_orb_data.tres" id="8_3h6a4"]
+[ext_resource type="Resource" uid="uid://cpao41tjalvlk" path="res://skill_orb_drop/reversal_orb_data.tres" id="9_xslqa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4by1i"]
 radius = 30.3645
@@ -30,6 +35,12 @@ debug_color = Color(0.678431, 0.0470588, 0, 0.72549)
 [node name="CoinDropManager" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("4_wor85")
+
+[node name="SkillOrbDropManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("5_3vt6o")
+skill_orb_scene = ExtResource("6_r8wml")
+orb_data_list = Array[ExtResource("7_tpapd")]([ExtResource("8_3h6a4"), ExtResource("9_xslqa")])
 
 [node name="HealthLabel" type="Label" parent="."]
 offset_right = 40.0

@@ -1,8 +1,9 @@
-extends TextureButton
+extends Node2D
 class_name UltButton
 
 @export var player: CharacterBody2D
-@onready var cooldown_label = $cooldown_label
+@onready var cooldown_label = %CooldownLabel
+@onready var ult_button = $UltButton
 var time_left := 0.0
 var active := false
 
@@ -20,6 +21,7 @@ func _process(delta):
 			_end_cooldown()
 
 func _start_cooldown(duration: float):
+	ult_button.disabled = true
 	time_left = duration
 	active = true
 	cooldown_label.visible = true
@@ -29,6 +31,7 @@ func _end_cooldown():
 	active = false
 	cooldown_label.text = ""
 	cooldown_label.visible = false
-	
-func _on_pressed() -> void:
+	ult_button.disabled = false
+
+func _on_ult_button_pressed() -> void:
 	player.use_skill()

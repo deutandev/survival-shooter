@@ -6,6 +6,8 @@ signal skill_cooldown_started(duration: float)
 signal skill_cooldown_ended()
 
 @export var player_data : CharacterData
+@onready var player_animation := $PlayerAnimatedSprite
+
 
 @export var speed: float = 600.0
 @onready var health: HealthManager = %HealthManager
@@ -14,9 +16,11 @@ signal skill_cooldown_ended()
 
 @onready var skill_scene: PackedScene = player_data.skill_scene
 @export var skill_cooldown: float = 3.0
+var gun_position_x: float
 
 var skill: Node = null
 var can_use_skill := true
+var reverse_controls := false
 
 func _ready() -> void:
 	health.reset()
@@ -24,6 +28,7 @@ func _ready() -> void:
 	hurt_manager.target = self
 	# Connect signal from Gun
 	if gun:
+		gun_position_x = gun.position.x
 		gun.shoot_direction_changed.connect(_on_shoot_direction_changed)
 	
 	if skill_scene:
@@ -35,12 +40,24 @@ func _ready() -> void:
 
 func _on_shoot_direction_changed(facing_right: bool):
 	# Flip the sprite to match shooting direction
-	$Sprite2D.flip_h = not facing_right
+	if not facing_right:
+		gun.position.x = -abs(gun_position_x)
+	else:
+		gun.position.x = abs(gun_position_x)
+	player_animation.flip_h = not facing_right
 
 
 func get_input():
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = input_direction * speed
+	if reverse_controls:
+		input_direction = -input_direction
+	velocity = input_direction.normalized() * speed
+	
+	if input_direction != Vector2.ZERO:
+		player_animation.play("run")
+	else:
+		player_animation.play("idle")
+	
 
 func _physics_process(delta: float) -> void:
 	get_input()
@@ -60,8 +77,3 @@ func use_skill():
 
 func on_player_death():
 	player_died.emit()
-	#await get_tree().create_timer(1.0).timeout
-	#call_deferred("go_to_menu")
-
-#func go_to_menu():
-	#get_tree().change_scene_to_file("res://environment/main_menu/mainMenu.tscn")
