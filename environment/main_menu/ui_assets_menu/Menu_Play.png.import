@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b47o1wnjj0iev"
-path="res://.godot/imported/Menu Screen_Border.png-2b1c9eaaa9c5cd97a27174e0a9c306a9.ctex"
+uid="uid://ot40386g2ocb"
+path="res://.godot/imported/Menu_Play.png-5e05982b17abf03bd175bfc0fef9ea45.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://environment/main_menu/Menu Screen_Border.png"
-dest_files=["res://.godot/imported/Menu Screen_Border.png-2b1c9eaaa9c5cd97a27174e0a9c306a9.ctex"]
+source_file="res://environment/main_menu/ui_assets_menu/Menu_Play.png"
+dest_files=["res://.godot/imported/Menu_Play.png-5e05982b17abf03bd175bfc0fef9ea45.ctex"]
 
 [params]
 

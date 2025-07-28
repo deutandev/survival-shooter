@@ -196,6 +196,13 @@ visible = false
 position = Vector2(-132, -95)
 rotation = 0.09066
 
+[node name="GameBgm" type="AudioStreamPlayer2D" parent="Player"]
+position = Vector2(-1042, -483)
+stream = ExtResource("26_kmjdj")
+volume_db = 14.0
+autoplay = true
+parameters/looping = true
+
 [node name="MobSpawnTimer" type="Timer" parent="."]
 autostart = true
 
@@ -212,11 +219,6 @@ script = ExtResource("13_v5ifb")
 player = NodePath("../Player")
 
 [node name="AudioManager" type="Node2D" parent="."]
-
-[node name="GameBgm" type="AudioStreamPlayer2D" parent="AudioManager"]
-stream = ExtResource("26_kmjdj")
-autoplay = true
-parameters/looping = true
 
 [node name="GameButtonSfx" type="AudioStreamPlayer2D" parent="AudioManager"]
 unique_name_in_owner = true
