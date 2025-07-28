@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://d0xc0puje3im6" path="res://audio/coin.wav" id="3_raehr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7h5dg"]
-radius = 32.0624
+radius = 19.0263
 
 [node name="Coin" type="Area2D" groups=["coin"]]
 light_mask = 3
@@ -20,11 +20,13 @@ position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_7h5dg")
 debug_color = Color(1, 0.868454, 0.690127, 0.419608)
 
-[node name="Coin" type="Sprite2D" parent="CollisionShape2D"]
+[node name="Coin" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_raehr")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_raehr")
-volume_db = -2.0
+volume_db = -4.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,41 +1,56 @@
-[gd_scene load_steps=10 format=3 uid="uid://bj2je6nv2vokx"]
+[gd_scene load_steps=17 format=3 uid="uid://bj2je6nv2vokx"]
 
-[ext_resource type="Texture2D" uid="uid://b1jwnwu05ntcg" path="res://environment/main_menu/MainMenu.jpg" id="1_oynim"]
 [ext_resource type="Script" uid="uid://6wsjpecejnx5" path="res://environment/main_menu/main_button_manager.gd" id="1_uank7"]
+[ext_resource type="Texture2D" uid="uid://7aqa2ln43h" path="res://environment/main_menu/ui_assets_menu/MenuMockupng.png" id="1_w7jtu"]
 [ext_resource type="Script" uid="uid://byjix033eqqv6" path="res://environment/main_menu/main_label_manager.gd" id="2_a1r21"]
-[ext_resource type="Texture2D" uid="uid://d0iojir0fe5eo" path="res://environment/main_menu/button mockup.png" id="3_k05vt"]
-[ext_resource type="Texture2D" uid="uid://b47o1wnjj0iev" path="res://environment/main_menu/Menu Screen_Border.png" id="3_the8w"]
+[ext_resource type="Texture2D" uid="uid://c6233h0ytibqc" path="res://environment/main_menu/ui_assets_menu/main_bg.png" id="2_aqol6"]
+[ext_resource type="Texture2D" uid="uid://b47o1wnjj0iev" path="res://environment/main_menu/ui_assets_menu/Menu Screen_Border.png" id="3_the8w"]
 [ext_resource type="AudioStream" uid="uid://chujtk87l5sl4" path="res://audio/Critical Tension - Ticking Trailer 1 Min.mp3" id="4_3vnf6"]
-[ext_resource type="Texture2D" uid="uid://ot40386g2ocb" path="res://environment/main_menu/Menu_Play.png" id="5_t2sos"]
+[ext_resource type="Texture2D" uid="uid://b2hyp2r2lf5gp" path="res://environment/main_menu/ui_assets_menu/HighScore.png" id="4_k0ygn"]
+[ext_resource type="Texture2D" uid="uid://ot40386g2ocb" path="res://environment/main_menu/ui_assets_menu/Menu_Play.png" id="5_t2sos"]
 [ext_resource type="AudioStream" uid="uid://bg22rsrb3anjg" path="res://audio/click.wav" id="5_ucrse"]
+[ext_resource type="Texture2D" uid="uid://ctvhsr02jjckl" path="res://environment/ui_asset/COIN_LOGOUI.png" id="7_mhcdu"]
 [ext_resource type="FontFile" uid="uid://cdya30u1ro1xm" path="res://fonts/HOMINIS.TTF" id="7_sm6hx"]
+[ext_resource type="Texture2D" uid="uid://btcbjlfac6ox4" path="res://environment/ui_asset/Idle_1.png" id="8_aqol6"]
+[ext_resource type="PackedScene" uid="uid://dgavmiquqpsge" path="res://environment/main_menu/credit_panel.tscn" id="9_k0ygn"]
+[ext_resource type="Texture2D" uid="uid://dpa22sbaag8mc" path="res://environment/main_menu/ui_assets_menu/Menu_Play_Hovered.png" id="10_wduaa"]
+[ext_resource type="Texture2D" uid="uid://lundw47fqp72" path="res://environment/main_menu/ui_assets_menu/BUTTON BROWN.png" id="11_o1dib"]
+[ext_resource type="Texture2D" uid="uid://yb8ihcyrxgro" path="res://environment/main_menu/ui_assets_menu/BUTTONBROWN_HOVERED.png" id="12_vwje6"]
 
 [node name="MainMenu" type="Node2D"]
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
-[node name="MainMenu" type="Sprite2D" parent="CanvasLayer2"]
-position = Vector2(961, 542)
-texture = ExtResource("1_oynim")
+[node name="MainMenu3" type="Sprite2D" parent="CanvasLayer2"]
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("1_w7jtu")
+
+[node name="MainBg" type="Sprite2D" parent="CanvasLayer2"]
+position = Vector2(841.5, 692.5)
+scale = Vector2(1.5787, 1.36615)
+texture = ExtResource("2_aqol6")
 
 [node name="MainMenu2" type="Sprite2D" parent="CanvasLayer2"]
-position = Vector2(960, 542)
+position = Vector2(960, 540)
 texture = ExtResource("3_the8w")
 
-[node name="ButtonMockup" type="Sprite2D" parent="CanvasLayer2"]
-position = Vector2(960, 542)
-texture = ExtResource("3_k05vt")
+[node name="HighScore" type="Sprite2D" parent="CanvasLayer2"]
+position = Vector2(311, 209)
+texture = ExtResource("4_k0ygn")
 
 [node name="Label" type="Node2D" parent="CanvasLayer2"]
 script = ExtResource("2_a1r21")
 
 [node name="CoinLabel" type="Label" parent="CanvasLayer2/Label"]
 unique_name_in_owner = true
-offset_left = 291.0
-offset_top = 914.0
-offset_right = 406.0
-offset_bottom = 1008.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 1722.0
+offset_top = 37.0
+offset_right = 1837.0
+offset_bottom = 131.0
+theme_override_colors/font_color = Color(0.92549, 0.862745, 0.760784, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 13
 theme_override_fonts/font = ExtResource("7_sm6hx")
 theme_override_font_sizes/font_size = 48
 text = "00"
@@ -43,56 +58,105 @@ vertical_alignment = 1
 
 [node name="HighscoreLabel" type="Label" parent="CanvasLayer2/Label"]
 unique_name_in_owner = true
-offset_left = 528.0
-offset_top = 69.0
-offset_right = 882.0
-offset_bottom = 129.0
+offset_left = 103.0
+offset_top = 116.0
+offset_right = 522.0
+offset_bottom = 326.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_sm6hx")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 93
 text = "0000"
+horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="CoinLogoui" type="Sprite2D" parent="CanvasLayer2"]
+position = Vector2(1655, 79)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("7_mhcdu")
+
+[node name="Idle1" type="Sprite2D" parent="CanvasLayer2"]
+position = Vector2(880, 601)
+texture = ExtResource("8_aqol6")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CreditPanel" parent="CanvasLayer" instance=ExtResource("9_k0ygn")]
+z_index = 1
 
 [node name="ButtonManager" type="Node2D" parent="CanvasLayer"]
 script = ExtResource("1_uank7")
 
-[node name="Start" type="TextureButton" parent="CanvasLayer/ButtonManager"]
-offset_left = 1155.0
-offset_right = 1646.0
-offset_bottom = 478.0
+[node name="StartButton" type="TextureButton" parent="CanvasLayer/ButtonManager"]
+offset_left = 1131.0
+offset_top = 17.0
+offset_right = 1622.0
+offset_bottom = 495.0
 texture_normal = ExtResource("5_t2sos")
+texture_pressed = ExtResource("5_t2sos")
+texture_hover = ExtResource("10_wduaa")
 
-[node name="Label" type="Label" parent="CanvasLayer/ButtonManager/Start"]
-offset_left = 140.0
-offset_top = 188.0
-offset_right = 374.0
-offset_bottom = 298.0
+[node name="Label" type="Label" parent="CanvasLayer/ButtonManager/StartButton"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 187.0
+offset_right = 369.0
+offset_bottom = 297.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_sm6hx")
-theme_override_font_sizes/font_size = 56
+theme_override_font_sizes/font_size = 66
 text = "Play"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Quit" type="TextureButton" parent="CanvasLayer/ButtonManager"]
-offset_left = 1132.0
-offset_top = 646.0
-offset_right = 1623.0
-offset_bottom = 1124.0
-texture_normal = ExtResource("5_t2sos")
-stretch_mode = 0
+[node name="CreditButton" type="TextureButton" parent="CanvasLayer/ButtonManager"]
+offset_left = 1250.0
+offset_top = 650.0
+offset_right = 1671.0
+offset_bottom = 1032.0
+texture_normal = ExtResource("11_o1dib")
+texture_pressed = ExtResource("11_o1dib")
+texture_hover = ExtResource("12_vwje6")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="CanvasLayer/ButtonManager/Quit"]
-offset_left = 134.0
-offset_top = 189.0
-offset_right = 368.0
-offset_bottom = 299.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+[node name="Label" type="Label" parent="CanvasLayer/ButtonManager/CreditButton"]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 139.0
+offset_right = 331.0
+offset_bottom = 249.0
+theme_override_colors/font_color = Color(0.92549, 0.862745, 0.760784, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 19
+theme_override_fonts/font = ExtResource("7_sm6hx")
+theme_override_font_sizes/font_size = 47
+text = "credit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StoryButton" type="TextureButton" parent="CanvasLayer/ButtonManager"]
+offset_left = 1451.0
+offset_top = 329.0
+offset_right = 1868.0
+offset_bottom = 752.0
+texture_normal = ExtResource("11_o1dib")
+texture_pressed = ExtResource("11_o1dib")
+texture_hover = ExtResource("12_vwje6")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/ButtonManager/StoryButton"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 160.0
+offset_right = 337.0
+offset_bottom = 270.0
+theme_override_colors/font_color = Color(0.92549, 0.862745, 0.760784, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 19
 theme_override_fonts/font = ExtResource("7_sm6hx")
 theme_override_font_sizes/font_size = 56
-text = "Quit"
+text = "Story"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -109,5 +173,6 @@ unique_name_in_owner = true
 stream = ExtResource("5_ucrse")
 volume_db = 9.0
 
-[connection signal="pressed" from="CanvasLayer/ButtonManager/Start" to="CanvasLayer/ButtonManager" method="_on_start_pressed"]
-[connection signal="pressed" from="CanvasLayer/ButtonManager/Quit" to="CanvasLayer/ButtonManager" method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonManager/StartButton" to="CanvasLayer/ButtonManager" method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonManager/CreditButton" to="CanvasLayer/CreditPanel" method="_on_credit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonManager/StoryButton" to="CanvasLayer/ButtonManager" method="_on_story_button_pressed"]

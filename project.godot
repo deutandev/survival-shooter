@@ -23,11 +23,12 @@ resources_spreadsheet_view/freeze_first_column=true
 
 [application]
 
-config/name="watchmen"
+config/name="Watchmen"
 config/description="2D survival shooter"
 config/version="v0.0.1"
-run/main_scene="uid://ci7o2hwcenyhx"
+run/main_scene="uid://bj2je6nv2vokx"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/image="uid://cncs3140eb83d"
 config/icon="uid://4rl1wefl47f1"
 config/windows_native_icon="res://icon.ico"
 
@@ -36,6 +37,7 @@ config/windows_native_icon="res://icon.ico"
 GameStats="*res://game_stats_data/game_stats.gd"
 CoinData="*res://game_stats_data/coin_data.gd"
 ScoreData="*res://game_stats_data/score_data.gd"
+StoryData="*res://story/story_data.gd"
 
 [display]
 

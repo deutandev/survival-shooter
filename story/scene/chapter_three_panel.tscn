@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=3 uid="uid://byumcmwqm4yhl"]
+
+[ext_resource type="Script" uid="uid://o7oodalv7s0b" path="res://story/scene/chapter_three_panel.gd" id="1_1ntbg"]
+[ext_resource type="FontFile" uid="uid://oh10xj2oou7l" path="res://fonts/Tomorrow-Black.ttf" id="2_kfotg"]
+[ext_resource type="Texture2D" uid="uid://ckygq8y3p1xow" path="res://environment/ui_asset/Button.png" id="3_dy0f2"]
+[ext_resource type="Script" uid="uid://c1lm5u85qoa82" path="res://story/scene/back_to_menu.gd" id="4_5in5x"]
+[ext_resource type="FontFile" uid="uid://cdya30u1ro1xm" path="res://fonts/HOMINIS.TTF" id="5_ry73t"]
+[ext_resource type="AudioStream" uid="uid://bg22rsrb3anjg" path="res://audio/click.wav" id="6_wjhg3"]
+
+[node name="ChapterThreePanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1ntbg")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -124.0
+offset_top = -69.0
+offset_right = 2022.0
+offset_bottom = 1152.0
+
+[node name="StoryText" type="RichTextLabel" parent="."]
+modulate = Color(0.886262, 0.886261, 0.886262, 1)
+layout_mode = 0
+offset_left = 369.0
+offset_right = 1515.0
+offset_bottom = 1075.0
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 5
+theme_override_fonts/normal_font = ExtResource("2_kfotg")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "\"Chapter 3\",
+	\"You just got hit by the enemy—it was different than the usual.\",
+	\"You didn't **die** just like before.\",
+	\"You hit it back and you heard a familiar voice.\",
+	\"\\\"Wa...ke...up...\\\"\",
+	\"Yes, it was someone you knew before.\",
+	\"Someone close to you.\",
+	\"Someone dear to you.\",
+	\"\\\"You're...our...last...ho-\\\"\",
+	\"Suddenly it becomes clear to you.\",
+	\"It's actually one of your teammates—it was a Watchmen.\",
+	\"Yes, you just _killed_ your own kin.\",
+	\"To be continued...\",
+	\"- End of Chapter Three -\""
+scroll_following = true
+
+[node name="BackToMenu" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1506.0
+offset_top = 18.0
+offset_right = 1899.0
+offset_bottom = 154.0
+texture_normal = ExtResource("3_dy0f2")
+script = ExtResource("4_5in5x")
+
+[node name="Label" type="Label" parent="BackToMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.507
+anchor_right = 0.5
+anchor_bottom = 0.507
+offset_left = -161.5
+offset_top = -40.952
+offset_right = 163.5
+offset_bottom = 39.048
+theme_override_fonts/font = ExtResource("5_ry73t")
+theme_override_font_sizes/font_size = 28
+text = "Back To Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="BackToMenu"]
+unique_name_in_owner = true
+stream = ExtResource("6_wjhg3")
+volume_db = 9.0
+
+[connection signal="pressed" from="BackToMenu" to="BackToMenu" method="_on_pressed"]

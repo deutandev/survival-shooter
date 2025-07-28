@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmxqjqjbxpa8s"
-path="res://.godot/imported/bomb_vfx.png-d03fe4e7e2e76b54c0ace4b4e8ec89a4.ctex"
+uid="uid://ctvhsr02jjckl"
+path="res://.godot/imported/COIN_LOGOUI.png-d5015c8f6d774286de420d91a0afa03f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ult_skills/bomb_vfx.png"
-dest_files=["res://.godot/imported/bomb_vfx.png-d03fe4e7e2e76b54c0ace4b4e8ec89a4.ctex"]
+source_file="res://environment/ui_asset/COIN_LOGOUI.png"
+dest_files=["res://.godot/imported/COIN_LOGOUI.png-d5015c8f6d774286de420d91a0afa03f.ctex"]
 
 [params]
 
