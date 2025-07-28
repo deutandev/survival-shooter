@@ -59,6 +59,7 @@ Maybe the Writer knows :3"
 fit_content = true
 
 [node name="BackToMenu" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 1506.0
 offset_top = 18.0
 offset_right = 1899.0

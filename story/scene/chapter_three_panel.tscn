@@ -17,6 +17,7 @@ grow_vertical = 2
 script = ExtResource("1_1ntbg")
 
 [node name="Panel" type="Panel" parent="."]
+layout_mode = 0
 offset_left = -124.0
 offset_top = -69.0
 offset_right = 2022.0
@@ -24,6 +25,7 @@ offset_bottom = 1152.0
 
 [node name="StoryText" type="RichTextLabel" parent="."]
 modulate = Color(0.886262, 0.886261, 0.886262, 1)
+layout_mode = 0
 offset_left = 369.0
 offset_right = 1515.0
 offset_bottom = 1075.0
@@ -50,6 +52,7 @@ text = "\"Chapter 3\",
 scroll_following = true
 
 [node name="BackToMenu" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 1506.0
 offset_top = 18.0
 offset_right = 1899.0

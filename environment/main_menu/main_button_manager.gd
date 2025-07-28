@@ -18,3 +18,7 @@ func _on_story_button_pressed() -> void:
 	menu_button_sfx.play()
 	await menu_button_sfx.finished 
 	get_tree().change_scene_to_file(STORY_SCENE_PATH)
+
+
+func _on_credit_button_pressed() -> void:
+	pass # Replace with function body.

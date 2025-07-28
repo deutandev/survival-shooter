@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bj2je6nv2vokx"]
+[gd_scene load_steps=17 format=3 uid="uid://bj2je6nv2vokx"]
 
 [ext_resource type="Script" uid="uid://6wsjpecejnx5" path="res://environment/main_menu/main_button_manager.gd" id="1_uank7"]
 [ext_resource type="Texture2D" uid="uid://7aqa2ln43h" path="res://environment/main_menu/ui_assets_menu/MenuMockupng.png" id="1_w7jtu"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ctvhsr02jjckl" path="res://environment/ui_asset/COIN_LOGOUI.png" id="7_mhcdu"]
 [ext_resource type="FontFile" uid="uid://cdya30u1ro1xm" path="res://fonts/HOMINIS.TTF" id="7_sm6hx"]
 [ext_resource type="Texture2D" uid="uid://btcbjlfac6ox4" path="res://environment/ui_asset/Idle_1.png" id="8_aqol6"]
+[ext_resource type="PackedScene" uid="uid://dgavmiquqpsge" path="res://environment/main_menu/credit_panel.tscn" id="9_k0ygn"]
 [ext_resource type="Texture2D" uid="uid://dpa22sbaag8mc" path="res://environment/main_menu/ui_assets_menu/Menu_Play_Hovered.png" id="10_wduaa"]
 [ext_resource type="Texture2D" uid="uid://lundw47fqp72" path="res://environment/main_menu/ui_assets_menu/BUTTON BROWN.png" id="11_o1dib"]
 [ext_resource type="Texture2D" uid="uid://yb8ihcyrxgro" path="res://environment/main_menu/ui_assets_menu/BUTTONBROWN_HOVERED.png" id="12_vwje6"]
@@ -79,6 +80,9 @@ texture = ExtResource("8_aqol6")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="CreditPanel" parent="CanvasLayer" instance=ExtResource("9_k0ygn")]
+z_index = 1
+
 [node name="ButtonManager" type="Node2D" parent="CanvasLayer"]
 script = ExtResource("1_uank7")
 
@@ -104,7 +108,7 @@ text = "Play"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="QuitButton" type="TextureButton" parent="CanvasLayer/ButtonManager"]
+[node name="CreditButton" type="TextureButton" parent="CanvasLayer/ButtonManager"]
 offset_left = 1250.0
 offset_top = 650.0
 offset_right = 1671.0
@@ -115,7 +119,7 @@ texture_hover = ExtResource("12_vwje6")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="CanvasLayer/ButtonManager/QuitButton"]
+[node name="Label" type="Label" parent="CanvasLayer/ButtonManager/CreditButton"]
 layout_mode = 0
 offset_left = 97.0
 offset_top = 139.0
@@ -170,5 +174,5 @@ stream = ExtResource("5_ucrse")
 volume_db = 9.0
 
 [connection signal="pressed" from="CanvasLayer/ButtonManager/StartButton" to="CanvasLayer/ButtonManager" method="_on_start_pressed"]
-[connection signal="pressed" from="CanvasLayer/ButtonManager/QuitButton" to="CanvasLayer/ButtonManager" method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonManager/CreditButton" to="CanvasLayer/CreditPanel" method="_on_credit_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/ButtonManager/StoryButton" to="CanvasLayer/ButtonManager" method="_on_story_button_pressed"]
