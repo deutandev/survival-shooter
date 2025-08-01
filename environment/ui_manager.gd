@@ -21,8 +21,10 @@ func _on_player_died():
 func _return_to_main_menu():
 	set_score_coin()
 	await get_tree().create_timer(3.0, true).timeout
+	await Fade.fade_out(1.0, Color.BLACK, "Diamond").finished
 	get_tree().paused = false
 	get_tree().change_scene_to_file(MAIN_MENU_PATH)
+	Fade.fade_in()
 	
 func set_score_coin():
 	# Set total coin

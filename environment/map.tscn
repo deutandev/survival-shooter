@@ -223,7 +223,7 @@ rotation = 0.09066
 [node name="GameBgm" type="AudioStreamPlayer2D" parent="Player"]
 position = Vector2(-1042, -483)
 stream = ExtResource("26_kmjdj")
-volume_db = 14.0
+volume_db = 10.0
 autoplay = true
 parameters/looping = true
 

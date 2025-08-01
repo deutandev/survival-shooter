@@ -164,7 +164,7 @@ vertical_alignment = 1
 
 [node name="MenuBgm" type="AudioStreamPlayer2D" parent="AudioList"]
 stream = ExtResource("4_3vnf6")
-volume_db = -7.0
+volume_db = -4.0
 autoplay = true
 parameters/looping = true
 
