@@ -30,7 +30,6 @@ func _ready():
 	apply_enemy_data(stats)
 	_find_player()
 
-
 func _find_player():
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:

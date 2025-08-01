@@ -37,16 +37,13 @@ func _apply_knockback_movement():
 	if target:
 		target.move_and_slide()
 
-
 func _on_hurt_box_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
 		apply_damage(body)
 		hurt_timer.start()
 
-
 func _on_hurt_timer_timeout() -> void:
 	is_collide_enemy()
-
 
 func is_collide_enemy() -> void:
 	var bodies = hurtbox.get_overlapping_bodies()
