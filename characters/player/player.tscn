@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dhpintm4oouv3"]
+[gd_scene load_steps=20 format=3 uid="uid://dhpintm4oouv3"]
 
 [ext_resource type="Script" uid="uid://bjmv61e1a232k" path="res://characters/player/health_manager.gd" id="1_exd8k"]
 [ext_resource type="Script" uid="uid://84fb3bbyrwpm" path="res://characters/player/player.gd" id="1_xxgcw"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cv8rforp2qx3w" path="res://gun/gun.tscn" id="3_exd8k"]
 [ext_resource type="PackedScene" uid="uid://d36roq5bjt4cv" path="res://ult_skills/bomb.tscn" id="6_c6leb"]
 [ext_resource type="Texture2D" uid="uid://cv137rogs8yty" path="res://characters/player/sprites/player_run.png" id="6_idpv6"]
+[ext_resource type="AudioStream" uid="uid://d4h7qmmlna335" path="res://audio/player_dead_long.mp3" id="9_rpf03"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_idpv6"]
 atlas = ExtResource("3_c6leb")
@@ -95,7 +96,8 @@ collision_layer = 7
 collision_mask = 7
 
 [node name="PlayerAnimatedSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -2)
+process_mode = 3
+position = Vector2(1, -2)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_58jvb")
 animation = &"idle"
@@ -129,6 +131,18 @@ wait_time = 0.5
 [node name="HealthManager" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_exd8k")
+
+[node name="PlayerSFX" type="Node" parent="."]
+
+[node name="PlayerHurtSfx" type="AudioStreamPlayer2D" parent="PlayerSFX"]
+process_mode = 3
+visible = false
+
+[node name="PlayerDeadSfx" type="AudioStreamPlayer2D" parent="PlayerSFX"]
+process_mode = 3
+visible = false
+stream = ExtResource("9_rpf03")
+volume_db = 20.0
 
 [connection signal="body_entered" from="HurtManager/HurtBox" to="HurtManager" method="_on_hurt_box_body_entered"]
 [connection signal="timeout" from="HurtManager/HurtBox/HurtTimer" to="HurtManager" method="_on_hurt_timer_timeout"]

@@ -14,8 +14,9 @@ func resume():
 	pause_panel.visible = false 
 
 func pause():
+	#Fade.fade_in(0.2, Color.BLACK, "", false, true)  
 	get_tree().paused = true
-	pause_panel.visible = true  
+	pause_panel.visible = true
 
 func isPressedEsc():
 	if Input.is_action_just_pressed("escape") and !get_tree().paused:

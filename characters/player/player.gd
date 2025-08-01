@@ -8,6 +8,7 @@ signal skill_cooldown_ended()
 @export var player_data : CharacterData
 @onready var player_animation := $PlayerAnimatedSprite
 
+@onready var player_dead_sfx := $PlayerSFX/PlayerDeadSfx
 
 @export var speed: float = 600.0
 @onready var health: HealthManager = %HealthManager
@@ -76,4 +77,5 @@ func use_skill():
 	emit_signal("skill_cooldown_ended")
 
 func on_player_death():
+	#player_dead_sfx.play()
 	player_died.emit()

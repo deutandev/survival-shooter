@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bt4wbwwt5jfud"]
+[gd_scene load_steps=12 format=3 uid="uid://bt4wbwwt5jfud"]
 
 [ext_resource type="FontFile" uid="uid://oh10xj2oou7l" path="res://fonts/Tomorrow-Black.ttf" id="1_b5vsy"]
 [ext_resource type="Texture2D" uid="uid://cpayalanher7l" path="res://environment/main_menu/ui_assets_menu/BACKGROUND.png" id="1_xt8ii"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ctvhsr02jjckl" path="res://environment/ui_asset/COIN_LOGOUI.png" id="6_hq2sf"]
 [ext_resource type="FontFile" uid="uid://b6oh7wlewlx2b" path="res://fonts/Libertinus_Serif/TEXT_LibertinusSerif-BoldItalic.ttf" id="7_pcg3f"]
 [ext_resource type="Script" uid="uid://byjix033eqqv6" path="res://environment/main_menu/main_label_manager.gd" id="9_qq3eg"]
+[ext_resource type="AudioStream" uid="uid://chujtk87l5sl4" path="res://audio/Critical Tension - Ticking Trailer 1 Min.mp3" id="11_hq2sf"]
 
 [node name="StoryScene" type="Node2D"]
 
@@ -297,6 +298,12 @@ theme_override_font_sizes/font_size = 64
 text = "0000"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MenuBgm" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_hq2sf")
+volume_db = -4.0
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="StoryButton/StoryChapterIntro" to="StoryButton" method="_on_story_chapter_intro_pressed"]
 [connection signal="pressed" from="StoryButton/StoryChapterOne" to="StoryButton" method="_on_story_chapter_one_pressed"]
