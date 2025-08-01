@@ -27,4 +27,4 @@ func reset_all():
 
 	GameStats.reset()
 
-	StorySaveManager.load_unlocks()
+	StorySaveManager.reset_unlocks()

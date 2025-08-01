@@ -4,9 +4,13 @@ const SAVE_PATH := "user://game_stats.save"
 
 var highscore := 0
 
-func get_highscore(score):
+func _ready():
+	load_score()
+
+func get_highscore(score: int):
 	if score > highscore:
 		highscore = score
+		save()
 
 func save():
 	var data := _load_full_data()
@@ -15,7 +19,7 @@ func save():
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	file.store_var(data)
 
-func load():
+func load_score():
 	var data := _load_full_data()
 	highscore = data.get("highscore", 0)
 

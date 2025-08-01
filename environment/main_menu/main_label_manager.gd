@@ -5,8 +5,8 @@ extends Node2D
 
 func _ready():
 	if coin_label:
-		CoinData.load()
+		CoinData.load_coin()
 		coin_label.text = str(CoinData.total_coins)
 	if highscore_label:
-		ScoreData.load()
+		ScoreData.load_score()
 		highscore_label.text = str(ScoreData.highscore)

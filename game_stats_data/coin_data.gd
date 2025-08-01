@@ -15,7 +15,7 @@ func save():
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	file.store_var(data)
 
-func load():
+func load_coin():
 	var data := _load_full_data()
 	total_coins = data.get("total_coins", 0)
 
