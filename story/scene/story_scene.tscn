@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ckygq8y3p1xow" path="res://environment/ui_asset/Button.png" id="3_rvjdh"]
 [ext_resource type="FontFile" uid="uid://cdya30u1ro1xm" path="res://fonts/HOMINIS.TTF" id="4_pcg3f"]
 [ext_resource type="AudioStream" uid="uid://bg22rsrb3anjg" path="res://audio/click.wav" id="5_qq3eg"]
-[ext_resource type="Script" uid="uid://dpo7uhmiqbvx3" path="res://story/scene/story_chapter_button.gd" id="5_rvjdh"]
+[ext_resource type="Script" path="res://story/scene/story_chapter_button.gd" id="5_rvjdh"]
 [ext_resource type="Texture2D" uid="uid://ctvhsr02jjckl" path="res://environment/ui_asset/COIN_LOGOUI.png" id="6_hq2sf"]
 [ext_resource type="FontFile" uid="uid://b6oh7wlewlx2b" path="res://fonts/Libertinus_Serif/TEXT_LibertinusSerif-BoldItalic.ttf" id="7_pcg3f"]
 [ext_resource type="Script" uid="uid://byjix033eqqv6" path="res://environment/main_menu/main_label_manager.gd" id="9_qq3eg"]

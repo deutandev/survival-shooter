@@ -13,6 +13,8 @@ var is_free := true
 
 
 func apply_damage(body: Node2D):
+	%PlayerHurtSfx.play()
+	await %PlayerHurtSfx.finished
 	health.take_damage(body.stats.damage)
 	apply_knockback(body.velocity)
 

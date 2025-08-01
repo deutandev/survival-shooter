@@ -7,7 +7,7 @@ const STORY_SCENE_PATH := "res://story/scene/story_scene.tscn"
 func _on_start_pressed() -> void:
 	menu_button_sfx.play()
 	await menu_button_sfx.finished 
-	Fade.fade_out()
+	await Fade.fade_out().finished
 	get_tree().change_scene_to_file(GAMEPLAY_SCENE_PATH)
 	Fade.fade_in()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b35xwxdbvdg2w"]
+[gd_scene load_steps=14 format=3 uid="uid://b35xwxdbvdg2w"]
 
 [ext_resource type="Script" uid="uid://b1ubsdibmcawl" path="res://characters/enemies/enemy.gd" id="1_008bi"]
 [ext_resource type="Resource" uid="uid://cqypuya5kxtcb" path="res://characters/enemies/data/regular_mob.tres" id="2_3vt6o"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://duqodid8p75hg" path="res://skill_orb_drop/skill_orb_data.gd" id="7_tpapd"]
 [ext_resource type="Resource" uid="uid://dle0pwjvwm26t" path="res://skill_orb_drop/kabuto_orb_data.tres" id="8_3h6a4"]
 [ext_resource type="Resource" uid="uid://cpao41tjalvlk" path="res://skill_orb_drop/reversal_orb_data.tres" id="9_xslqa"]
+[ext_resource type="AudioStream" uid="uid://mjmt8y0chrut" path="res://audio/enemy_hurt2.wav" id="10_3h6a4"]
+[ext_resource type="AudioStream" uid="uid://c7578sunrpfjp" path="res://audio/enemy_dead2.wav" id="11_xslqa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4by1i"]
 radius = 30.3645
@@ -53,5 +55,16 @@ collision_mask = 3
 [node name="HitCollision" type="CollisionShape2D" parent="EnemyHitBox"]
 shape = SubResource("CircleShape2D_mxcvk")
 debug_color = Color(0.588755, 0.147568, 4.81308e-08, 0.42)
+
+[node name="EnemyHurt" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_3h6a4")
+volume_db = 2.0
+
+[node name="EnemyDied" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("11_xslqa")
+volume_db = 10.0
+pitch_scale = 0.5
 
 [connection signal="area_entered" from="EnemyHitBox" to="." method="_on_hit_box_area_entered"]

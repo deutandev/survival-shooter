@@ -39,8 +39,8 @@ GameStats="*res://game_stats_data/game_stats.gd"
 CoinData="*res://game_stats_data/coin_data.gd"
 ScoreData="*res://game_stats_data/score_data.gd"
 StorySaveManager="*res://story/story_save_manager.gd"
-StoryContent="*res://story/story_content.gd"
 StoryPurchaseManager="*res://story/story_purchase_manager.gd"
+StoryContent="*res://story/story_content.gd"
 
 [display]
 
@@ -62,7 +62,6 @@ enemy=""
 player=""
 coin=""
 player_aoe=""
-chapter_buttons=""
 
 [input]
 
