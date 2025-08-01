@@ -37,7 +37,8 @@ config/windows_native_icon="res://icon.ico"
 GameStats="*res://game_stats_data/game_stats.gd"
 CoinData="*res://game_stats_data/coin_data.gd"
 ScoreData="*res://game_stats_data/score_data.gd"
-StoryData="*res://story/story_data.gd"
+StorySaveManager="*res://story/story_save_manager.gd"
+StoryPurchaseManager="*res://story/story_purchase_manager.gd"
 
 [display]
 
@@ -59,6 +60,7 @@ enemy=""
 player=""
 coin=""
 player_aoe=""
+chapter_buttons=""
 
 [input]
 

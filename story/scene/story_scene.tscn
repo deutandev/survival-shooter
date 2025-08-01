@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bt4wbwwt5jfud"]
+[gd_scene load_steps=11 format=3 uid="uid://bt4wbwwt5jfud"]
 
 [ext_resource type="FontFile" uid="uid://oh10xj2oou7l" path="res://fonts/Tomorrow-Black.ttf" id="1_b5vsy"]
 [ext_resource type="Texture2D" uid="uid://cpayalanher7l" path="res://environment/main_menu/ui_assets_menu/BACKGROUND.png" id="1_xt8ii"]
@@ -6,7 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://ckygq8y3p1xow" path="res://environment/ui_asset/Button.png" id="3_rvjdh"]
 [ext_resource type="FontFile" uid="uid://cdya30u1ro1xm" path="res://fonts/HOMINIS.TTF" id="4_pcg3f"]
 [ext_resource type="AudioStream" uid="uid://bg22rsrb3anjg" path="res://audio/click.wav" id="5_qq3eg"]
+[ext_resource type="Script" uid="uid://dpo7uhmiqbvx3" path="res://story/scene/story_chapter_button.gd" id="5_rvjdh"]
 [ext_resource type="Texture2D" uid="uid://ctvhsr02jjckl" path="res://environment/ui_asset/COIN_LOGOUI.png" id="6_hq2sf"]
+[ext_resource type="FontFile" uid="uid://b6oh7wlewlx2b" path="res://fonts/Libertinus_Serif/TEXT_LibertinusSerif-BoldItalic.ttf" id="7_pcg3f"]
+[ext_resource type="Script" uid="uid://byjix033eqqv6" path="res://environment/main_menu/main_label_manager.gd" id="9_qq3eg"]
 
 [node name="StoryScene" type="Node2D"]
 
@@ -38,12 +41,14 @@ vertical_alignment = 1
 [node name="StoryButton" type="Node2D" parent="."]
 script = ExtResource("2_xt8ii")
 
-[node name="StoryChapterIntro" type="TextureButton" parent="StoryButton"]
+[node name="StoryChapterIntro" type="TextureButton" parent="StoryButton" groups=["chapter_buttons"]]
 offset_left = 128.0
 offset_top = 448.0
 offset_right = 521.0
 offset_bottom = 584.0
 texture_normal = ExtResource("3_rvjdh")
+script = ExtResource("5_rvjdh")
+chapter_key = "chapter_intro"
 
 [node name="Label" type="Label" parent="StoryButton/StoryChapterIntro"]
 layout_mode = 1
@@ -64,12 +69,14 @@ text = "unlocked"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StoryChapterOne" type="TextureButton" parent="StoryButton"]
+[node name="StoryChapterOne" type="TextureButton" parent="StoryButton" groups=["chapter_buttons"]]
 offset_left = 728.0
 offset_top = 448.0
 offset_right = 1121.0
 offset_bottom = 584.0
 texture_normal = ExtResource("3_rvjdh")
+script = ExtResource("5_rvjdh")
+chapter_key = "chapter_one"
 
 [node name="Label" type="Label" parent="StoryButton/StoryChapterOne"]
 layout_mode = 1
@@ -88,12 +95,14 @@ text = "unlocked"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StoryChapterFirstDie" type="TextureButton" parent="StoryButton"]
+[node name="StoryChapterFirstDie" type="TextureButton" parent="StoryButton" groups=["chapter_buttons"]]
 offset_left = 1392.0
 offset_top = 448.0
 offset_right = 1785.0
 offset_bottom = 584.0
 texture_normal = ExtResource("3_rvjdh")
+script = ExtResource("5_rvjdh")
+chapter_key = "chapter_first_die"
 
 [node name="Label" type="Label" parent="StoryButton/StoryChapterFirstDie"]
 layout_mode = 1
@@ -112,12 +121,14 @@ text = "unlocked"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StoryChapterTwo" type="TextureButton" parent="StoryButton"]
+[node name="StoryChapterTwo" type="TextureButton" parent="StoryButton" groups=["chapter_buttons"]]
 offset_left = 456.0
 offset_top = 832.0
 offset_right = 849.0
 offset_bottom = 968.0
 texture_normal = ExtResource("3_rvjdh")
+script = ExtResource("5_rvjdh")
+chapter_key = "chapter_two"
 
 [node name="Label" type="Label" parent="StoryButton/StoryChapterTwo"]
 layout_mode = 1
@@ -136,12 +147,14 @@ text = "unlocked"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StoryChapterThree" type="TextureButton" parent="StoryButton"]
+[node name="StoryChapterThree" type="TextureButton" parent="StoryButton" groups=["chapter_buttons"]]
 offset_left = 1056.0
 offset_top = 832.0
 offset_right = 1449.0
 offset_bottom = 968.0
 texture_normal = ExtResource("3_rvjdh")
+script = ExtResource("5_rvjdh")
+chapter_key = "chapter_three"
 
 [node name="Label" type="Label" parent="StoryButton/StoryChapterThree"]
 layout_mode = 1
@@ -183,6 +196,20 @@ theme_override_font_sizes/font_size = 28
 text = "Back To Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="FeedbackLabel" type="Label" parent="StoryButton"]
+unique_name_in_owner = true
+visible = false
+offset_left = 717.0
+offset_top = 85.0
+offset_right = 1191.0
+offset_bottom = 162.0
+theme_override_colors/font_color = Color(0.856467, 0.000221955, 0.000121001, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("7_pcg3f")
+theme_override_font_sizes/font_size = 56
+text = "Not enough COIN"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
@@ -249,13 +276,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("9_qq3eg")
 
 [node name="CoinLogoui" type="Sprite2D" parent="Node2D"]
 position = Vector2(104, 72)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_hq2sf")
 
-[node name="TotalCoin" type="Label" parent="Node2D"]
+[node name="CoinLabel" type="Label" parent="Node2D"]
+unique_name_in_owner = true
 offset_left = 88.0
 offset_top = -8.0
 offset_right = 537.0

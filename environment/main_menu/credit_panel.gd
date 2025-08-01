@@ -1,7 +1,7 @@
 extends Control
 
 @onready var credit_panel := $CreditInfoPanel
-@onready var button_sfx := %GameButtonSfx
+@onready var button_sfx := %MenuButtonSfx
 
 func _ready() -> void:
 	credit_close()
