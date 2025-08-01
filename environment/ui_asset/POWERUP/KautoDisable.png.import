@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ysxt1jw6gsq1"
-path="res://.godot/imported/Tak berjudul1103_20250728191109.png-e2726ecfb7aeab59ccc534c5dde01c8c.ctex"
+path="res://.godot/imported/KautoDisable.png-79221c9ca3164752ee32ee002da781ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://environment/ui_asset/POWERUP/Tak berjudul1103_20250728191109.png"
-dest_files=["res://.godot/imported/Tak berjudul1103_20250728191109.png-e2726ecfb7aeab59ccc534c5dde01c8c.ctex"]
+source_file="res://environment/ui_asset/POWERUP/KautoDisable.png"
+dest_files=["res://.godot/imported/KautoDisable.png-79221c9ca3164752ee32ee002da781ba.ctex"]
 
 [params]
 

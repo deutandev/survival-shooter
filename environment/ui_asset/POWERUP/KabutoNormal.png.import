@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3ayub6i1opek"
-path="res://.godot/imported/Tak berjudul1103_20250728191115.png-7c38479f018d2b302bb9161e6e2f7408.ctex"
+uid="uid://bqvasdjd2dk5s"
+path="res://.godot/imported/KabutoNormal.png-7dcd5ab5518a7138543e21ff9e1c114f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://environment/ui_asset/POWERUP/Tak berjudul1103_20250728191115.png"
-dest_files=["res://.godot/imported/Tak berjudul1103_20250728191115.png-7c38479f018d2b302bb9161e6e2f7408.ctex"]
+source_file="res://environment/ui_asset/POWERUP/KabutoNormal.png"
+dest_files=["res://.godot/imported/KabutoNormal.png-7dcd5ab5518a7138543e21ff9e1c114f.ctex"]
 
 [params]
 
