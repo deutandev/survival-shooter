@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dj2625ljimjkr" path="res://pooling/object_pool.tscn" id="7_ji8xv"]
 [ext_resource type="PackedScene" uid="uid://cce0ntpr7nmft" path="res://characters/enemies/mobs/tank.tscn" id="7_sd800"]
 [ext_resource type="Texture2D" uid="uid://b3a7em7gjy5f8" path="res://environment/ui_asset/ULTButton_Cooldown.png" id="8_b0oru"]
-[ext_resource type="Texture2D" uid="uid://d0hdmt12oq7nk" path="res://environment/ui_asset/TOPMENU_SCORE.png" id="8_wbpfv"]
+[ext_resource type="Texture2D" uid="uid://dfi7oacekeq0n" path="res://environment/ui_asset/top_right_ui_elements.png" id="8_roqq7"]
 [ext_resource type="Texture2D" uid="uid://ddh8jgmk0c3yx" path="res://environment/ui_asset/ULTButton_Hovered.png" id="9_jbfok"]
 [ext_resource type="PackedScene" uid="uid://5knwhkryyy4s" path="res://characters/enemies/mobs/vanguard.tscn" id="9_lcdfg"]
 [ext_resource type="PackedScene" uid="uid://nsljdh5bn4td" path="res://environment/pause_menu.tscn" id="10_a3b41"]
@@ -60,16 +60,19 @@ texture = ExtResource("7_jbfok")
 top_level = true
 light_mask = 512
 visibility_layer = 512
-position = Vector2(960, 184)
-texture = ExtResource("8_wbpfv")
+position = Vector2(106, 97)
+rotation = -0.497419
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_roqq7")
 
 [node name="BarLabelCanvas" type="CanvasLayer" parent="."]
 
 [node name="PlayerHealthBar" type="TextureProgressBar" parent="BarLabelCanvas" node_paths=PackedStringArray("target_node")]
-offset_left = 11.0
-offset_top = 103.0
-offset_right = 447.0
-offset_bottom = 289.0
+offset_left = 28.0
+offset_top = 926.0
+offset_right = 464.0
+offset_bottom = 1112.0
+scale = Vector2(0.65, 0.65)
 value = 100.0
 texture_under = ExtResource("15_x06km")
 texture_over = ExtResource("16_v7wbm")
@@ -78,16 +81,16 @@ script = ExtResource("2_ml8jp")
 target_node = NodePath("../../Player")
 
 [node name="CoinLogoui" type="Sprite2D" parent="BarLabelCanvas"]
-position = Vector2(72, 40)
+position = Vector2(65, 42.8)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("13_ilvff")
 
 [node name="ScoreTotal" type="Label" parent="BarLabelCanvas"]
 modulate = Color(0, 0, 0, 1)
-offset_left = 736.0
-offset_top = -16.0
-offset_right = 865.0
-offset_bottom = 14.0
+offset_left = -86.0
+offset_top = 66.8
+offset_right = 43.0
+offset_bottom = 96.8
 scale = Vector2(3, 3)
 theme_override_fonts/font = ExtResource("14_v7wbm")
 theme_override_font_sizes/font_size = 12
@@ -96,6 +99,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LabelCode" type="Node2D" parent="BarLabelCanvas"]
+position = Vector2(-7, 2.8)
 script = ExtResource("3_i4838")
 
 [node name="CoinTotal" type="Label" parent="BarLabelCanvas/LabelCode"]
@@ -114,13 +118,17 @@ vertical_alignment = 1
 [node name="ScoreTotal" type="Label" parent="BarLabelCanvas/LabelCode"]
 unique_name_in_owner = true
 modulate = Color(0, 0, 0, 1)
-offset_left = 792.0
-offset_top = 56.0
-offset_right = 889.0
-offset_bottom = 86.0
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = 112.0
+offset_right = 51.0
+offset_bottom = 142.0
+grow_vertical = 2
 scale = Vector2(3, 3)
 theme_override_fonts/font = ExtResource("14_v7wbm")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 13
 text = "0000"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -128,6 +136,7 @@ vertical_alignment = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("10_a3b41")]
+visible = false
 z_index = 1
 
 [node name="PauseButton" type="TextureButton" parent="CanvasLayer"]
@@ -146,32 +155,41 @@ script = ExtResource("5_pvoq3")
 player = NodePath("../../Player")
 
 [node name="UltButton" type="TextureButton" parent="CanvasLayer/UltButtonNode"]
-offset_left = 1512.0
-offset_top = 680.0
-offset_right = 1859.0
-offset_bottom = 1021.0
+offset_left = 1714.0
+offset_top = 846.0
+offset_right = 1899.0
+offset_bottom = 1022.0
 texture_normal = ExtResource("7_b0oru")
 texture_pressed = ExtResource("8_b0oru")
 texture_hover = ExtResource("9_jbfok")
 texture_disabled = ExtResource("8_b0oru")
+ignore_texture_size = true
 stretch_mode = 5
 
 [node name="CooldownLabel" type="Label" parent="CanvasLayer/UltButtonNode/UltButton"]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 108.0
-offset_top = 130.0
-offset_right = 174.0
-offset_bottom = 175.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.5
+offset_top = -40.5
+offset_right = 1.5
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(2, 2)
 theme_override_fonts/font = ExtResource("14_v7wbm")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 20
 text = "0.0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GameoverPanel" type="Node2D" parent="CanvasLayer"]
 unique_name_in_owner = true
+visible = false
 
 [node name="Panel" type="Panel" parent="CanvasLayer/GameoverPanel"]
 modulate = Color(0, 0, 0, 1)
@@ -217,7 +235,6 @@ curve = SubResource("Curve2D_3sytr")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
 unique_name_in_owner = true
-visible = false
 position = Vector2(-132, -95)
 rotation = 0.09066
 

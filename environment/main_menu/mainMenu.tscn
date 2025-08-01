@@ -94,6 +94,7 @@ offset_bottom = 495.0
 texture_normal = ExtResource("5_t2sos")
 texture_pressed = ExtResource("5_t2sos")
 texture_hover = ExtResource("10_wduaa")
+stretch_mode = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/ButtonManager/StartButton"]
 layout_mode = 0
