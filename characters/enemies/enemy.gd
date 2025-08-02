@@ -30,7 +30,6 @@ func _ready():
 	apply_enemy_data(stats)
 	_find_player()
 
-
 func _find_player():
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
@@ -71,6 +70,7 @@ func _move_toward_player():
 func take_damage(base_damage: float):
 	if is_dead:
 		return
+	%EnemyHurt.play()
 	var defense = stats.defense if stats else 1.0
 	var reduced_damage = max(base_damage - defense, MIN_DAMAGE_TAKEN)
 	current_health -= reduced_damage
@@ -82,6 +82,7 @@ func die():
 	if is_dead:
 		return
 	is_dead = true
+	%EnemyDied.play()
 	# Award score
 	var score_value = stats.exp_value if stats else 10
 	GameStats.add_score(score_value)
@@ -90,6 +91,7 @@ func die():
 	# Drop Skill Orb
 	skill_orb_drop.drop_skill_orb(global_position)
 	# Emit signal for object pooling
+	await %EnemyDied.finished
 	died.emit(self)
 
 func reset_mob():

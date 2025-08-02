@@ -20,6 +20,7 @@ resources_spreadsheet_view/context_menu_on_leftclick=false
 resources_spreadsheet_view/fold_docks=true
 resources_spreadsheet_view/resource_cell_label_mode=1
 resources_spreadsheet_view/freeze_first_column=true
+universal_fade/patterns_directory="res://addons/UniversalFade/Patterns"
 
 [application]
 
@@ -31,13 +32,16 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/image="uid://cncs3140eb83d"
 config/icon="uid://4rl1wefl47f1"
 config/windows_native_icon="res://icon.ico"
+boot_splash/minimum_display_time=1000
 
 [autoload]
 
 GameStats="*res://game_stats_data/game_stats.gd"
 CoinData="*res://game_stats_data/coin_data.gd"
 ScoreData="*res://game_stats_data/score_data.gd"
-StoryData="*res://story/story_data.gd"
+StorySaveManager="*res://story/story_save_manager.gd"
+StoryPurchaseManager="*res://story/story_purchase_manager.gd"
+StoryContent="*res://story/story_content.gd"
 
 [display]
 
