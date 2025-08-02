@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf3tsgcs0kkww"]
+
+[ext_resource type="Script" uid="uid://cuye6k8wbu7bp" path="res://components/upgrade/upgrade_pool.gd" id="1_kvbie"]
+
+[node name="UpgradePool" type="Node2D"]
+script = ExtResource("1_kvbie")

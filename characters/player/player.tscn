@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dhpintm4oouv3"]
+[gd_scene load_steps=21 format=3 uid="uid://dhpintm4oouv3"]
 
 [ext_resource type="Script" uid="uid://bjmv61e1a232k" path="res://characters/player/health_manager.gd" id="1_exd8k"]
 [ext_resource type="Script" uid="uid://84fb3bbyrwpm" path="res://characters/player/player.gd" id="1_xxgcw"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d36roq5bjt4cv" path="res://ult_skills/bomb.tscn" id="6_c6leb"]
 [ext_resource type="Texture2D" uid="uid://cv137rogs8yty" path="res://characters/player/sprites/player_run.png" id="6_idpv6"]
 [ext_resource type="AudioStream" uid="uid://c3bhlhckl6g60" path="res://audio/player_hurt.wav" id="9_rpf03"]
+[ext_resource type="PackedScene" uid="uid://cw1ufa4askf1m" path="res://components/upgrade/upgrade_manager.tscn" id="10_x5dtk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_idpv6"]
 atlas = ExtResource("3_c6leb")
@@ -136,6 +137,8 @@ process_mode = 3
 stream = ExtResource("9_rpf03")
 volume_db = 4.0
 pitch_scale = 0.5
+
+[node name="UpgradeManager" parent="." instance=ExtResource("10_x5dtk")]
 
 [connection signal="body_entered" from="HurtManager/HurtBox" to="HurtManager" method="_on_hurt_box_body_entered"]
 [connection signal="timeout" from="HurtManager/HurtBox/HurtTimer" to="HurtManager" method="_on_hurt_timer_timeout"]

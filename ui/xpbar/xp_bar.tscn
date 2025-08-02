@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://co08haak0tqau"]
+
+[ext_resource type="Texture2D" uid="uid://cwly7a3e4dtfu" path="res://UI/assets/Tak berjudul1106_20250728153838.png" id="1_he54q"]
+
+[node name="XpBar" type="Control"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(237, -104)
+texture = ExtResource("1_he54q")

@@ -9,7 +9,7 @@ var target_enemy: Node2D = null
 signal shoot_direction_changed(is_facing_right: bool)
 
 func _ready() -> void:
-	connect("body_entered", _on_body_entered)
+	#connect("body_entered", _on_body_entered)
 	connect("body_exited", _on_body_exited)
 
 func _physics_process(_delta: float) -> void:
@@ -22,7 +22,7 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 
 	enemies_in_range.append(body)
-	body.connect("died", _on_enemy_died.bind(body))
+	#body.connect("died", _on_enemy_died.bind(body))
 
 func _on_body_exited(body: Node2D) -> void:
 	enemies_in_range.erase(body)
