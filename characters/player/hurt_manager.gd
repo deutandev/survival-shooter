@@ -41,6 +41,15 @@ func _on_hurt_box_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
 		apply_damage(body)
 		hurt_timer.start()
+		flash_hurt()
+
+
+func flash_hurt():
+	var sprite = get_parent()
+	var tween = create_tween()
+	tween.tween_property(sprite, "modulate", Color(1, 0.3, 0.3), 0.1)
+	tween.tween_property(sprite, "modulate", Color(1, 1, 1), 0.1)
+
 
 func _on_hurt_timer_timeout() -> void:
 	is_collide_enemy()

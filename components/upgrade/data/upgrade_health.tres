@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=2 format=3 uid="uid://24bvbh0o5c3c"]
+
+[ext_resource type="Script" uid="uid://cidpj48hritl8" path="res://components/upgrade/upgrade_data.gd" id="1_rptgg"]
+
+[resource]
+script = ExtResource("1_rptgg")
+upgrade_type = 0
+stat_name = "max_health"
+amount = 20.0
+label = "Upgrade Health"
+description = "+20 Max Health"
+metadata/_custom_type_script = "uid://cidpj48hritl8"

@@ -12,11 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://bqm8ydabesbyo" path="res://environment/ui_asset/ULTButton_Normal.png" id="7_b0oru"]
 [ext_resource type="Texture2D" uid="uid://cvdgi3rr4e4y6" path="res://environment/ui_asset/TOPMENU_BACK.png" id="7_jbfok"]
 [ext_resource type="PackedScene" uid="uid://dj2625ljimjkr" path="res://pooling/object_pool.tscn" id="7_ji8xv"]
-[ext_resource type="PackedScene" uid="uid://cce0ntpr7nmft" path="res://characters/enemies/mobs/tank.tscn" id="7_sd800"]
 [ext_resource type="Texture2D" uid="uid://b3a7em7gjy5f8" path="res://environment/ui_asset/ULTButton_Cooldown.png" id="8_b0oru"]
 [ext_resource type="Texture2D" uid="uid://dfi7oacekeq0n" path="res://environment/ui_asset/top_right_ui_elements.png" id="8_roqq7"]
 [ext_resource type="Texture2D" uid="uid://ddh8jgmk0c3yx" path="res://environment/ui_asset/ULTButton_Hovered.png" id="9_jbfok"]
 [ext_resource type="PackedScene" uid="uid://5knwhkryyy4s" path="res://characters/enemies/mobs/vanguard.tscn" id="9_lcdfg"]
+
 [ext_resource type="Texture2D" uid="uid://dpp7ytqf2cvhx" path="res://environment/ui_asset/UPDATE/hp_long_back.png" id="9_w2abk"]
 [ext_resource type="Texture2D" uid="uid://dr02cx2ap5me1" path="res://environment/ui_asset/UPDATE/hp_long_front.png" id="10_2e7sk"]
 [ext_resource type="PackedScene" uid="uid://nsljdh5bn4td" path="res://environment/pause_menu.tscn" id="10_a3b41"]
@@ -33,6 +33,8 @@
 [ext_resource type="AudioStream" uid="uid://fejscclnewem" path="res://audio/game_bgm_audio.mp3" id="26_kmjdj"]
 [ext_resource type="AudioStream" uid="uid://d4h7qmmlna335" path="res://audio/player_dead_long.mp3" id="26_roqq7"]
 [ext_resource type="AudioStream" uid="uid://bg22rsrb3anjg" path="res://audio/click.wav" id="27_ecdha"]
+[ext_resource type="PackedScene" uid="uid://dqtxkw1j7j5rj" path="res://characters/enemies/mobs/school_mob.tscn" id="30_cnx84"]
+[ext_resource type="PackedScene" uid="uid://dk5dpwdsv2s7u" path="res://ui/UpgradeMenu.tscn" id="32_cnx84"]
 
 [sub_resource type="Curve2D" id="Curve2D_3sytr"]
 _data = {
@@ -249,12 +251,19 @@ volume_db = 5.0
 autostart = true
 
 [node name="RegularPool" parent="." instance=ExtResource("7_ji8xv")]
+object_count = 50
 
 [node name="TankPool" parent="." instance=ExtResource("7_ji8xv")]
-object_scene = ExtResource("7_sd800")
+object_scene = ExtResource("9_lcdfg")
+object_count = 50
 
 [node name="VanguardPool" parent="." instance=ExtResource("7_ji8xv")]
 object_scene = ExtResource("9_lcdfg")
+object_count = 50
+
+[node name="SchoolPool" parent="." instance=ExtResource("7_ji8xv")]
+object_scene = ExtResource("30_cnx84")
+object_count = 50
 
 [node name="UIManager" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("13_v5ifb")
@@ -266,6 +275,9 @@ player = NodePath("../Player")
 unique_name_in_owner = true
 stream = ExtResource("27_ecdha")
 volume_db = 9.0
+
+[node name="UpgradeMenu" parent="." node_paths=PackedStringArray("target") instance=ExtResource("32_cnx84")]
+target = NodePath("../Player")
 
 [connection signal="pressed" from="CanvasLayer/PauseButton" to="CanvasLayer/PauseMenu" method="_on_pause_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/UltButtonNode/UltButton" to="CanvasLayer/UltButtonNode" method="_on_ult_button_pressed"]

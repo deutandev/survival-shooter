@@ -1,8 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://b35xwxdbvdg2w"]
+[gd_scene load_steps=18 format=3 uid="uid://b35xwxdbvdg2w"]
 
 [ext_resource type="Script" uid="uid://b1ubsdibmcawl" path="res://characters/enemies/enemy.gd" id="1_008bi"]
 [ext_resource type="Resource" uid="uid://cqypuya5kxtcb" path="res://characters/enemies/data/regular_mob.tres" id="2_3vt6o"]
-[ext_resource type="Texture2D" uid="uid://b5kvkpcadh6o7" path="res://characters/enemies/enemy.svg" id="3_bi512"]
+[ext_resource type="Texture2D" uid="uid://demhlwafendpc" path="res://characters/enemies/mob.png" id="3_3h6a4"]
 [ext_resource type="Script" uid="uid://dhtstu4gad8uc" path="res://characters/enemies/coin_drop_manager.gd" id="4_wor85"]
 [ext_resource type="Script" uid="uid://baymkpj4ns1hf" path="res://characters/enemies/skill_orb_drop_manager.gd" id="5_3vt6o"]
 [ext_resource type="PackedScene" uid="uid://bngowghd41b52" path="res://skill_orb_drop/SkillOrb.tscn" id="6_r8wml"]
@@ -13,10 +13,78 @@
 [ext_resource type="AudioStream" uid="uid://c7578sunrpfjp" path="res://audio/enemy_dead2.wav" id="11_xslqa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4by1i"]
-radius = 30.3645
+radius = 39.0128
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mxcvk"]
 radius = 34.7131
+
+[sub_resource type="Animation" id="Animation_xslqa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MobSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MobSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yhmxs"]
+resource_name = "hurt"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MobSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.260006, 0.200835, 1), Color(1, 1, 1, 1), Color(1, 0.260006, 0.200835, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3h6a4"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MobSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xslqa"]
+_data = {
+&"RESET": SubResource("Animation_xslqa"),
+&"hurt": SubResource("Animation_yhmxs"),
+&"walk": SubResource("Animation_3h6a4")
+}
 
 [node name="Mob" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 4
@@ -26,9 +94,9 @@ script = ExtResource("1_008bi")
 stats = ExtResource("2_3vt6o")
 
 [node name="MobSprite" type="Sprite2D" parent="."]
-modulate = Color(1, 0.219608, 0.137255, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_bi512")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_3h6a4")
+hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_4by1i")
@@ -66,5 +134,11 @@ unique_name_in_owner = true
 stream = ExtResource("11_xslqa")
 volume_db = 10.0
 pitch_scale = 0.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xslqa")
+}
+autoplay = "walk"
 
 [connection signal="area_entered" from="EnemyHitBox" to="." method="_on_hit_box_area_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bngowghd41b52"]
+[gd_scene load_steps=9 format=3 uid="uid://bngowghd41b52"]
 
 [ext_resource type="Script" uid="uid://crpujv30kdw42" path="res://skill_orb_drop/skill_orb.gd" id="1_0yjcy"]
 [ext_resource type="Script" uid="uid://duqodid8p75hg" path="res://skill_orb_drop/skill_orb_data.gd" id="2_18734"]
@@ -7,6 +7,44 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_35kx3"]
 radius = 32.0
+
+[sub_resource type="Animation" id="Animation_6ut5m"]
+resource_name = "hovering"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.2, 0.2), Vector2(0.175, 0.175)]
+}
+
+[sub_resource type="Animation" id="Animation_3nn1i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.2, 0.2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3nn1i"]
+_data = {
+&"RESET": SubResource("Animation_3nn1i"),
+&"hovering": SubResource("Animation_6ut5m")
+}
 
 [node name="SkillOrb" type="Area2D"]
 z_index = 1
@@ -24,3 +62,9 @@ texture = ExtResource("3_18734")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_6ut5m")
 volume_db = 14.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3nn1i")
+}
+autoplay = "hovering"
