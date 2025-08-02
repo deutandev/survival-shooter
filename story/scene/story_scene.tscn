@@ -1,16 +1,20 @@
-[gd_scene load_steps=12 format=3 uid="uid://bt4wbwwt5jfud"]
+[gd_scene load_steps=16 format=3 uid="uid://bt4wbwwt5jfud"]
 
-[ext_resource type="FontFile" uid="uid://oh10xj2oou7l" path="res://fonts/Tomorrow-Black.ttf" id="1_b5vsy"]
 [ext_resource type="Texture2D" uid="uid://cpayalanher7l" path="res://environment/main_menu/ui_assets_menu/BACKGROUND.png" id="1_xt8ii"]
 [ext_resource type="Script" uid="uid://bsseg3e1ipjve" path="res://story/story_button_manager.gd" id="2_xt8ii"]
 [ext_resource type="Texture2D" uid="uid://ckygq8y3p1xow" path="res://environment/ui_asset/Button.png" id="3_rvjdh"]
 [ext_resource type="FontFile" uid="uid://cdya30u1ro1xm" path="res://fonts/HOMINIS.TTF" id="4_pcg3f"]
 [ext_resource type="AudioStream" uid="uid://bg22rsrb3anjg" path="res://audio/click.wav" id="5_qq3eg"]
-[ext_resource type="Script" path="res://story/scene/story_chapter_button.gd" id="5_rvjdh"]
+[ext_resource type="Script" uid="uid://dpo7uhmiqbvx3" path="res://story/scene/story_chapter_button.gd" id="5_rvjdh"]
 [ext_resource type="Texture2D" uid="uid://ctvhsr02jjckl" path="res://environment/ui_asset/COIN_LOGOUI.png" id="6_hq2sf"]
+[ext_resource type="Texture2D" uid="uid://jddl58fpq4vg" path="res://environment/ui_asset/UPDATE/prolog_ui.png" id="7_larb4"]
 [ext_resource type="FontFile" uid="uid://b6oh7wlewlx2b" path="res://fonts/Libertinus_Serif/TEXT_LibertinusSerif-BoldItalic.ttf" id="7_pcg3f"]
+[ext_resource type="Texture2D" uid="uid://blw8xt0ik0ebq" path="res://environment/ui_asset/UPDATE/chapter1_ui.png" id="8_v3oug"]
+[ext_resource type="Texture2D" uid="uid://bhv70iljnxddq" path="res://environment/ui_asset/UPDATE/chapter2_ui.png" id="9_bfok0"]
 [ext_resource type="Script" uid="uid://byjix033eqqv6" path="res://environment/main_menu/main_label_manager.gd" id="9_qq3eg"]
+[ext_resource type="Texture2D" uid="uid://b2ensmoda10nk" path="res://environment/ui_asset/UPDATE/chaptre3_ui.png" id="10_k0lb0"]
 [ext_resource type="AudioStream" uid="uid://chujtk87l5sl4" path="res://audio/Critical Tension - Ticking Trailer 1 Min.mp3" id="11_hq2sf"]
+[ext_resource type="FontFile" uid="uid://kxr41xv5mgjv" path="res://fonts/Libertinus_Serif/TEXT_LibertinusSerif-Bold.ttf" id="14_larb4"]
 
 [node name="StoryScene" type="Node2D"]
 
@@ -23,21 +27,6 @@ offset_bottom = 1212.0
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
 texture = ExtResource("1_xt8ii")
-
-[node name="Label2" type="Label" parent="."]
-offset_left = 712.0
-offset_top = 256.0
-offset_right = 1161.0
-offset_bottom = 413.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 52
-theme_override_fonts/font = ExtResource("1_b5vsy")
-theme_override_font_sizes/font_size = 64
-text = "Chapter
-One"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="StoryButton" type="Node2D" parent="."]
 script = ExtResource("2_xt8ii")
@@ -123,10 +112,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="StoryChapterTwo" type="TextureButton" parent="StoryButton" groups=["chapter_buttons"]]
-offset_left = 456.0
-offset_top = 832.0
-offset_right = 849.0
-offset_bottom = 968.0
+offset_left = 428.0
+offset_top = 853.5
+offset_right = 821.0
+offset_bottom = 989.5
 texture_normal = ExtResource("3_rvjdh")
 script = ExtResource("5_rvjdh")
 chapter_key = "chapter_two"
@@ -149,10 +138,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="StoryChapterThree" type="TextureButton" parent="StoryButton" groups=["chapter_buttons"]]
-offset_left = 1056.0
-offset_top = 832.0
-offset_right = 1449.0
-offset_bottom = 968.0
+offset_left = 1072.0
+offset_top = 851.5
+offset_right = 1465.0
+offset_bottom = 987.5
 texture_normal = ExtResource("3_rvjdh")
 script = ExtResource("5_rvjdh")
 chapter_key = "chapter_three"
@@ -212,69 +201,37 @@ theme_override_fonts/font = ExtResource("7_pcg3f")
 theme_override_font_sizes/font_size = 56
 text = "Not enough COIN"
 
+[node name="CoverChapter" type="Node2D" parent="."]
+
+[node name="PrologUi" type="Sprite2D" parent="CoverChapter"]
+position = Vector2(324, 313)
+scale = Vector2(0.697266, 0.697266)
+texture = ExtResource("7_larb4")
+
+[node name="PrologUi2" type="Sprite2D" parent="CoverChapter"]
+position = Vector2(922, 313)
+scale = Vector2(0.697266, 0.697266)
+texture = ExtResource("8_v3oug")
+
+[node name="PrologUi3" type="Sprite2D" parent="CoverChapter"]
+position = Vector2(1590, 311)
+scale = Vector2(0.697266, 0.697266)
+texture = ExtResource("7_larb4")
+
+[node name="PrologUi4" type="Sprite2D" parent="CoverChapter"]
+position = Vector2(621, 718.5)
+scale = Vector2(0.697266, 0.697266)
+texture = ExtResource("9_bfok0")
+
+[node name="PrologUi5" type="Sprite2D" parent="CoverChapter"]
+position = Vector2(1271, 716.5)
+scale = Vector2(0.697266, 0.697266)
+texture = ExtResource("10_k0lb0")
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("5_qq3eg")
 volume_db = 9.0
-
-[node name="Label" type="Label" parent="."]
-offset_left = 168.0
-offset_top = 256.0
-offset_right = 485.0
-offset_bottom = 416.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 52
-theme_override_fonts/font = ExtResource("1_b5vsy")
-theme_override_font_sizes/font_size = 64
-text = "PROLOG"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label3" type="Label" parent="."]
-offset_left = 1368.0
-offset_top = 256.0
-offset_right = 1817.0
-offset_bottom = 413.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 52
-theme_override_fonts/font = ExtResource("1_b5vsy")
-theme_override_font_sizes/font_size = 64
-text = "First 
-Die"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label4" type="Label" parent="."]
-offset_left = 432.0
-offset_top = 640.0
-offset_right = 881.0
-offset_bottom = 797.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 52
-theme_override_fonts/font = ExtResource("1_b5vsy")
-theme_override_font_sizes/font_size = 64
-text = "Chapter
-Two"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label5" type="Label" parent="."]
-offset_left = 1032.0
-offset_top = 640.0
-offset_right = 1481.0
-offset_bottom = 797.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 52
-theme_override_fonts/font = ExtResource("1_b5vsy")
-theme_override_font_sizes/font_size = 64
-text = "Chapter
-Three"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Node2D" type="Node2D" parent="."]
 script = ExtResource("9_qq3eg")
@@ -286,17 +243,16 @@ texture = ExtResource("6_hq2sf")
 
 [node name="CoinLabel" type="Label" parent="Node2D"]
 unique_name_in_owner = true
-offset_left = 88.0
-offset_top = -8.0
-offset_right = 537.0
-offset_bottom = 149.0
+offset_left = 202.0
+offset_top = 21.0
+offset_right = 651.0
+offset_bottom = 122.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 52
-theme_override_fonts/font = ExtResource("1_b5vsy")
+theme_override_fonts/font = ExtResource("14_larb4")
 theme_override_font_sizes/font_size = 64
 text = "0000"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MenuBgm" type="AudioStreamPlayer2D" parent="."]

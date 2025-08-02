@@ -1,14 +1,14 @@
-[gd_scene load_steps=33 format=3 uid="uid://ci7o2hwcenyhx"]
+[gd_scene load_steps=35 format=3 uid="uid://ci7o2hwcenyhx"]
 
 [ext_resource type="PackedScene" uid="uid://dhpintm4oouv3" path="res://characters/player/player.tscn" id="1_8viek"]
 [ext_resource type="Script" uid="uid://by3uf4ticsjm2" path="res://environment/map.gd" id="1_fp5rb"]
 [ext_resource type="Script" uid="uid://bvdghlnculcbc" path="res://environment/health_bar.gd" id="2_ml8jp"]
 [ext_resource type="Script" uid="uid://wtnvja7gb1yt" path="res://environment/label_manager.gd" id="3_i4838"]
 [ext_resource type="PackedScene" uid="uid://vaqrayj1l0lo" path="res://chunksystem/ChunkNode.tscn" id="3_j41vl"]
-[ext_resource type="Texture2D" uid="uid://sh2xq6hvcrfa" path="res://environment/map_bg_assets/past_map.jpg" id="4_jyqfc"]
-[ext_resource type="Texture2D" uid="uid://crgk55x6kghl5" path="res://environment/map_bg_assets/future_map.jpg" id="5_b0oru"]
+[ext_resource type="Texture2D" uid="uid://ben60kowseuvv" path="res://environment/map_bg_assets/past_small.jpg" id="4_roqq7"]
+[ext_resource type="Texture2D" uid="uid://dbsm8xq8edyhf" path="res://environment/map_bg_assets/envi_2_small.jpg" id="5_cnx84"]
 [ext_resource type="Script" uid="uid://cwv55w6bu3swa" path="res://environment/ult_button.gd" id="5_pvoq3"]
-[ext_resource type="Texture2D" uid="uid://bt5r60l77s30w" path="res://environment/map_bg_assets/post_map.jpg" id="6_b0oru"]
+[ext_resource type="Texture2D" uid="uid://32w45nxjfns8" path="res://environment/map_bg_assets/envi_3_small.jpg" id="6_w2abk"]
 [ext_resource type="Texture2D" uid="uid://bqm8ydabesbyo" path="res://environment/ui_asset/ULTButton_Normal.png" id="7_b0oru"]
 [ext_resource type="Texture2D" uid="uid://cvdgi3rr4e4y6" path="res://environment/ui_asset/TOPMENU_BACK.png" id="7_jbfok"]
 [ext_resource type="PackedScene" uid="uid://dj2625ljimjkr" path="res://pooling/object_pool.tscn" id="7_ji8xv"]
@@ -17,17 +17,19 @@
 [ext_resource type="Texture2D" uid="uid://dfi7oacekeq0n" path="res://environment/ui_asset/top_right_ui_elements.png" id="8_roqq7"]
 [ext_resource type="Texture2D" uid="uid://ddh8jgmk0c3yx" path="res://environment/ui_asset/ULTButton_Hovered.png" id="9_jbfok"]
 [ext_resource type="PackedScene" uid="uid://5knwhkryyy4s" path="res://characters/enemies/mobs/vanguard.tscn" id="9_lcdfg"]
+[ext_resource type="Texture2D" uid="uid://dpp7ytqf2cvhx" path="res://environment/ui_asset/UPDATE/hp_long_back.png" id="9_w2abk"]
+[ext_resource type="Texture2D" uid="uid://dr02cx2ap5me1" path="res://environment/ui_asset/UPDATE/hp_long_front.png" id="10_2e7sk"]
 [ext_resource type="PackedScene" uid="uid://nsljdh5bn4td" path="res://environment/pause_menu.tscn" id="10_a3b41"]
+[ext_resource type="Texture2D" uid="uid://bhje18uo0es7a" path="res://environment/ui_asset/UPDATE/hp_long_bar.png" id="11_0l847"]
 [ext_resource type="Texture2D" uid="uid://r4g6r6ct8vm1" path="res://environment/game_over_label.png" id="12_b0oru"]
 [ext_resource type="Texture2D" uid="uid://ctvhsr02jjckl" path="res://environment/ui_asset/COIN_LOGOUI.png" id="13_ilvff"]
 [ext_resource type="Script" uid="uid://b81v8y1eja7r6" path="res://environment/ui_manager.gd" id="13_v5ifb"]
 [ext_resource type="FontFile" uid="uid://cdya30u1ro1xm" path="res://fonts/HOMINIS.TTF" id="14_v7wbm"]
 [ext_resource type="Script" uid="uid://cd8dndsi2dcx1" path="res://chunksystem/chunk_manager.gd" id="15_e8rkj"]
-[ext_resource type="Texture2D" uid="uid://cwwgfucxe7ut5" path="res://characters/player/health_bar_player/HEALTHBAR_BACK.png" id="15_x06km"]
+[ext_resource type="FontFile" uid="uid://kxr41xv5mgjv" path="res://fonts/Libertinus_Serif/TEXT_LibertinusSerif-Bold.ttf" id="15_fe2qs"]
 [ext_resource type="Texture2D" uid="uid://dfvgicrgx8e4i" path="res://environment/ui_asset/PAUSE.png" id="16_7bubq"]
-[ext_resource type="Texture2D" uid="uid://dpeqlotyw747j" path="res://characters/player/health_bar_player/HEALTHBAR_FRONT.png" id="16_v7wbm"]
+[ext_resource type="Texture2D" uid="uid://baw6dqs3krk5o" path="res://environment/ui_asset/UPDATE/piala_ui.png" id="16_cnx84"]
 [ext_resource type="Texture2D" uid="uid://cvpyequth8xfs" path="res://environment/ui_asset/PAUSE_HOVERED.png" id="17_ilvff"]
-[ext_resource type="Texture2D" uid="uid://dxti6ih5xhuia" path="res://characters/player/health_bar_player/HEALTHBAR_GAUGECOLOR.png" id="17_kmjdj"]
 [ext_resource type="AudioStream" uid="uid://fejscclnewem" path="res://audio/game_bgm_audio.mp3" id="26_kmjdj"]
 [ext_resource type="AudioStream" uid="uid://d4h7qmmlna335" path="res://audio/player_dead_long.mp3" id="26_roqq7"]
 [ext_resource type="AudioStream" uid="uid://bg22rsrb3anjg" path="res://audio/click.wav" id="27_ecdha"]
@@ -44,7 +46,7 @@ script = ExtResource("1_fp5rb")
 [node name="ChunkManager" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("15_e8rkj")
 chunk_scene = ExtResource("3_j41vl")
-available_images = Array[Texture2D]([ExtResource("4_jyqfc"), ExtResource("5_b0oru"), ExtResource("6_b0oru")])
+available_images = Array[Texture2D]([ExtResource("4_roqq7"), ExtResource("5_cnx84"), ExtResource("6_w2abk")])
 player = NodePath("../Player")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
@@ -60,7 +62,7 @@ texture = ExtResource("7_jbfok")
 top_level = true
 light_mask = 512
 visibility_layer = 512
-position = Vector2(106, 97)
+position = Vector2(117, 71)
 rotation = -0.497419
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("8_roqq7")
@@ -68,35 +70,22 @@ texture = ExtResource("8_roqq7")
 [node name="BarLabelCanvas" type="CanvasLayer" parent="."]
 
 [node name="PlayerHealthBar" type="TextureProgressBar" parent="BarLabelCanvas" node_paths=PackedStringArray("target_node")]
-offset_left = 28.0
+offset_left = 31.0
 offset_top = 926.0
-offset_right = 464.0
+offset_right = 831.0
 offset_bottom = 1112.0
 scale = Vector2(0.65, 0.65)
 value = 100.0
-texture_under = ExtResource("15_x06km")
-texture_over = ExtResource("16_v7wbm")
-texture_progress = ExtResource("17_kmjdj")
+texture_under = ExtResource("9_w2abk")
+texture_over = ExtResource("10_2e7sk")
+texture_progress = ExtResource("11_0l847")
 script = ExtResource("2_ml8jp")
 target_node = NodePath("../../Player")
 
 [node name="CoinLogoui" type="Sprite2D" parent="BarLabelCanvas"]
-position = Vector2(65, 42.8)
-scale = Vector2(0.3, 0.3)
+position = Vector2(475, 42)
+scale = Vector2(0.258984, 0.258984)
 texture = ExtResource("13_ilvff")
-
-[node name="ScoreTotal" type="Label" parent="BarLabelCanvas"]
-modulate = Color(0, 0, 0, 1)
-offset_left = -86.0
-offset_top = 66.8
-offset_right = 43.0
-offset_bottom = 96.8
-scale = Vector2(3, 3)
-theme_override_fonts/font = ExtResource("14_v7wbm")
-theme_override_font_sizes/font_size = 12
-text = "Score"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="LabelCode" type="Node2D" parent="BarLabelCanvas"]
 position = Vector2(-7, 2.8)
@@ -105,14 +94,13 @@ script = ExtResource("3_i4838")
 [node name="CoinTotal" type="Label" parent="BarLabelCanvas/LabelCode"]
 unique_name_in_owner = true
 modulate = Color(1, 0.717647, 0.443137, 1)
-offset_left = 120.0
-offset_top = 24.0
-offset_right = 206.0
-offset_bottom = 47.0
-scale = Vector2(2, 2)
-theme_override_fonts/font = ExtResource("14_v7wbm")
-theme_override_font_sizes/font_size = 21
-text = "00"
+offset_left = 526.0
+offset_top = 16.2
+offset_right = 604.0
+offset_bottom = 60.2
+theme_override_fonts/font = ExtResource("15_fe2qs")
+theme_override_font_sizes/font_size = 38
+text = "0000"
 vertical_alignment = 1
 
 [node name="ScoreTotal" type="Label" parent="BarLabelCanvas/LabelCode"]
@@ -121,22 +109,26 @@ modulate = Color(0, 0, 0, 1)
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = -46.0
-offset_top = 112.0
-offset_right = 51.0
-offset_bottom = 142.0
+offset_left = 37.0
+offset_top = 114.0
+offset_right = 219.0
+offset_bottom = 186.0
 grow_vertical = 2
-scale = Vector2(3, 3)
-theme_override_fonts/font = ExtResource("14_v7wbm")
-theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("15_fe2qs")
+theme_override_font_sizes/font_size = 62
 text = "0000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ScoreUi" type="Sprite2D" parent="BarLabelCanvas/LabelCode"]
+position = Vector2(128.25, 62.95)
+scale = Vector2(0.233398, 0.233398)
+texture = ExtResource("16_cnx84")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("10_a3b41")]
-visible = false
 z_index = 1
 
 [node name="PauseButton" type="TextureButton" parent="CanvasLayer"]
