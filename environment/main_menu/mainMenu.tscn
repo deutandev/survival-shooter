@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cqqud85aecvvw" path="res://environment/ui_asset/UPDATE/Play Button Hover.png" id="13_vs6gq"]
 [ext_resource type="Texture2D" uid="uid://bxg7orwamd01f" path="res://environment/ui_asset/UPDATE/credit_button.png" id="14_wfdfq"]
 [ext_resource type="Texture2D" uid="uid://b4rxmxx71n23g" path="res://environment/ui_asset/UPDATE/credit_hover.png" id="15_pryvg"]
-[ext_resource type="Texture2D" uid="uid://b2tcjv0qmy4fo" path="res://environment/ui_asset/UPDATE/story_button.png" id="16_a8jwm"]
+[ext_resource type="Texture2D" uid="uid://b2tcjv0qmy4fo" path="res://environment/ui_asset/UPDATE/chapter_button.png" id="16_a8jwm"]
 [ext_resource type="Texture2D" uid="uid://bgrt2v6heirf4" path="res://environment/ui_asset/UPDATE/story_hover.png" id="17_2ujjm"]
 
 [node name="MainMenu" type="Node2D"]

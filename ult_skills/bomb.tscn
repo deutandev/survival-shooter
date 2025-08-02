@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d36roq5bjt4cv"]
 
 [ext_resource type="Script" uid="uid://dqtuuriaubl1r" path="res://ult_skills/bomb.gd" id="1_awias"]
-[ext_resource type="Texture2D" uid="uid://cljckg5v7eqw5" path="res://ult_skills/vfx_bomb.png" id="2_jkpor"]
+[ext_resource type="Texture2D" uid="uid://b3n5iiwq68rr2" path="res://ult_skills/vfx_bomb2.png" id="2_jkpor"]
 [ext_resource type="AudioStream" uid="uid://bqniwlol0af0t" path="res://audio/bom_explosion.wav" id="3_jkpor"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_awias"]
