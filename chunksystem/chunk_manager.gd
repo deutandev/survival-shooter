@@ -2,7 +2,7 @@ extends Node2D
 class_name ChunkManager
 
 @export var chunk_scene: PackedScene
-@export var chunk_size: Vector2i = Vector2i(5769, 3240)  # Large sprite-based chunk
+@export var chunk_size: Vector2i = Vector2i(3920, 2160)  # Large sprite-based chunk
 @export var chunk_buffer: int = 1  # Radius around player
 @export var available_images: Array[Texture2D]
 @export var player: Node2D

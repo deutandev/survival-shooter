@@ -1,21 +1,23 @@
-[gd_scene load_steps=17 format=3 uid="uid://bj2je6nv2vokx"]
+[gd_scene load_steps=19 format=3 uid="uid://bj2je6nv2vokx"]
 
 [ext_resource type="Script" uid="uid://6wsjpecejnx5" path="res://environment/main_menu/main_button_manager.gd" id="1_uank7"]
 [ext_resource type="Texture2D" uid="uid://7aqa2ln43h" path="res://environment/main_menu/ui_assets_menu/MenuMockupng.png" id="1_w7jtu"]
 [ext_resource type="Script" uid="uid://byjix033eqqv6" path="res://environment/main_menu/main_label_manager.gd" id="2_a1r21"]
-[ext_resource type="Texture2D" uid="uid://c6233h0ytibqc" path="res://environment/main_menu/ui_assets_menu/main_bg.png" id="2_aqol6"]
+[ext_resource type="Texture2D" uid="uid://dbsm8xq8edyhf" path="res://environment/map_bg_assets/envi_2_small.jpg" id="2_o1dib"]
 [ext_resource type="Texture2D" uid="uid://b47o1wnjj0iev" path="res://environment/main_menu/ui_assets_menu/Menu Screen_Border.png" id="3_the8w"]
+[ext_resource type="Texture2D" uid="uid://oxapqo4etug2" path="res://environment/ui_asset/UPDATE/hishscore.png" id="3_vwje6"]
 [ext_resource type="AudioStream" uid="uid://chujtk87l5sl4" path="res://audio/Critical Tension - Ticking Trailer 1 Min.mp3" id="4_3vnf6"]
-[ext_resource type="Texture2D" uid="uid://b2hyp2r2lf5gp" path="res://environment/main_menu/ui_assets_menu/HighScore.png" id="4_k0ygn"]
-[ext_resource type="Texture2D" uid="uid://ot40386g2ocb" path="res://environment/main_menu/ui_assets_menu/Menu_Play.png" id="5_t2sos"]
+[ext_resource type="Texture2D" uid="uid://biavb7g1de3la" path="res://environment/ui_asset/UPDATE/maskot.png" id="4_ifu6h"]
 [ext_resource type="AudioStream" uid="uid://bg22rsrb3anjg" path="res://audio/click.wav" id="5_ucrse"]
 [ext_resource type="Texture2D" uid="uid://ctvhsr02jjckl" path="res://environment/ui_asset/COIN_LOGOUI.png" id="7_mhcdu"]
-[ext_resource type="FontFile" uid="uid://cdya30u1ro1xm" path="res://fonts/HOMINIS.TTF" id="7_sm6hx"]
-[ext_resource type="Texture2D" uid="uid://btcbjlfac6ox4" path="res://environment/ui_asset/Idle_1.png" id="8_aqol6"]
+[ext_resource type="FontFile" uid="uid://kxr41xv5mgjv" path="res://fonts/Libertinus_Serif/TEXT_LibertinusSerif-Bold.ttf" id="8_wh8gr"]
 [ext_resource type="PackedScene" uid="uid://dgavmiquqpsge" path="res://environment/main_menu/credit_panel.tscn" id="9_k0ygn"]
-[ext_resource type="Texture2D" uid="uid://dpa22sbaag8mc" path="res://environment/main_menu/ui_assets_menu/Menu_Play_Hovered.png" id="10_wduaa"]
-[ext_resource type="Texture2D" uid="uid://lundw47fqp72" path="res://environment/main_menu/ui_assets_menu/BUTTON BROWN.png" id="11_o1dib"]
-[ext_resource type="Texture2D" uid="uid://yb8ihcyrxgro" path="res://environment/main_menu/ui_assets_menu/BUTTONBROWN_HOVERED.png" id="12_vwje6"]
+[ext_resource type="Texture2D" uid="uid://21h4opw3xppm" path="res://environment/ui_asset/UPDATE/PLAY BUTTON.png" id="12_b13yr"]
+[ext_resource type="Texture2D" uid="uid://cqqud85aecvvw" path="res://environment/ui_asset/UPDATE/Play Button Hover.png" id="13_vs6gq"]
+[ext_resource type="Texture2D" uid="uid://bxg7orwamd01f" path="res://environment/ui_asset/UPDATE/credit_button.png" id="14_wfdfq"]
+[ext_resource type="Texture2D" uid="uid://b4rxmxx71n23g" path="res://environment/ui_asset/UPDATE/credit_hover.png" id="15_pryvg"]
+[ext_resource type="Texture2D" uid="uid://b2tcjv0qmy4fo" path="res://environment/ui_asset/UPDATE/chapter_button.png" id="16_a8jwm"]
+[ext_resource type="Texture2D" uid="uid://bgrt2v6heirf4" path="res://environment/ui_asset/UPDATE/story_hover.png" id="17_2ujjm"]
 
 [node name="MainMenu" type="Node2D"]
 
@@ -27,17 +29,22 @@ position = Vector2(960, 540)
 texture = ExtResource("1_w7jtu")
 
 [node name="MainBg" type="Sprite2D" parent="CanvasLayer2"]
-position = Vector2(841.5, 692.5)
-scale = Vector2(1.5787, 1.36615)
-texture = ExtResource("2_aqol6")
+position = Vector2(1145, 550)
+scale = Vector2(0.631318, 0.546123)
+texture = ExtResource("2_o1dib")
+
+[node name="HighScore" type="Sprite2D" parent="CanvasLayer2"]
+position = Vector2(362, 463)
+scale = Vector2(0.855556, 0.855556)
+texture = ExtResource("3_vwje6")
+
+[node name="Maskot" type="Sprite2D" parent="CanvasLayer2"]
+position = Vector2(963, 540)
+texture = ExtResource("4_ifu6h")
 
 [node name="MainMenu2" type="Sprite2D" parent="CanvasLayer2"]
 position = Vector2(960, 540)
 texture = ExtResource("3_the8w")
-
-[node name="HighScore" type="Sprite2D" parent="CanvasLayer2"]
-position = Vector2(311, 209)
-texture = ExtResource("4_k0ygn")
 
 [node name="Label" type="Node2D" parent="CanvasLayer2"]
 script = ExtResource("2_a1r21")
@@ -51,32 +58,28 @@ offset_bottom = 131.0
 theme_override_colors/font_color = Color(0.92549, 0.862745, 0.760784, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 13
-theme_override_fonts/font = ExtResource("7_sm6hx")
-theme_override_font_sizes/font_size = 48
+theme_override_fonts/font = ExtResource("8_wh8gr")
+theme_override_font_sizes/font_size = 57
 text = "00"
 vertical_alignment = 1
 
 [node name="HighscoreLabel" type="Label" parent="CanvasLayer2/Label"]
 unique_name_in_owner = true
-offset_left = 103.0
-offset_top = 116.0
-offset_right = 522.0
-offset_bottom = 326.0
+offset_left = 101.0
+offset_top = 269.0
+offset_right = 626.0
+offset_bottom = 394.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("7_sm6hx")
+theme_override_fonts/font = ExtResource("8_wh8gr")
 theme_override_font_sizes/font_size = 93
 text = "0000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CoinLogoui" type="Sprite2D" parent="CanvasLayer2"]
-position = Vector2(1655, 79)
+position = Vector2(1655, 82)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("7_mhcdu")
-
-[node name="Idle1" type="Sprite2D" parent="CanvasLayer2"]
-position = Vector2(880, 601)
-texture = ExtResource("8_aqol6")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -87,79 +90,34 @@ z_index = 1
 script = ExtResource("1_uank7")
 
 [node name="StartButton" type="TextureButton" parent="CanvasLayer/ButtonManager"]
-offset_left = 1131.0
-offset_top = 17.0
-offset_right = 1622.0
-offset_bottom = 495.0
-texture_normal = ExtResource("5_t2sos")
-texture_pressed = ExtResource("5_t2sos")
-texture_hover = ExtResource("10_wduaa")
+offset_left = 1104.0
+offset_top = 1.0
+offset_right = 1595.0
+offset_bottom = 479.0
+texture_normal = ExtResource("12_b13yr")
+texture_pressed = ExtResource("12_b13yr")
+texture_hover = ExtResource("13_vs6gq")
 stretch_mode = 3
 
-[node name="Label" type="Label" parent="CanvasLayer/ButtonManager/StartButton"]
-layout_mode = 0
-offset_left = 128.0
-offset_top = 187.0
-offset_right = 369.0
-offset_bottom = 297.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("7_sm6hx")
-theme_override_font_sizes/font_size = 66
-text = "Play"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="CreditButton" type="TextureButton" parent="CanvasLayer/ButtonManager"]
-offset_left = 1250.0
-offset_top = 650.0
-offset_right = 1671.0
-offset_bottom = 1032.0
-texture_normal = ExtResource("11_o1dib")
-texture_pressed = ExtResource("11_o1dib")
-texture_hover = ExtResource("12_vwje6")
-ignore_texture_size = true
+offset_left = 1104.0
+offset_top = 666.0
+offset_right = 1525.0
+offset_bottom = 1079.0
+texture_normal = ExtResource("14_wfdfq")
+texture_pressed = ExtResource("14_wfdfq")
+texture_hover = ExtResource("15_pryvg")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="CanvasLayer/ButtonManager/CreditButton"]
-layout_mode = 0
-offset_left = 97.0
-offset_top = 139.0
-offset_right = 331.0
-offset_bottom = 249.0
-theme_override_colors/font_color = Color(0.92549, 0.862745, 0.760784, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 19
-theme_override_fonts/font = ExtResource("7_sm6hx")
-theme_override_font_sizes/font_size = 47
-text = "credit"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="StoryButton" type="TextureButton" parent="CanvasLayer/ButtonManager"]
-offset_left = 1451.0
-offset_top = 329.0
-offset_right = 1868.0
-offset_bottom = 752.0
-texture_normal = ExtResource("11_o1dib")
-texture_pressed = ExtResource("11_o1dib")
-texture_hover = ExtResource("12_vwje6")
-ignore_texture_size = true
+offset_left = 1322.0
+offset_top = 385.0
+offset_right = 1730.0
+offset_bottom = 798.0
+texture_normal = ExtResource("16_a8jwm")
+texture_pressed = ExtResource("16_a8jwm")
+texture_hover = ExtResource("17_2ujjm")
 stretch_mode = 4
-
-[node name="Label" type="Label" parent="CanvasLayer/ButtonManager/StoryButton"]
-layout_mode = 0
-offset_left = 85.0
-offset_top = 160.0
-offset_right = 337.0
-offset_bottom = 270.0
-theme_override_colors/font_color = Color(0.92549, 0.862745, 0.760784, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 19
-theme_override_fonts/font = ExtResource("7_sm6hx")
-theme_override_font_sizes/font_size = 56
-text = "Story"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="AudioList" type="Node2D" parent="."]
 

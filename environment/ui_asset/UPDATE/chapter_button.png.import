@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cljckg5v7eqw5"
-path="res://.godot/imported/vfx_bomb.png-abb4a3277a643152007d1b9cdfa1121d.ctex"
+uid="uid://b2tcjv0qmy4fo"
+path="res://.godot/imported/chapter_button.png-2b4ded490d36b1be93766e12b36b2269.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ult_skills/vfx_bomb.png"
-dest_files=["res://.godot/imported/vfx_bomb.png-abb4a3277a643152007d1b9cdfa1121d.ctex"]
+source_file="res://environment/ui_asset/UPDATE/chapter_button.png"
+dest_files=["res://.godot/imported/chapter_button.png-2b4ded490d36b1be93766e12b36b2269.ctex"]
 
 [params]
 

@@ -1,11 +1,11 @@
 extends Node
 
 @export var chapter_prices := {
-	"chapter_intro": 5,
-	"chapter_one": 5,
-	"chapter_first_die": 5,
-	"chapter_two": 5,
-	"chapter_three": 5,
+	"chapter_intro": 20,
+	"chapter_one": 25,
+	"chapter_first_die": 30,
+	"chapter_two": 35,
+	"chapter_three": 40,
 }
 
 func is_purchased(chapter_key: String) -> bool:
