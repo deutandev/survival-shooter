@@ -26,13 +26,13 @@ offset_bottom = 1128.0
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.883
+anchor_top = 0.832
 anchor_right = 0.5
-anchor_bottom = 0.883
-offset_left = -196.5
-offset_top = -68.536
-offset_right = 196.5
-offset_bottom = 67.464
+anchor_bottom = 0.832
+offset_left = -194.0
+offset_top = -67.744
+offset_right = 199.0
+offset_bottom = 68.256
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("2_er8g8")
@@ -64,10 +64,10 @@ anchor_left = 0.492
 anchor_top = 0.5
 anchor_right = 0.492
 anchor_bottom = 0.5
-offset_left = -958.808
-offset_top = -435.0
-offset_right = 959.192
-offset_bottom = 355.0
+offset_left = -956.808
+offset_top = -489.0
+offset_right = 961.192
+offset_bottom = 301.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.838897, 0.838897, 0.838897, 1)
@@ -75,19 +75,19 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("4_5yrs2")
 theme_override_font_sizes/font_size = 48
-text = "Game Designer
+text = "GAME DESIGNER
 M. Jahfal Firnas
 Irohenrii
 
-Game Programmer
+GAME PROGRAMMER
 Andika Wirapala Fathin Azfar 
 Virly Karaniyametta Arista
 
- 2D Artist
+ 2D ARTIST
 Raynaldi Rizky Aditya
 Irohenrii
 
-Music: \"Critical Tension\" by Singular Waves"
+MUSIC: \"Critical Tension\" by Singular Waves"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="CreditInfoPanel/CloseButton" to="." method="_on_close_button_pressed"]
