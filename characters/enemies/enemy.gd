@@ -75,8 +75,18 @@ func take_damage(base_damage: float):
 	var reduced_damage = max(base_damage - defense, MIN_DAMAGE_TAKEN)
 	current_health -= reduced_damage
 	_update_health_display()
+	#$AnimationPlayer.play("hurt")
+	flash_hurt()
 	if current_health <= 0:
 		die()
+
+
+func flash_hurt():
+	var sprite = $MobSprite
+	var tween = create_tween()
+	tween.tween_property(sprite, "modulate", Color(1, 0.3, 0.3), 0.1)
+	tween.tween_property(sprite, "modulate", Color(1, 1, 1), 0.1)
+
 
 func die():
 	if is_dead:

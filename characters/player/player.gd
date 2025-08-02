@@ -58,9 +58,9 @@ func get_input():
 		player_animation.play("run")
 	else:
 		player_animation.play("idle")
+	
 
-
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	get_input()
 	move_and_slide()
 	if Input.is_action_just_pressed("interact"):

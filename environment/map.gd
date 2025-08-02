@@ -4,6 +4,7 @@ extends Node2D
 @onready var regular_pool = $RegularPool
 @onready var tank_pool = $TankPool
 @onready var vanguard_pool = $VanguardPool
+@onready var school_pool = $SchoolPool
 
 # Mob spawn weights (higher = more common)
 @export var mob_weights: Dictionary = {
