@@ -8,8 +8,8 @@ extends Node2D
 # Mob spawn weights (higher = more common)
 @export var mob_weights: Dictionary = {
 	"regular": 70,    # 70% chance
-	"tank": 20,       # 20% chance  
-	"vanguard": 10    # 10% chance
+	"school": 10,       # 20% chance  
+	"vanguard": 20    # 10% chance
 }
 
 func spawn_mob():

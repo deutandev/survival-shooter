@@ -8,7 +8,7 @@ signal skill_cooldown_ended()
 @export var player_data : CharacterData
 @onready var player_animation := $PlayerAnimatedSprite
 
-@onready var player_dead_sfx := $PlayerSFX/PlayerDeadSfx
+#@onready var player_dead_sfx := $PlayerSFX/PlayerDeadSfx
 
 @export var speed: float = 600.0
 @onready var health: HealthManager = %HealthManager
@@ -35,7 +35,7 @@ func _ready() -> void:
 	if skill_scene:
 		skill = skill_scene.instantiate()
 		skill.global_position = global_position
-		skill.owner = self  # optional, in case skill needs to know
+		#skill.owner = self  # optional, in case skill needs to know
 		add_child(skill)
 
 
@@ -58,9 +58,9 @@ func get_input():
 		player_animation.play("run")
 	else:
 		player_animation.play("idle")
-	
 
-func _physics_process(delta: float) -> void:
+
+func _physics_process(_delta: float) -> void:
 	get_input()
 	move_and_slide()
 	if Input.is_action_just_pressed("interact"):

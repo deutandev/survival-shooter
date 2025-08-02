@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://xe8sj57tou7o"]
+
+[ext_resource type="PackedScene" uid="uid://b35xwxdbvdg2w" path="res://characters/enemies/enemy.tscn" id="1_rqi1u"]
+[ext_resource type="Texture2D" uid="uid://c0ll1gg5512p5" path="res://characters/enemies/mobs/school.png" id="2_vh24l"]
+
+[node name="SchoolMob" instance=ExtResource("1_rqi1u")]
+
+[node name="MobSprite" parent="." index="0"]
+texture = ExtResource("2_vh24l")
+hframes = 7
+vframes = 2

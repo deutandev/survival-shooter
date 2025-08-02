@@ -5,7 +5,7 @@ class_name SkillOrb
 @onready var sprite := $Sprite2D
 @onready var audio := $AudioStreamPlayer2D
 
-signal orb_collected
+#signal orb_collected
 
 func _ready():
 	sprite.texture = orb_data.sprite_texture

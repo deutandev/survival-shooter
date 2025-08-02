@@ -18,7 +18,7 @@ func _on_player_died():
 	#await get_tree().create_timer(1.0, true).timeout
 	final_coin_label.text = "Coin: " + str(GameStats.coin_count)
 	final_score_label.text = "Score: " + str(GameStats.score)
-	await Fade.fade_out(0.5, Color.DIM_GRAY, "GradientVertical", false, true)
+	Fade.fade_out(0.5, Color.DIM_GRAY, "GradientVertical", false, true)
 	gameover_panel.visible = true
 	Fade.fade_in(0.5)
 	call_deferred("_return_to_main_menu")
