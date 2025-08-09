@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cqqud85aecvvw" path="res://environment/ui_asset/UPDATE/Play Button Hover.png" id="13_vs6gq"]
 [ext_resource type="Texture2D" uid="uid://bxg7orwamd01f" path="res://environment/ui_asset/UPDATE/credit_button.png" id="14_wfdfq"]
 [ext_resource type="Texture2D" uid="uid://b4rxmxx71n23g" path="res://environment/ui_asset/UPDATE/credit_hover.png" id="15_pryvg"]
-[ext_resource type="Texture2D" uid="uid://b2tcjv0qmy4fo" path="res://environment/ui_asset/UPDATE/chapter_button.png" id="16_a8jwm"]
+[ext_resource type="Texture2D" uid="uid://d2imq32a3vkbm" path="res://environment/ui_asset/UPDATE/story_button.png" id="15_wduaa"]
 [ext_resource type="Texture2D" uid="uid://bgrt2v6heirf4" path="res://environment/ui_asset/UPDATE/story_hover.png" id="17_2ujjm"]
 
 [node name="MainMenu" type="Node2D"]
@@ -114,8 +114,8 @@ offset_left = 1322.0
 offset_top = 385.0
 offset_right = 1730.0
 offset_bottom = 798.0
-texture_normal = ExtResource("16_a8jwm")
-texture_pressed = ExtResource("16_a8jwm")
+texture_normal = ExtResource("15_wduaa")
+texture_pressed = ExtResource("15_wduaa")
 texture_hover = ExtResource("17_2ujjm")
 stretch_mode = 4
 
